@@ -1,7 +1,11 @@
-import Navigation from "@/components/Navigation"
+import MapIndonesia from "@/components/MapIndonesia";
+import Navigation from "@/components/Navigation";
 
 export default function Home() {
   return (
-    <Navigation/>
-  )
+    <>
+      <Navigation />
+      <MapIndonesia />
+    </>
+  );
 }
