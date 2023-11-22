@@ -14,8 +14,8 @@ const Footer = () => {
                 </div> 
             </div>
         </div>
-        <div className="w-full text-center h-[50px]">
             <div className="h-[1px] w-full bg-white"></div>
+        <div className="w-full text-center h-[50px] flex justify-center items-center">
             <p className="mt-[5px] text-[12px]">Made With Love By PawPaw!♡</p>
         </div>
     </div>

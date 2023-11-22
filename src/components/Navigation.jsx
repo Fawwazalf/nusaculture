@@ -1,26 +1,35 @@
-import Link from "next/link"
+import Link from "next/link";
 
 const Navigation = () => {
   return (
-    <nav className="flex justify-between mx-[117px] mt-7 text-[18px] items-center">
+    <nav className="flex justify-between mx-[117px] pt-7 text-[18px] items-center text-white sticky">
       <p className="text-4xl">Nusa Culture</p>
       <div className="flex">
-        <ul>
+        <ul className="flex justify-center items-center gap-[48px]">
           <li>
-              <Link href="/" className="mx-6">Home</Link>
-              <Link href="/" className="mx-6">Explore</Link>
-              <Link href="/" className="mx-6">Favorite</Link>
-              <Link href="/" className="mx-6">Quiz</Link>
+            <Link href="/">Home</Link>
+          </li>
+          <li>
+            <Link href="/">Explore</Link>
+          </li>
+          <li>
+            <Link href="/">Quiz</Link>
+          </li>
+          <li>
+            <Link href="/">Favorite</Link>
           </li>
         </ul>
-          <div className="flex ml-6">
-            <p className="mr-2">ID</p>
-            <div>|</div>
-            <p className="ml-2">EN</p>
-          </div>
+        <div className="flex ml-6 bg-[#C3C3C3]/[0.15] py-[7px] px-[22px] rounded-[26px] flex justify-center items-center mr-[20px]">
+          <p className="mr-2 text-[#565555]">ID</p>
+          <div>|</div>
+          <p className="ml-2">EN</p>
+        </div>
+        <div className=" bg-[#C3C3C3]/[0.15] w-[45px] h-[45px] rounded-[26px] flex justify-center items-center">
+          <img src="iconProfile.svg" alt="" className="w-[25px] h-[25px]" />
+        </div>
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default Navigation
+export default Navigation;
