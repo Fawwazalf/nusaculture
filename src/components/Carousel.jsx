@@ -1,17 +1,18 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { motion, spring, useMotionValue, useTransform } from "framer-motion";
-import { useMouse } from "@uidotdev/usehooks";
+import { useState } from "react";
+import { motion, useMotionValue, useTransform } from "framer-motion";
 
 const Carousel = () => {
-  const [positionIndexes, setPositionIndexes] = useState([0, 1, 2, 3, 4]);
+  const [positionIndexes, setPositionIndexes] = useState([2, 1, 0, 4, 3]);
 
   const handleNext = () => {
     setPositionIndexes((prevIndexes) => {
       const updatedIndexes = prevIndexes.map(
         (prevIndex) => (prevIndex + 1) % 5
       );
+
+      console.log(positionIndexes);
       return updatedIndexes;
     });
   };
@@ -27,21 +28,22 @@ const Carousel = () => {
   };
 
   const images = [
-    "https://source.unsplash.com/random/1",
-    "https://source.unsplash.com/random/2",
-    "https://source.unsplash.com/random/3",
-    "https://source.unsplash.com/random/4",
-    "https://source.unsplash.com/random/5",
+    "./1.jpg",
+    "./home.jpg",
+    "./IconArrow.svg",
+    "./map.svg",
+    "./IconSearch.svg",
   ];
+  const bgImage = `url(${images[positionIndexes[2]]})`;
 
-  const positions = ["center", "left1", "left", "right", "right1"];
+  const positions = ["left", "left1", "center", "right1", "right"];
 
   const imageVariants = {
-    center: {
+    left: {
       opacity: 1,
-      scale: 1,
-      x: 0,
-      zIndex: 5,
+      scale: 0.8,
+      marginRight: "73%",
+      zIndex: 2,
     },
     left1: {
       opacity: 1,
@@ -49,23 +51,23 @@ const Carousel = () => {
       marginRight: "38%",
       zIndex: 3,
     },
-    left: {
+    center: {
       opacity: 1,
-      scale: 0.8,
-      marginRight: "73%",
-      zIndex: 3,
-    },
-    right: {
-      opacity: 1,
-      scale: 0.8,
-      marginLeft: "73%",
-      zIndex: 1,
+      scale: 1,
+      x: 0,
+      zIndex: 5,
     },
     right1: {
       opacity: 1,
       scale: 0.9,
       marginLeft: "38%",
       zIndex: 4,
+    },
+    right: {
+      opacity: 1,
+      scale: 0.8,
+      marginLeft: "73%",
+      zIndex: 1,
     },
   };
   const useImageMotionValues = (
@@ -93,11 +95,12 @@ const Carousel = () => {
     x.set(0);
     y.set(200);
   };
+
   return (
     <div
       className=" h-screen relative"
       style={{
-        backgroundImage: "url(./home.jpg)",
+        backgroundImage: bgImage,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
       }}
@@ -118,7 +121,7 @@ const Carousel = () => {
             <path
               d="M5 12L16.25 22.8L18 21L8.75 12L18 3.00001L16.25 1.20001L5 12Z"
               fill="white"
-              fill-opacity="0.72"
+              fillOpacity="0.72"
             />
           </svg>
         </div>
@@ -222,7 +225,7 @@ const Carousel = () => {
             <path
               d="M18.4 11L8.04999 20.9L6.43999 19.25L14.95 11L6.43999 2.75001L8.04999 1.10001L18.4 11Z"
               fill="white"
-              fill-opacity="1"
+              fillOpacity="1"
             />
           </svg>
         </div>
