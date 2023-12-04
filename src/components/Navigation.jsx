@@ -1,9 +1,11 @@
 import Link from "next/link";
+import { Spirax } from "next/font/google";
 
+const spirax = Spirax({ subsets: ["latin"], weight: "400" });
 const Navigation = () => {
   return (
     <nav className="flex justify-between mx-[117px] pt-7 text-[18px] items-center text-white sticky z-50">
-      <p className="text-4xl">Nusa Culture</p>
+      <p className={`text-4xl  ${spirax.className}`}>Nusa Culture</p>
       <div className="flex">
         <ul className="flex justify-center items-center gap-[48px]">
           <li>
