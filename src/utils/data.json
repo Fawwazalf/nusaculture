@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "title": "WAYANG KULIT",
+        "prov": "Jawa Timur",
+        "desc": "Wayang kulit adalah bentuk tradisional dari kesenian wayang yang aslinya ditemukan dalam budaya Jawa dan Bali di Indonesia. Narasi wayang kulit seringkali berkaitan dengan tema utama kebaikan melawan kejahatan.",
+        "img": "wayang.svg"
+    },
+    {
+        "id": 2,
+        "title": "B WAYANG KULIT",
+        "prov": "Jawa Barat",
+        "desc": "Wayang kulit adalah bentuk tradisional dari kesenian wayang yang aslinya ditemukan dalam budaya Jawa dan Bali di Indonesia. Narasi wayang kulit seringkali berkaitan dengan tema utama kebaikan melawan kejahatan.",
+        "img": "wayang.svg"
+    },
+    {
+        "id": 3,
+        "title": "C WAYANG KULIT",
+        "prov": "Jawa Tengah",
+        "desc": "Wayang kulit adalah bentuk tradisional dari kesenian wayang yang aslinya ditemukan dalam budaya Jawa dan Bali di Indonesia. Narasi wayang kulit seringkali berkaitan dengan tema utama kebaikan melawan kejahatan.",
+        "img": "wayang.svg"
+    },
+    {
+        "id": 4,
+        "title": "D WAYANG KULIT",
+        "prov": "Sumatra",
+        "desc": "Wayang kulit adalah bentuk tradisional dari kesenian wayang yang aslinya ditemukan dalam budaya Jawa dan Bali di Indonesia. Narasi wayang kulit seringkali berkaitan dengan tema utama kebaikan melawan kejahatan.",
+        "img": "wayang.svg"
+    }
+]
