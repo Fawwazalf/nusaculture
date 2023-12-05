@@ -11,7 +11,7 @@ export default function Home() {
       <Navigation />
       <Carousel />
       <MapIndonesia />
-      <FunFact />
+      <Funfact />
       <Footer />
     </div>
   );

@@ -13,10 +13,10 @@ const page = () => {
   useEffect(() => {
     const filteredResults = data.filter(
       (item) =>
-        item.title.toLowerCase().includes(searchValue.toLowerCase())&&
-        (selectedOption === '' || item.prov === selectedOption)
-    )
-    
+        item.title.toLowerCase().includes(searchValue.toLowerCase()) &&
+        (selectedOption === "" || item.prov === selectedOption)
+    );
+
     setFilteredData(filteredResults);
     console.log(filteredData);
   }, [searchValue, selectedOption]);

@@ -1,6 +1,17 @@
+import { motion } from "framer-motion";
+
 const CardCulture = ({ img, title, prov, desc }) => {
   return (
-    <div className="h-[470px] w-[270px] rounded-[20px] bg-[#DCD7C9]">
+    <div
+      className="h-[470px] w-[270px] rounded-[20px] bg-[#DCD7C9]"
+      initial={{ scale: 0 }}
+      animate={{ rotate: 180, scale: 1 }}
+      transition={{
+        type: "spring",
+        stiffness: 260,
+        damping: 20,
+      }}
+    >
       <div className="h-[250px]">
         <img src={img} alt="" />
       </div>

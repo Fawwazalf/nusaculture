@@ -326,7 +326,7 @@ const MapIndonesia = () => {
           <circle cx="318.7" cy="284.2" id="2" variants={draw}></circle>
         </motion.svg>
       </div>
-    </>
+    </div>
   );
 };
 
