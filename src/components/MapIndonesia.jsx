@@ -23,7 +23,7 @@ const draw = {
 const MapIndonesia = () => {
   return (
     <>
-      <div className="w-[85%] h-[50%] overflow-scroll">
+      <div className="">
         <motion.svg
           fill="#7c7c7c"
           strokeWidth="2"

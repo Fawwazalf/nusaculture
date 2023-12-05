@@ -22,9 +22,9 @@ const page = () => {
   }, [searchValue, selectedOption]);
 
   return (
-    <div className="bg-[#181818] w-screen h-full">
+    <div className="bg-[#181818] w-full h-full">
       <Navigation />
-      <div className="flex mx-[117px] mt-[55px]">
+      <div className="flex mx-[117px] pt-[120px]">
         <div className="flex w-[70%] justify-between py-2 px-5 rounded-[50px] bg-white mr-[25px]">
           <input
             type="text"
@@ -52,7 +52,7 @@ const page = () => {
           ))}
         </select>
       </div>
-      <div className="mx-[117px] flex gap-10 my-[55px] flex-wrap">
+      <div className="mx-[117px] flex gap-9 my-[55px] flex-wrap justify-center xl:justify-start">
         {filteredData.map((item) => (
           <div key={item.id}>
             <CardCulture
