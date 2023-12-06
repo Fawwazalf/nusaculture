@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, useMotionValue, useTransform } from "framer-motion";
+import Image from "next/image";
 
 const Carousel = () => {
   const [positionIndexes, setPositionIndexes] = useState([2, 1, 0, 4, 3]);
@@ -28,11 +29,11 @@ const Carousel = () => {
   };
 
   const images = [
-    "./1.jpg",
-    "./home.jpg",
-    "./IconArrow.svg",
-    "./map.svg",
-    "./IconSearch.svg",
+    "/1.jpg",
+    "/home.jpg",
+    "/IconArrow.svg",
+    "/map.svg",
+    "/IconSearch.svg",
   ];
   const bgImage = `url(${images[positionIndexes[2]]})`;
 
@@ -193,10 +194,10 @@ const Carousel = () => {
                 onMouseLeave={() => handleMouseLeave({ x, y })}
                 transition={{ duration: 1 }}
               >
-                <motion.img
-                  key={index}
+                <Image
+                  width={300}
+                  height={470}
                   src={image}
-                  alt={image}
                   style={{
                     transition: "all 0.5s",
                     rotateX,

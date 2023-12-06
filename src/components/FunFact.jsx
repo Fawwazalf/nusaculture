@@ -1,6 +1,11 @@
 import { Readex_Pro } from "next/font/google";
+import Image from "next/image";
 
-const readex_Pro = Readex_Pro({ subsets: ["latin"], weight: "600" });
+const readex_Pro = Readex_Pro({
+  subsets: ["latin"],
+  weight: "600",
+  display: "swap",
+});
 
 const FunFact = () => {
   return (

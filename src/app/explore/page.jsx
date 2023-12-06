@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import Navigation from "@/components/Navigation";
 import { useState, useEffect } from "react";
 import data from "@/utils/data.json";
+import Image from "next/image";
 
 const page = () => {
   const [filteredData, setFilteredData] = useState(data);
@@ -22,9 +23,9 @@ const page = () => {
   }, [searchValue, selectedOption]);
 
   return (
-    <div className="bg-[#181818] w-screen h-full">
+    <div className="bg-[#181818] w-full h-full">
       <Navigation />
-      <div className="flex mx-[117px] mt-[55px]">
+      <div className="flex mx-[117px] pt-[120px]">
         <div className="flex w-[70%] justify-between py-2 px-5 rounded-[50px] bg-white mr-[25px]">
           <input
             type="text"
@@ -34,7 +35,7 @@ const page = () => {
             className="focus:outline-none w-[700px] mx-auto text-[18px] text-[#000000] font-medium"
           />
           <button>
-            <img src="IconSearch.svg" alt="" />
+            <Image src="IconSearch.svg" alt="" width={23.32} height={23.32} />
           </button>
         </div>
         <select
@@ -52,7 +53,7 @@ const page = () => {
           ))}
         </select>
       </div>
-      <div className="mx-[117px] flex gap-10 my-[55px] flex-wrap">
+      <div className="mx-[117px] flex gap-9 my-[55px] flex-wrap justify-center xl:justify-start">
         {filteredData.map((item) => (
           <div key={item.id}>
             <CardCulture

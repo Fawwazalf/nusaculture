@@ -2,7 +2,11 @@
 import { motion } from "framer-motion";
 import { Readex_Pro } from "next/font/google";
 
-const readex_Pro = Readex_Pro({ subsets: ["latin"], weight: ["300", "600"] });
+const readex_Pro = Readex_Pro({
+  subsets: ["latin"],
+  weight: ["300", "600"],
+  display: "swap",
+});
 
 const draw = {
   hidden: {
@@ -25,17 +29,8 @@ const draw = {
 
 const MapIndonesia = () => {
   return (
-    <div className="flex flex-col items-center h-screen justify-center gap-[40px]">
-      <div className={readex_Pro.className}>
-        <p className="text-[50px] text-[#D5CDB6] stroke-red-700 font-semibold">
-          Let’s Explore With Us!
-        </p>
-        <p className="text=[16px] text-[#FFFFFF]/[0.37]">
-          aku juga gak tau kata katanya pls pls pls kentut ya aku juga gak tau
-          gei kentut ya
-        </p>
-      </div>
-      <div className="w-[85%] h-[50%] overflow-scroll">
+    <>
+      <div className="">
         <motion.svg
           fill="#7c7c7c"
           strokeWidth="2"
@@ -326,7 +321,7 @@ const MapIndonesia = () => {
           <circle cx="318.7" cy="284.2" id="2" variants={draw}></circle>
         </motion.svg>
       </div>
-    </div>
+    </>
   );
 };
 

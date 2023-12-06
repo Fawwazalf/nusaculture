@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import Image from "next/image";
 
 const CardCulture = ({ img, title, prov, desc }) => {
   return (
@@ -13,7 +13,13 @@ const CardCulture = ({ img, title, prov, desc }) => {
       }}
     >
       <div className="h-[250px]">
-        <img src={img} alt="" />
+        <Image
+          src={img}
+          alt=""
+          width={272}
+          height={250}
+          style={{ borderTopLeftRadius: "20px", borderTopRightRadius: "20px" }}
+        />
       </div>
       <div className="h-[220px] px-5 py-5 flex flex-col justify-between">
         <div>
@@ -38,7 +44,13 @@ const CardCulture = ({ img, title, prov, desc }) => {
         <div className="flex justify-end mt-[15px]">
           <button className="w-[115px] h-[30px] text-[12px] flex items-center justify-center bg-[#AEAEAE]/[0.3] rounded-[50px] py-[9px] border-solid border-2 border-black">
             Selengkapnya
-            <img src="IconArrow.svg" alt="" className="ml-[2px]" />
+            <Image
+              src="IconArrow.svg"
+              alt=""
+              className="ml-[2px]"
+              width={11.4}
+              height={10}
+            />
           </button>
         </div>
       </div>
