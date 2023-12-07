@@ -1,30 +1,241 @@
 [
+    
     {
         "id": 1,
-        "title": "WAYANG KULIT",
-        "prov": "Jawa Timur",
-        "desc": "Wayang kulit adalah bentuk tradisional dari kesenian wayang yang aslinya ditemukan dalam budaya Jawa dan Bali di Indonesia. Narasi wayang kulit seringkali berkaitan dengan tema utama kebaikan melawan kejahatan.",
-        "img": "wayang.svg"
+        "title": "",
+        "prov": "Aceh",
+        "desc": "hhhhh",
+        "img": ""
     },
     {
         "id": 2,
-        "title": "B WAYANG KULIT",
-        "prov": "Jawa Barat",
-        "desc": "Wayang kulit adalah bentuk tradisional dari kesenian wayang yang aslinya ditemukan dalam budaya Jawa dan Bali di Indonesia. Narasi wayang kulit seringkali berkaitan dengan tema utama kebaikan melawan kejahatan.",
-        "img": "wayang.svg"
+        "title": "",
+        "prov": "Bali",
+        "desc": "",
+        "img": "Debus.png"
     },
     {
         "id": 3,
-        "title": "C WAYANG KULIT",
-        "prov": "Jawa Tengah",
-        "desc": "Wayang kulit adalah bentuk tradisional dari kesenian wayang yang aslinya ditemukan dalam budaya Jawa dan Bali di Indonesia. Narasi wayang kulit seringkali berkaitan dengan tema utama kebaikan melawan kejahatan.",
-        "img": "wayang.svg"
+        "title": "",
+        "prov": "Bangka Belitung",
+        "desc": "",
+        "img": "Campak.png"
     },
     {
         "id": 4,
-        "title": "D WAYANG KULIT",
-        "prov": "Sumatra",
-        "desc": "Wayang kulit adalah bentuk tradisional dari kesenian wayang yang aslinya ditemukan dalam budaya Jawa dan Bali di Indonesia. Narasi wayang kulit seringkali berkaitan dengan tema utama kebaikan melawan kejahatan.",
-        "img": "wayang.svg"
+        "title": "",
+        "prov": "Banten",
+        "desc": "",
+        "img": ""
+    },
+    {
+        "id": 5,
+        "title": "",
+        "prov": "Bengkulu",
+        "desc": "",
+        "img": "Andun.png"
+    },
+    {
+        "id": 6,
+        "title": "",
+        "prov": "Daerah Istimewa Yogyakarta",
+        "desc": "",
+        "img": "Jathilan.png"
+    },
+    {
+        "id": 7,
+        "title": "",
+        "prov": "DKI Jakarta",
+        "desc": "",
+        "img": "OndelOndel.png"
+    },
+    {
+        "id": 8,
+        "title": "",
+        "prov": "Gorontalo",
+        "desc": "",
+        "img": ""
+    },
+    {
+        "id": 9,
+        "title": "",
+        "prov": "Jambi",
+        "desc": "",
+        "img": ""
+    },
+    {
+        "id": 10,
+        "title": "",
+        "prov": "Jawa Barat",
+        "desc": "",
+        "img": "Jaipong,png"
+    },
+    {
+        "id": 11,
+        "title": "",
+        "prov": "Jawa Timur",
+        "desc": "",
+        "img": "ReogPonorogo.png"
+    },
+    {
+        "id": 12,
+        "title": "",
+        "prov": "Jawa Tengah",
+        "desc": "",
+        "img": "Karawitan.png"
+    },
+    {
+        "id": 13,
+        "title": "",
+        "prov": "Kalimantan Barat",
+        "desc": "",
+        "img": "Monong.png"
+    },
+    {
+        "id": 14,
+        "title": "",
+        "prov": "Kalimantan Selatan",
+        "desc": "",
+        "img": "Babangsai.png"
+    },
+    {
+        "id": 15,
+        "title": "",
+        "prov": "Kalimantan Tengah",
+        "desc": "",
+        "img": "Kayau.png"
+    },
+    {
+        "id": 16,
+        "title": "",
+        "prov": "Kalimantan Timur",
+        "desc": "",
+        "img": "Hudoq.png"
+    },
+    {
+        "id": 17,
+        "title": "",
+        "prov": "Kalimantan Utara",
+        "desc": "",
+        "img": "Jugit.png"
+    },
+    {
+        "id": 18,
+        "title": "",
+        "prov": "Kepulauan Riau",
+        "desc": "",
+        "img": "Makyong.png"
+    },
+    {
+        "id": 19,
+        "title": "",
+        "prov": "Lampung",
+        "desc": "",
+        "img": "WayangSekelik.png"
+    },
+    {
+        "id": 20,
+        "title": "",
+        "prov": "Maluku",
+        "desc": "",
+        "img": ""
+    },
+    {
+        "id": 21,
+        "title": "",
+        "prov": "Maluku Utara",
+        "desc": "",
+        "img": ""
+    },
+    {
+        "id": 22,
+        "title": "",
+        "prov": "Nusa Tenggara Barat",
+        "desc": "",
+        "img": ""
+    },
+    {
+        "id": 23,
+        "title": "",
+        "prov": "Nusa Tenggara Timur",
+        "desc": "",
+        "img": ""
+    },
+    {
+        "id": 24,
+        "title": "",
+        "prov": "Papua",
+        "desc": "",
+        "img": ""
+    },
+    {
+        "id": 25,
+        "title": "",
+        "prov": "Papua Barat",
+        "desc": "",
+        "img": ""
+    },
+    {
+        "id": 26,
+        "title": "",
+        "prov": "Riau",
+        "desc": "",
+        "img": "Zapin.png"
+    },
+    {
+        "id": 27,
+        "title": "",
+        "prov": "Sulawesi Barat",
+        "desc": "",
+        "img": ""
+    },
+    {
+        "id": 28,
+        "title": "",
+        "prov": "Sulawesi Selatan",
+        "desc": "",
+        "img": ""
+    },
+    {
+        "id": 29,
+        "title": "",
+        "prov": "Sulawesi Tengah",
+        "desc": "",
+        "img": ""
+    },
+    {
+        "id": 30,
+        "title": "",
+        "prov": "Sulawesi Tenggara",
+        "desc": "",
+        "img": ""
+    },
+    {
+        "id": 31,
+        "title": "",
+        "prov": "Sulawesi Utara",
+        "desc": "",
+        "img": ""
+    },
+    {
+        "id": 32,
+        "title": "",
+        "prov": "Sumatera Barat",
+        "desc": "",
+        "img": "Piring.png"
+    },
+    {
+        "id": 33,
+        "title": "",
+        "prov": "Sumatera Selatan",
+        "desc": "",
+        "img": "GendingSriwijaya.png"
+    },
+    {
+        "id": 34,
+        "title": "",
+        "prov": "Sumatera Utara",
+        "desc": "",
+        "img": "TorTor.png"
     }
 ]
