@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import Navigation from "@/components/Navigation";
 
 const questions = [
   {
