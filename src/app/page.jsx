@@ -14,10 +14,10 @@ export default function Home() {
         <p className="mb-[10px] text-[50px] font-semibold text-[#D5CDB6]">
           Let’s Explore With Us!
         </p>
-        <p className="mb-[80px] text-white/64">Let’s Explore With Us!</p>
+        <p className="mb-[80px] text-[#AEAEAE]">Let’s Explore With Us!</p>
         <MapIndonesia />
       </div>
-      <div className="w-full h-screen flex flex-col justify-center items-center">
+      <div className="w-full h-screen flex flex-col justify-center items-center  bg-[url('/bgFunFact.png')]">
         <p className="mb-[45px] text-[40px] font-semibold text-[#D5CDB6]">
           Fakta Menarik
         </p>

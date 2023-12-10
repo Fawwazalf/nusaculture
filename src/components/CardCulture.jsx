@@ -17,7 +17,16 @@ const CardCulture = ({ img, title, prov, desc }) => {
   };
 
   return (
-    <div className="relative overflow-clip">
+    <motion.div
+      className="relative overflow-clip"
+      initial={{ scale: 0, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{
+        type: "spring",
+        stiffness: 260,
+        damping: 20,
+      }}
+    >
       <motion.svg
         className="absolute my-auto mx-auto top-0 left-0 right-0 bottom-0  "
         xmlns="http://www.w3.org/2000/svg"
@@ -34,16 +43,7 @@ const CardCulture = ({ img, title, prov, desc }) => {
         />
       </motion.svg>
 
-      <div
-        className="h-[470px] w-[270px] rounded-[20px] bg-[#DCD7C9]"
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{
-          type: "spring",
-          stiffness: 260,
-          damping: 20,
-        }}
-      >
+      <motion.div className="h-[470px] w-[270px] rounded-[20px] bg-[#DCD7C9]">
         <div className="h-[250px]">
           <Image
             src={img}
@@ -92,8 +92,8 @@ const CardCulture = ({ img, title, prov, desc }) => {
             </button>
           </div>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 

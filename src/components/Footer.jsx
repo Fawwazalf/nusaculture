@@ -4,7 +4,7 @@ import Image from "next/image";
 const spirax = Spirax({ subsets: ["latin"], weight: "400" });
 const Footer = () => {
   return (
-    <div className="bg-[#2C3639] flex flex-col text-white justify-between h-[200px]">
+    <div className="bg-[#20292C] flex flex-col justify-between h-[200px] text-[#DCD7C9]">
       <div className="flex items-center w-full h-[150px] justify-between px-[150px]">
         <p className={`text-4xl text-center ${spirax.className}`}>
           Nusa Culture

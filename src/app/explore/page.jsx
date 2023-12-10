@@ -5,11 +5,17 @@ import CardCulture from "@/components/CardCulture";
 import Footer from "@/components/Footer";
 import Navigation from "@/components/Navigation";
 import data from "@/utils/data.json";
+import { useSearchParams } from "next/navigation";
 
 const Page = () => {
+  const searchParams = useSearchParams();
+
+  const provParam = searchParams.get("prov") ?? "";
+  const initialProv = decodeURIComponent(provParam);
+  console.log(initialProv);
   const [filteredData, setFilteredData] = useState(data);
   const [searchValue, setSearchValue] = useState("");
-  const [selectedOption, setSelectedOption] = useState("");
+  const [selectedOption, setSelectedOption] = useState(initialProv);
 
   useEffect(() => {
     const filteredResults = data.filter(
