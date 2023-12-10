@@ -28,7 +28,7 @@ const Navigation = () => {
           <p className="ml-2 cursor-pointer">EN</p>
         </div>
         <div className=" bg-[#C3C3C3]/[0.15] w-[45px] h-[45px] rounded-[26px] flex justify-center items-center cursor-pointer">
-          <img src="iconProfile.svg" alt="" className="w-[25px] h-[25px]" />
+          <Image src="/IconProfile.svg" alt="" width={25} height={25} />
         </div>
       </div>
     </nav>

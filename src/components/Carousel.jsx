@@ -1,6 +1,5 @@
 "use client";
-
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import Image from "next/image";
 
@@ -8,108 +7,91 @@ const Carousel = () => {
   const [positionIndexes, setPositionIndexes] = useState([2, 1, 0, 4, 3]);
 
   const handleNext = () => {
-    setPositionIndexes((prevIndexes) => {
-      const updatedIndexes = prevIndexes.map(
-        (prevIndex) => (prevIndex + 1) % 5
-      );
-
-      console.log(positionIndexes);
-      return updatedIndexes;
-    });
+    setPositionIndexes((prevIndexes) =>
+      prevIndexes.map((prevIndex) => (prevIndex + 1) % 5)
+    );
   };
 
   const handleBack = () => {
-    setPositionIndexes((prevIndexes) => {
-      const updatedIndexes = prevIndexes.map(
-        (prevIndex) => (prevIndex + 4) % 5
-      );
-      console.log(positionIndexes);
-      return updatedIndexes;
-    });
+    setPositionIndexes((prevIndexes) =>
+      prevIndexes.map((prevIndex) => (prevIndex + 4) % 5)
+    );
   };
 
-  const images = [
-    "/1.jpg",
-    "/home.jpg",
-    "/IconArrow.svg",
-    "/map.svg",
-    "/IconSearch.svg",
-  ];
-  const bgImage = `url(${images[positionIndexes[2]]})`;
-
+  const images = ["/1.jpg", "/home.jpg", "/1.jpg", "/home.jpg", "/1.jpg"];
   const positions = ["left", "left1", "center", "right1", "right"];
 
   const imageVariants = {
-    left: {
-      opacity: 1,
-      scale: 0.8,
-      marginRight: "73%",
-      zIndex: 2,
-    },
-    left1: {
-      opacity: 1,
-      scale: 0.9,
-      marginRight: "38%",
-      zIndex: 3,
-    },
-    center: {
-      opacity: 1,
-      scale: 1,
-      x: 0,
-      zIndex: 5,
-    },
-    right1: {
-      opacity: 1,
-      scale: 0.9,
-      marginLeft: "38%",
-      zIndex: 4,
-    },
-    right: {
-      opacity: 1,
-      scale: 0.8,
-      marginLeft: "73%",
-      zIndex: 1,
-    },
+    left: { opacity: 1, scale: 0.8, marginRight: "73%", zIndex: 2 },
+    left1: { opacity: 1, scale: 0.9, marginRight: "38%", zIndex: 3 },
+    center: { opacity: 1, scale: 1, x: 0, zIndex: 5 },
+    right1: { opacity: 1, scale: 0.9, marginLeft: "38%", zIndex: 4 },
+    right: { opacity: 1, scale: 0.8, marginLeft: "73%", zIndex: 1 },
   };
-  const useImageMotionValues = (
-    xValue,
-    yValue,
-    maxRotationX1,
-    maxRotationX2,
-    maxRotationY1,
-    maxRotationY2
-  ) => {
+
+  const rotateRefs = useRef([]);
+
+  const useImageMotionValues = (index, xValue, yValue, initialRotation) => {
     const x = useMotionValue(xValue);
     const y = useMotionValue(yValue);
-    const rotateX = useTransform(y, [0, 400], [maxRotationY1, maxRotationY2]);
-    const rotateY = useTransform(x, [0, 400], [maxRotationX1, maxRotationX2]);
 
-    return { x, y, rotateX, rotateY };
+    const rotateY = useTransform(x, [0, 400], [initialRotation, 30]);
+
+    rotateRefs.current[index] = { rotateY };
+
+    return { x, y, rotateY };
   };
 
-  const handleMouse = (event, { x, y }) => {
+  const handleMouse = (event, { x, y }, index) => {
     const rect = event.currentTarget.getBoundingClientRect();
-    x.set(event.clientX - rect.left);
-    y.set(event.clientY - rect.top);
+    const mouseX = event.clientX - rect.left - rect.width / 2;
+
+    const maxRotationY = 30;
+
+    const rotateY = (mouseX / rect.width) * maxRotationY;
+
+    rotateRefs.current[index].rotateY.set(rotateY);
   };
-  const handleMouseLeave = ({ x, y }) => {
-    x.set(0);
-    y.set(200);
+
+  const getInitialRotation = (position) => {
+    switch (position) {
+      case "left":
+        return 10;
+      case "right":
+        return -10;
+      case "left1":
+        return 10;
+      case "right1":
+        return -10;
+      case "center":
+      default:
+        return 0;
+    }
+  };
+  const handleMouseLeave = (event, index) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+    const initialRotation = getInitialRotation(
+      positions[positionIndexes[index]]
+    );
+
+    rotateRefs.current[index].rotateY.set(initialRotation);
   };
 
   return (
-    <div
-      className=" h-screen relative"
-      style={{
-        backgroundImage: bgImage,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-      }}
-    >
-      <div className="bg-[#1D1D1D]/[0.81]  w-full h-full"></div>
+    <div className="h-screen relative">
+      <Image
+        src={images[positionIndexes[2]]}
+        fill
+        sizes="100%"
+        priority
+        className="absolute z-0"
+        style={{ objectFit: "cover" }}
+        alt={`bgImage ${images[positionIndexes[2]]}`}
+      />
+      <div className="bg-[#1D1D1D]/[0.81] w-full h-full absolute z-[1] backdrop-blur-sm"></div>
       <div className="flex items-center justify-between absolute bottom-0 top-0 w-full h-full">
         <div
-          className="hover:bg-white/[0.3] ml-[3%] w-[50px] h-[50px] flex justify-center  items-center transition rounded-full hover:cursor-pointer z-[6]"
+          className="hover:bg-white/[0.3] ml-[3%] w-[50px] h-[50px] flex justify-center items-center transition rounded-full hover:cursor-pointer z-[6]"
           onClick={handleBack}
         >
           <svg
@@ -129,91 +111,38 @@ const Carousel = () => {
 
         <div className="flex justify-around items-center">
           {images.map((image, index) => {
-            let xValue;
-            let yValue;
-            let maxRotationX1;
-            let maxRotationX2;
-            let maxRotationY1;
-            let maxRotationY2;
-
-            if (positions[positionIndexes[index]] === "right") {
-              xValue = 0;
-              yValue = 200;
-              maxRotationX1 = -10;
-              maxRotationX2 = 10;
-              maxRotationY1 = 0;
-              maxRotationY2 = 0;
-            } else if (positions[positionIndexes[index]] === "left") {
-              xValue = 0;
-              yValue = 200;
-              maxRotationX1 = 10;
-              maxRotationX2 = -10;
-              maxRotationY1 = 0;
-              maxRotationY2 = 0;
-            } else if (positions[positionIndexes[index]] === "right1") {
-              xValue = 0;
-              yValue = 200;
-              maxRotationX1 = -10;
-              maxRotationX2 = 10;
-              maxRotationY1 = 0;
-              maxRotationY2 = 0;
-            } else if (positions[positionIndexes[index]] === "left1") {
-              xValue = 0;
-              yValue = 200;
-              maxRotationX1 = 10;
-              maxRotationX2 = -10;
-              maxRotationY1 = 0;
-              maxRotationY2 = 0;
-            } else if (positions[positionIndexes[index]] === "center") {
-              xValue = 0;
-              yValue = 200;
-              maxRotationX1 = 0;
-              maxRotationX2 = -10;
-              maxRotationY1 = 0;
-              maxRotationY2 = 0;
-            }
-
-            const { x, y, rotateX, rotateY } = useImageMotionValues(
-              xValue,
-              yValue,
-              maxRotationX1,
-              maxRotationX2,
-              maxRotationY1,
-              maxRotationY2
+            const initialRotation = getInitialRotation(
+              positions[positionIndexes[index]]
             );
+            const { x, y, rotateY } = useImageMotionValues(
+              index,
+              0,
+              200,
+              initialRotation
+            );
+
             return (
               <motion.div
-                initial={{ opacity: 0 }}
+                key={index}
                 animate={positions[positionIndexes[index]]}
                 variants={imageVariants}
-                style={{
-                  position: "absolute",
-                  perspective: 400,
-                }}
-                onMouseMove={(event) => handleMouse(event, { x, y })}
-                onMouseLeave={() => handleMouseLeave({ x, y })}
-                transition={{ duration: 1 }}
+                style={{ position: "absolute", perspective: 400 }}
+                onMouseMove={(event) => handleMouse(event, { x, y }, index)}
+                onMouseLeave={(event) => handleMouseLeave(event, index)}
               >
-                <Image
-                  width={300}
-                  height={470}
-                  src={image}
-                  style={{
-                    transition: "all 0.5s",
-                    rotateX,
-                    rotateY,
-
-                    width: "300px",
-                    height: "470px",
-                  }}
-                />
+                <motion.div
+                  className="relative w-[300px] aspect-[3/4.7]"
+                  style={{ rotateY }}
+                >
+                  <Image alt={image} fill src={image} sizes="300" priority />
+                </motion.div>
               </motion.div>
             );
           })}
         </div>
 
         <div
-          className="hover:bg-white/[0.3] mr-[3%] w-[50px] h-[50px] flex justify-center  items-center transition rounded-full hover:cursor-pointer z-[6]"
+          className="hover:bg-white/[0.3] mr-[3%] w-[50px] h-[50px] flex justify-center items-center transition rounded-full hover:cursor-pointer z-[6]"
           onClick={handleNext}
         >
           <svg

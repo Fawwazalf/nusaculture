@@ -14,7 +14,7 @@ export default function Home() {
         <p className="mb-[10px] text-[50px] font-semibold text-[#D5CDB6]">
           Let’s Explore With Us!
         </p>
-        <p className="mb-[80px] text-white/30">Let’s Explore With Us!</p>
+        <p className="mb-[80px] text-white/64">Let’s Explore With Us!</p>
         <MapIndonesia />
       </div>
       <div className="w-full h-screen flex flex-col justify-center items-center">

@@ -1,12 +1,12 @@
 "use client";
+import { useState, useEffect } from "react";
+import Image from "next/image";
 import CardCulture from "@/components/CardCulture";
 import Footer from "@/components/Footer";
 import Navigation from "@/components/Navigation";
-import { useState, useEffect } from "react";
 import data from "@/utils/data.json";
-import Image from "next/image";
 
-const page = () => {
+const Page = () => {
   const [filteredData, setFilteredData] = useState(data);
   const [searchValue, setSearchValue] = useState("");
   const [selectedOption, setSelectedOption] = useState("");
@@ -19,7 +19,6 @@ const page = () => {
     );
 
     setFilteredData(filteredResults);
-    console.log(filteredData);
   }, [searchValue, selectedOption]);
 
   return (
@@ -43,9 +42,10 @@ const page = () => {
           value={selectedOption}
           onChange={(e) => setSelectedOption(e.target.value)}
         >
-          <option disabled selected>
+          <option disabled value="">
             Pilih Provinsi
           </option>
+
           {data.map((item) => (
             <option key={item.id} value={item.prov} className="text-black">
               {item.prov}
@@ -70,4 +70,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

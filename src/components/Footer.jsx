@@ -11,11 +11,21 @@ const Footer = () => {
         </p>
         <div className="">
           <div className="flex mb-[17px]">
-            <Image src="IconEmail.svg" width={12.5} height={10} />
+            <Image
+              src="/IconEmail.svg"
+              width={12.5}
+              height={10}
+              alt="icon email"
+            />
             <p className="text-[12px] ml-[7px]">pawpawculture@gmail.com</p>
           </div>
           <div className="flex">
-            <Image src="IconDomain.svg" width={13.33} height={13.33} />
+            <Image
+              src="/IconDomain.svg"
+              width={13.33}
+              height={13.33}
+              alt="icon domain"
+            />
             <p className="text-[12px] ml-[7px]">www.nusaculture.com</p>
           </div>
         </div>

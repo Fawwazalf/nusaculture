@@ -12,14 +12,14 @@
         "title": "",
         "prov": "Bali",
         "desc": "",
-        "img": "Debus.png"
+        "img": "/Debus.png"
     },
     {
         "id": 3,
         "title": "",
         "prov": "Bangka Belitung",
         "desc": "",
-        "img": "Campak.png"
+        "img": "/Campak.png"
     },
     {
         "id": 4,
@@ -33,21 +33,21 @@
         "title": "",
         "prov": "Bengkulu",
         "desc": "",
-        "img": "Andun.png"
+        "img": "/Andun.png"
     },
     {
         "id": 6,
         "title": "",
         "prov": "Daerah Istimewa Yogyakarta",
         "desc": "",
-        "img": "Jathilan.png"
+        "img": "/Jathilan.png"
     },
     {
         "id": 7,
         "title": "",
         "prov": "DKI Jakarta",
         "desc": "",
-        "img": "OndelOndel.png"
+        "img": "/OndelOndel.png"
     },
     {
         "id": 8,
@@ -68,70 +68,70 @@
         "title": "",
         "prov": "Jawa Barat",
         "desc": "",
-        "img": "Jaipong,png"
+        "img": "/Jaipong.png"
     },
     {
         "id": 11,
         "title": "",
         "prov": "Jawa Timur",
         "desc": "",
-        "img": "ReogPonorogo.png"
+        "img": "/ReogPonorogo.png"
     },
     {
         "id": 12,
         "title": "",
         "prov": "Jawa Tengah",
         "desc": "",
-        "img": "Karawitan.png"
+        "img": "/Karawitan.png"
     },
     {
         "id": 13,
         "title": "",
         "prov": "Kalimantan Barat",
         "desc": "",
-        "img": "Monong.png"
+        "img": "/Monong.png"
     },
     {
         "id": 14,
         "title": "",
         "prov": "Kalimantan Selatan",
         "desc": "",
-        "img": "Babangsai.png"
+        "img": "/Babangsai.png"
     },
     {
         "id": 15,
         "title": "",
         "prov": "Kalimantan Tengah",
         "desc": "",
-        "img": "Kayau.png"
+        "img": "/Kayau.png"
     },
     {
         "id": 16,
         "title": "",
         "prov": "Kalimantan Timur",
         "desc": "",
-        "img": "Hudoq.png"
+        "img": "/Hudoq.png"
     },
     {
         "id": 17,
         "title": "",
         "prov": "Kalimantan Utara",
         "desc": "",
-        "img": "Jugit.png"
+        "img": "/Jugit.png"
     },
     {
         "id": 18,
         "title": "",
         "prov": "Kepulauan Riau",
         "desc": "",
-        "img": "Makyong.png"
+        "img": "/Makyong.png"
     },
     {
         "id": 19,
         "title": "",
         "prov": "Lampung",
         "desc": "",
-        "img": "WayangSekelik.png"
+        "img": "/WayangSekelik.png"
     },
     {
         "id": 20,
@@ -180,7 +180,7 @@
         "title": "",
         "prov": "Riau",
         "desc": "",
-        "img": "Zapin.png"
+        "img": "/Zapin.png"
     },
     {
         "id": 27,
@@ -222,20 +222,20 @@
         "title": "",
         "prov": "Sumatera Barat",
         "desc": "",
-        "img": "Piring.png"
+        "img": "/Piring.png"
     },
     {
         "id": 33,
         "title": "",
         "prov": "Sumatera Selatan",
         "desc": "",
-        "img": "GendingSriwijaya.png"
+        "img": "/GendingSriwijaya.png"
     },
     {
         "id": 34,
         "title": "",
         "prov": "Sumatera Utara",
         "desc": "",
-        "img": "TorTor.png"
+        "img": "/TorTor.png"
     }
 ]
