@@ -5,7 +5,7 @@
         "title": "TARI SAMAN",
         "prov": "Aceh",
         "desc": "hhhhh",
-        "img": "/Saman.jpg"
+        "img": "/Saman.webp"
     },
     {
         "id": 2,
@@ -19,14 +19,14 @@
         "title": "TARI CAMPAK",
         "prov": "Bangka Belitung",
         "desc": "",
-        "img": "/Campak.jpg"
+        "img": "/Campak.webp"
     },
     {
         "id": 4,
         "title": "DEBUS",
         "prov": "Banten",
         "desc": "",
-        "img": "/Debus.jpg"
+        "img": "/Debus.webp"
     },
     {
         "id": 5,
@@ -40,14 +40,14 @@
         "title": "JATHILAN",
         "prov": "Daerah Istimewa Yogyakarta",
         "desc": "",
-        "img": "/Jathilan.jpg"
+        "img": "/Jathilan.webp"
     },
     {
         "id": 7,
         "title": "ONDEL-ONDEL",
         "prov": "DKI Jakarta",
         "desc": "",
-        "img": "/OndelOndel.jpg"
+        "img": "/OndelOndel.webp"
     },
     {
         "id": 8,
@@ -68,70 +68,70 @@
         "title": "TARI JAIPONG",
         "prov": "Jawa Barat",
         "desc": "",
-        "img": "/Jaipong,jpg"
+        "img": "/Jaipong,webp"
     },
     {
         "id": 11,
         "title": "REOG PONOROGO",
         "prov": "Jawa Timur",
         "desc": "",
-        "img": "/ReogPonorogo.jpg"
+        "img": "/ReogPonorogo.webp"
     },
     {
         "id": 12,
         "title": "KARAWITAN",
         "prov": "Jawa Tengah",
         "desc": "",
-        "img": "/Karawitan.jpg"
+        "img": "/Karawitan.webp"
     },
     {
         "id": 13,
         "title": "TARI MONONG",
         "prov": "Kalimantan Barat",
         "desc": "",
-        "img": "/Monong.jpg"
+        "img": "/Monong.webp"
     },
     {
         "id": 14,
         "title": "TARI BABANGSAI",
         "prov": "Kalimantan Selatan",
         "desc": "",
-        "img": "/Babangsai.jpg"
+        "img": "/Babangsai.webp"
     },
     {
         "id": 15,
         "title": "TARI KAYAU",
         "prov": "Kalimantan Tengah",
         "desc": "",
-        "img": "/Kayau.jpg"
+        "img": "/Kayau.webp"
     },
     {
         "id": 16,
         "title": "TARI HUDOQ",
         "prov": "Kalimantan Timur",
         "desc": "",
-        "img": "/Hudoq.jpg"
+        "img": "/Hudoq.webp"
     },
     {
         "id": 17,
         "title": "TARI JUGIT",
         "prov": "Kalimantan Utara",
         "desc": "",
-        "img": "/Jugit.jpg"
+        "img": "/Jugit.png"
     },
     {
         "id": 18,
         "title": "TARI MAKYONG",
         "prov": "Kepulauan Riau",
         "desc": "",
-        "img": "/Makyong.jpg"
+        "img": "/Makyong.webp"
     },
     {
         "id": 19,
         "title": "WAYANG SEKELIK",
         "prov": "Lampung",
         "desc": "",
-        "img": "/WayangSekelik.jpg"
+        "img": "/WayangSekelik.webp"
     },
     {
         "id": 20,
@@ -180,7 +180,7 @@
         "title": "TARI ZAPIN",
         "prov": "Riau",
         "desc": "",
-        "img": "/Zapin.jpg"
+        "img": "/Zapin.webp"
     },
     {
         "id": 27,
@@ -222,20 +222,20 @@
         "title": "TARI PIRING",
         "prov": "Sumatera Barat",
         "desc": "",
-        "img": "/Piring.jpg"
+        "img": "/Piring.webp"
     },
     {
         "id": 33,
         "title": "TARI GENDING SRIWIJAYA",
         "prov": "Sumatera Selatan",
         "desc": "",
-        "img": "/GendingSriwijaya.jpg"
+        "img": "/GendingSriwijaya.webp"
     },
     {
         "id": 34,
         "title": "TARI TOR-TOR",
         "prov": "Sumatera Utara",
         "desc": "",
-        "img": "/TorTor.jpg"
+        "img": "/TorTor.webp"
     }
 ]

@@ -1,4 +1,5 @@
 "use client"
+import Navigation from '@/components/Navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -19,6 +20,7 @@ const page = () => {
 
   return (
     <div className='bg-[#181818] w-full h-screen flex flex-col justify-center items-center'>
+      <Navigation/>
       <p className='text-[48px] font-semibold text-[#D6CEBA]'>CONGRATULATIONS!</p>
       <Image src="/champ.svg" width={396} height={396} alt=''/>
       <p className='text-[#DCD7C9] text-[18px] font-semibold mt-[5px]'>Skor Anda</p>
