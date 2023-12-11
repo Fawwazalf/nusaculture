@@ -12,7 +12,7 @@ export default function Home() {
       <Carousel />
       <div className="w-full h-full mt-[130px] flex flex-col justify-center items-center text-white">
         <p className="mb-[10px] text-[50px] font-semibold text-[#D5CDB6]">
-          Let’s Explore With Us!
+          Let’s Explore With Us!✨
         </p>
         <p className="mb-[80px] text-[#AEAEAE]">Let’s Explore With Us!</p>
         <MapIndonesia />

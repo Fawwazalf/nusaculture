@@ -29,7 +29,7 @@ const MapIndonesia = () => {
     router.push(`/explore?prov=${provinsi}`);
   };
   return (
-    <div className="bg-slate-500 border-[5px] border-black  ">
+    <div className="bg-slate-500 border-[5px] border-black h-[52%] w-[85%]">
       <TransformWrapper
         defaultScale={1}
         defaultPositionX={1}
@@ -37,12 +37,11 @@ const MapIndonesia = () => {
       >
         <TransformComponent>
           <svg
-            width="1230"
-            height="457"
+            width={1440}
             viewBox="0 0 1232 452"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            className="hover:cursor-grab "
+            className="hover:cursor-grab  h-[100%] w-[100%]"
           >
             <motion.path
               whileHover={{

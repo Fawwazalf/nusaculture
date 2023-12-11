@@ -20,12 +20,13 @@ const CardCulture = ({ img, title, prov, desc }) => {
     <motion.div
       className="relative overflow-clip"
       initial={{ scale: 0, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
+      whileInView={{ scale: 1, opacity: 1 }}
       transition={{
         type: "spring",
         stiffness: 260,
         damping: 20,
       }}
+      viewport={{ once: true }}
     >
       <motion.svg
         className="absolute my-auto mx-auto top-0 left-0 right-0 bottom-0  "

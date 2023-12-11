@@ -123,6 +123,7 @@ const Carousel = () => {
 
             return (
               <motion.div
+                className="hover:cursor-pointer"
                 key={index}
                 animate={positions[positionIndexes[index]]}
                 variants={imageVariants}
