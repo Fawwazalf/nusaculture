@@ -44,12 +44,12 @@ const Page = () => {
           </button>
         </div>
         <select
-          className="w-[30%] bg-white py-2 px-5 focus:outline-none rounded-[50px] text-[18px] font-medium text-opacity-60 text-[#6f6e6e]"
+          className="w-[30%] bg-white py-2 px-5 focus:outline-none rounded-[50px] text-[18px] font-medium text-opacity-60 text-[#6f6e6e] appearance-none"
           value={selectedOption}
           onChange={(e) => setSelectedOption(e.target.value)}
         >
-          <option disabled value="">
-            Pilih Provinsi
+          <option value="Semua Provinsi">
+            Semua Provinsi
           </option>
 
           {data.map((item) => (

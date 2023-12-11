@@ -27,12 +27,12 @@ const page = () => {
       )}
       <div className="w-[525px] flex justify-between mt-[45px]">
         <Link href="/quiz">
-          <button className="bg-[#FFF9E9]/10 border-2 border-[#FFF9E9] text-white text-[18px] font-medium w-[230px] h-[50px] rounded-[100px]">
+          <button className="bg-[#FFF9E9]/10 border-2 border-[#FFF9E9] text-white text-[18px] font-medium w-[230px] h-[50px] rounded-[100px] hover:border-[#725035]">
             Mulai Ulang
           </button>
         </Link>
         <Link href="/quiz">
-          <button className="bg-[#FFF9E9]/10 border-2 border-[#FFF9E9] text-white text-[18px] font-medium w-[230px] h-[50px] rounded-[100px]">
+          <button className="bg-[#FFF9E9]/10 border-2 border-[#FFF9E9] text-white text-[18px] font-medium w-[230px] h-[50px] rounded-[100px] hover:border-[#725035]">
             Selanjutnya
           </button>
         </Link>

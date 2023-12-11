@@ -40,7 +40,7 @@ const page = () => {
   const router = useRouter();
 
   const generateNumberColors = () => {
-    const colors = new Array(questions.length).fill("#D6CEBA");
+    const colors = new Array(questions.length).fill("#D9D9D9");
     for (let i = 0; i < currentQuestion; i++) {
       colors[i] = "#725035";
     }
@@ -100,7 +100,6 @@ const page = () => {
                     fill="none"
                   >
                     <g clip-path="url(#clip0_437_505)">
-                      -0p--p
                       <path
                         fill-rule="evenodd"
                         clip-rule="evenodd"
@@ -116,7 +115,7 @@ const page = () => {
                   </svg>
                 </div>
               ) : (
-                <div className="h-[64px] w-[64px] bg-[#D9D9D9] rounded-full text-[22px] font-semibold text-[#725035] flex justify-center items-center border-[#D6CEBA] border-[3px]">
+                <div className={`h-[64px] w-[64px] bg-[${color}] rounded-full text-[22px] font-semibold text-[#725035] flex justify-center items-center border-[#D6CEBA] border-[3px]`}>
                   {index + 1}
                 </div>
               )}
