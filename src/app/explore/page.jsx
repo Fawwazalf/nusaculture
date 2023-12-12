@@ -29,12 +29,11 @@ const Page = () => {
   const [selectedOption, setSelectedOption] = useState(initialProv);
 
   useEffect(() => {
-    const filteredResults = data.filter(
-      (item) =>
-        item.title.toLowerCase().includes(searchValue.toLowerCase()) &&
-        (selectedOption === "" || item.prov === selectedOption)
+    const filteredResults = data.filter((item) =>
+      item.title.toLowerCase().includes(searchValue.toLowerCase()) &&
+      (selectedOption === "" || selectedOption === "Semua Provinsi" || item.prov === selectedOption)
     );
-
+  
     setFilteredData(filteredResults);
   }, [searchValue, selectedOption]);
 
@@ -120,9 +119,10 @@ const Page = () => {
         {filteredData.map((item) => (
           <div key={item.id}>
             <CardCulture
+              id={item.id}
               title={item.title}
               prov={item.prov}
-              desc={item.desc}
+              desc={item.desc1}
               img={item.img}
             />
           </div>

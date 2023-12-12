@@ -1,8 +1,14 @@
 import { motion, useCycle } from "framer-motion";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 
-const CardCulture = ({ img, title, prov, desc }) => {
+const CardCulture = ({ id, img, title, prov, desc }) => {
   const [isLike, toggleLike] = useCycle(false, true);
+  const router = useRouter();
+
+  const handleSelengkapnya = () => {
+    router.push(`/explore/${id}`);
+  };
 
   const variants = {
     liked: {
@@ -49,7 +55,7 @@ const CardCulture = ({ img, title, prov, desc }) => {
           <Image
             src={img}
             alt={title}
-            width={272}
+            width={270}
             height={250}
             style={{
               borderTopLeftRadius: "20px",
@@ -57,6 +63,7 @@ const CardCulture = ({ img, title, prov, desc }) => {
               objectFit: "cover",
               height: "100%"
             }}
+            
           />
         </div>
         <div className="h-[220px] px-5 py-5 flex flex-col justify-between">
@@ -85,10 +92,10 @@ const CardCulture = ({ img, title, prov, desc }) => {
               </svg> 
               <p className="text-[12px] italic ml-[5px] mt-[2px]">{prov}</p> 
             </div> 
-            <p className="text-[10px]">{desc}</p>
+            <p className="text-[10px] h-[90px] overflow-hidden">{desc}</p>
           </div>
           <div className="flex justify-end mt-[15px]">
-            <button className="w-[115px] h-[30px] text-[12px] flex items-center justify-center bg-[#AEAEAE]/[0.3] rounded-[50px] py-[9px] border-solid border-2 border-black">
+            <button className="w-[115px] h-[30px] text-[12px] flex items-center justify-center bg-[#AEAEAE]/[0.3] rounded-[50px] py-[9px] border-solid border-2 border-black" onClick={handleSelengkapnya}>
               Selengkapnya
               <Image
                 src="IconArrow.svg"
