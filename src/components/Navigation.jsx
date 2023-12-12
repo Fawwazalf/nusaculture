@@ -9,18 +9,16 @@ const spirax = Spirax({ subsets: ["latin"], weight: "400", display: "swap" });
 const Navigation = () => {
   const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
-  const [top, setTop] = useState(false);
+  const [top, setTop] = useState(true);
 
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    const prev = scrollY.getPrevious();
-    console.log(scrollY.current);
+  useMotionValueEvent(scrollY, "change", () => {
     if (scrollY.current <= 0) {
       setTop(true);
-    } else if (latest > prev && latest > 150) {
-      setHidden(true);
-    } else {
+    } else if (scrollY.prev > scrollY.current && scrollY.current > 0) {
       setHidden(false);
       setTop(false);
+    } else {
+      setHidden(true);
     }
   });
   return (
@@ -31,7 +29,7 @@ const Navigation = () => {
         hidden: { y: -100, backgroundColor: "#181818" },
       }}
       animate={hidden ? "hidden" : top ? "topest" : "visible"}
-      initial={{ y: 0 }}
+      initial={"topest"}
       transition={{ duration: 0.35, ease: "easeInOut" }}
       className={`flex justify-between w-full px-[117px] py-5 text-[18px] items-center text-[#DCD7C9] fixed  z-50 
       }`}

@@ -78,14 +78,16 @@ const Carousel = () => {
   };
 
   return (
-    <div className="h-screen relative">
+    <div className="h-screen relative transition-all ">
       <Image
         src={images[positionIndexes[2]]}
         fill
         sizes="100%"
         priority
-        className="absolute z-0"
-        style={{ objectFit: "cover" }}
+        className="absolute z-0 "
+        style={{
+          objectFit: "cover",
+        }}
         alt={`bgImage ${images[positionIndexes[2]]}`}
       />
       <div className="bg-[#1D1D1D]/[0.81] w-full h-full absolute z-[1] backdrop-blur-sm"></div>
@@ -123,7 +125,7 @@ const Carousel = () => {
 
             return (
               <motion.div
-                className="hover:cursor-pointer"
+                className="hover:cursor-pointer transition-all"
                 key={index}
                 animate={positions[positionIndexes[index]]}
                 variants={imageVariants}
@@ -133,7 +135,13 @@ const Carousel = () => {
               >
                 <motion.div
                   className="relative w-[300px] aspect-[3/4.7]"
-                  style={{ rotateY }}
+                  style={{
+                    rotateY,
+                    transition: "0.5s ease",
+                  }}
+                  whileHover={{
+                    boxShadow: "0 0 20px 10px rgba(255, 255, 255, 0.30)",
+                  }}
                 >
                   <Image alt={image} fill src={image} sizes="300" priority />
                 </motion.div>

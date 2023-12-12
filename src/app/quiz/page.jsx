@@ -115,7 +115,9 @@ const page = () => {
                   </svg>
                 </div>
               ) : (
-                <div className={`h-[64px] w-[64px] bg-[${color}] rounded-full text-[22px] font-semibold text-[#725035] flex justify-center items-center border-[#D6CEBA] border-[3px]`}>
+                <div
+                  className={`h-[64px] w-[64px] bg-[${color}] rounded-full text-[22px] font-semibold text-[#725035] flex justify-center items-center border-[#D6CEBA] border-[3px]`}
+                >
                   {index + 1}
                 </div>
               )}
@@ -172,8 +174,10 @@ const page = () => {
             <div
               key={index}
               className={`option ${
-                userAnswers[currentQuestion] === option ? "selected " : ""
-              } bg-[#DCD7C9] text-[20px] text-[#725035] w-[405px] h-[65px] rounded-[100px] flex justify-center items-center font-semibold mb-[25px] hover:bg-[#725035] hover:text-[#DCD7C9] focus:bg-[#725035] focus:text-[#DCD7C9] cursor-pointer`}
+                userAnswers[currentQuestion] === option
+                  ? "bg-[#725035] text-[#DCD7C9] "
+                  : "bg-[#DCD7C9] text-[#725035]"
+              } text-[20px]  w-[405px] h-[65px] rounded-[100px] flex justify-center items-center font-semibold mb-[25px] hover:bg-[#725035] hover:text-[#DCD7C9]  cursor-pointer transition-all `}
               onClick={() => handleAnswer(option)}
             >
               {option}

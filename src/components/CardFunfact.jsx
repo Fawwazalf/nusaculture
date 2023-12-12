@@ -10,10 +10,9 @@ const CardFunfact = () => {
       <p className="text-[14px] font-semibold mt-[20px]">Funfact hahu</p>
       <div className="w-[60px] h-[3px] bg-black rounded-full mt-[10px] mb-[18px]"></div>
       <p className="text-[12px] text-justify">
-        isi aja nanti isi aja nanti isi aja nanti isi aja nanti isi aja nanti
-        isi aja nanti isi aja nanti isi aja nanti isi aja nanti isi aja nanti
-        isi aja nanti isi aja nanti isi aja nanti isi aja nanti isi aja nanti
-        isi aja nanti
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum, quasi hic
+        rem incidunt ullam, maxime iste omnis voluptatem fugit et nostrum veniam
+        suscipit amet voluptate ex ducimus labore commodi? Perferendis!
       </p>
     </div>
   );
