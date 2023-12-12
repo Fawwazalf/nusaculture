@@ -4,14 +4,15 @@
         "id": 1,
         "title": "TARI SAMAN",
         "prov": "Aceh",
-        "desc": "hhhhh",
+        "desc1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore jdddddddddddddddddddddddddddddskj  jsx cxnkcjkackfjb .",
+        "desc2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore jdddddddddddddddddddddddddddddskj  jsx cxnkcjkackfjb . Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id ",
         "img": "/Saman.webp"
     },
     {
         "id": 2,
-        "title": "",
+        "title": "NGABEN",
         "prov": "Bali",
-        "desc": "",
+        "desc": "kkk",
         "img": ""
     },
     {
@@ -33,7 +34,7 @@
         "title": "TARI ANDUN",
         "prov": "Bengkulu",
         "desc": "",
-        "img": "/Andun.png"
+        "img": "/Andun.webp"
     },
     {
         "id": 6,
@@ -51,14 +52,14 @@
     },
     {
         "id": 8,
-        "title": "",
+        "title": "POHUTU MOMULANGA",
         "prov": "Gorontalo",
         "desc": "",
         "img": ""
     },
     {
         "id": 9,
-        "title": "",
+        "title": "KUMAU",
         "prov": "Jambi",
         "desc": "",
         "img": ""
@@ -68,7 +69,7 @@
         "title": "TARI JAIPONG",
         "prov": "Jawa Barat",
         "desc": "",
-        "img": "/Jaipong,webp"
+        "img": "/Jaipong.webp"
     },
     {
         "id": 11,
@@ -135,42 +136,42 @@
     },
     {
         "id": 20,
-        "title": "",
+        "title": "BAMBU GILA",
         "prov": "Maluku",
         "desc": "",
         "img": ""
     },
     {
         "id": 21,
-        "title": "",
+        "title": "ARUMBAE",
         "prov": "Maluku Utara",
         "desc": "",
         "img": ""
     },
     {
         "id": 22,
-        "title": "",
+        "title": "PERESEAN",
         "prov": "Nusa Tenggara Barat",
         "desc": "",
         "img": ""
     },
     {
         "id": 23,
-        "title": "",
+        "title": "PASOLA",
         "prov": "Nusa Tenggara Timur",
         "desc": "",
         "img": ""
     },
     {
         "id": 24,
-        "title": "",
+        "title": "TARI SAJOJO",
         "prov": "Papua",
         "desc": "",
         "img": ""
     },
     {
         "id": 25,
-        "title": "",
+        "title": "TANAM SASI",
         "prov": "Papua Barat",
         "desc": "",
         "img": ""
@@ -184,35 +185,35 @@
     },
     {
         "id": 27,
-        "title": "",
+        "title": "SAYYANG PATTUDU",
         "prov": "Sulawesi Barat",
         "desc": "",
         "img": ""
     },
     {
         "id": 28,
-        "title": "",
+        "title": "RAMBU SOLO",
         "prov": "Sulawesi Selatan",
         "desc": "",
         "img": ""
     },
     {
         "id": 29,
-        "title": "",
+        "title": "BALIYA JINJA",
         "prov": "Sulawesi Tengah",
         "desc": "",
         "img": ""
     },
     {
         "id": 30,
-        "title": "",
+        "title": "KARIA'A LAMBE",
         "prov": "Sulawesi Tenggara",
         "desc": "",
         "img": ""
     },
     {
         "id": 31,
-        "title": "",
+        "title": "LOMPAT BATU",
         "prov": "Sulawesi Utara",
         "desc": "",
         "img": ""
@@ -226,7 +227,7 @@
     },
     {
         "id": 33,
-        "title": "TARI GENDING SRIWIJAYA",
+        "title": "GENDING SRIWIJAYA",
         "prov": "Sumatera Selatan",
         "desc": "",
         "img": "/GendingSriwijaya.webp"
