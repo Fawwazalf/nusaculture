@@ -25,7 +25,7 @@ const questions = [
     correctAnswer: "Mars",
   },
   {
-    question: "What is the capital of France?",
+    question: "What is the capital of France? What is the capital of France?What is the capital of France?",
     options: ["Berlin", "Paris", "Madrid", "Rome"],
     correctAnswer: "Paris",
   },
@@ -84,14 +84,16 @@ const page = () => {
   };
 
   return (
-    <div className="bg-[#181818] w-full h-screen flex justify-center items-center">
-      <div className="mr-[100px]">
-        <div className="flex flex-col items-center">
+    <div className="bg-[#181818] w-full h-screen flex xl:flex-row flex-col justify-center items-center">
+      <div className="xl:mr-[100px] mb-[72px]">
+        <div className="flex xl:flex-col items-center xl:mt-[60px]">
           {numberColors.map((color, index) => (
-            <div key={index} className={`flex flex-col items-center`}>
-              <div className={`h-[55px] w-[8px] bg-[${color}]`}></div>
+            <div key={index} className={`flex xl:flex-col items-center`}>
+              <div
+                className={`h-[6px] xl:h-[55px] w-[20px] md:w-[30px] xl:w-[8px] bg-[${color}]`}
+              ></div>
               {color === "#725035" ? (
-                <div className="w-[64px] h-[64px] bg-[#725035] rounded-full text-[22px] font-semibold text-[#D6CEBA] flex justify-center items-center">
+                <div className="w-[43px] h-[43px] md:w-[55px] md:h-[55px] lg:w-[64px] lg:h-[64px] bg-[#725035] rounded-full lg:text-[22px] font-semibold text-[#D6CEBA] flex justify-center items-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="32"
@@ -116,7 +118,7 @@ const page = () => {
                 </div>
               ) : (
                 <div
-                  className={`h-[64px] w-[64px] bg-[${color}] rounded-full text-[22px] font-semibold text-[#725035] flex justify-center items-center border-[#D6CEBA] border-[3px]`}
+                  className={`w-[43px] h-[43px] md:w-[55px] md:h-[55px] lg:w-[64px] lg:h-[64px] bg-[${color}] rounded-full lg:text-[22px] font-semibold text-[#725035] flex justify-center items-center border-[#D6CEBA] border-[3px]`}
                 >
                   {index + 1}
                 </div>
@@ -125,51 +127,57 @@ const page = () => {
           ))}
         </div>
       </div>
-      <div className="">
+      <div className="flex flex-col items-center">
         <div className="w-full flex justify-center">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="26"
-            height="30"
-            viewBox="0 0 26 30"
-            fill="none"
-          >
-            <path
-              d="M17.8592 8.25617C19.702 10.9646 22.3215 16.2087 20.7642 20.5319C20.198 19.0112 18.1632 16.8567 16.9626 15.9581C15.3055 14.7178 13.2376 13.9463 10.9667 14.1592C7.90802 14.4461 4.1676 14.2695 2.42926 11.8218C1.3498 10.3019 1.74315 8.06264 3.08168 6.21764C4.46196 4.31508 7.19721 3.41203 9.1164 3.49795C12.8283 3.66413 15.9775 5.49065 17.8592 8.25617Z"
-              fill="#DCD7C9"
-            />
-            <path
-              d="M16.7854 20.2854C17.9293 21.9665 19.5552 25.2216 18.5886 27.9051C18.2371 26.9611 16.9741 25.6238 16.2288 25.066C15.2003 24.2962 13.9167 23.8173 12.5071 23.9495C10.6085 24.1275 8.28681 24.0179 7.2078 22.4986C6.53777 21.5552 6.78193 20.1652 7.61277 19.02C8.46953 17.8391 10.1673 17.2785 11.3586 17.3319C13.6626 17.435 15.6174 18.5688 16.7854 20.2854Z"
-              fill="#DCD7C9"
-            />
-          </svg>
+          <div className="w-[15px] md:w-[20px] lg:w-[26px] h-[19px] md:h-[25px] lg:h-[30px]">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="100%"
+              height="100%"
+              viewBox="0 0 26 30"
+              fill="none"
+            >
+              <path
+                d="M17.8592 8.25617C19.702 10.9646 22.3215 16.2087 20.7642 20.5319C20.198 19.0112 18.1632 16.8567 16.9626 15.9581C15.3055 14.7178 13.2376 13.9463 10.9667 14.1592C7.90802 14.4461 4.1676 14.2695 2.42926 11.8218C1.3498 10.3019 1.74315 8.06264 3.08168 6.21764C4.46196 4.31508 7.19721 3.41203 9.1164 3.49795C12.8283 3.66413 15.9775 5.49065 17.8592 8.25617Z"
+                fill="#DCD7C9"
+              />
+              <path
+                d="M16.7854 20.2854C17.9293 21.9665 19.5552 25.2216 18.5886 27.9051C18.2371 26.9611 16.9741 25.6238 16.2288 25.066C15.2003 24.2962 13.9167 23.8173 12.5071 23.9495C10.6085 24.1275 8.28681 24.0179 7.2078 22.4986C6.53777 21.5552 6.78193 20.1652 7.61277 19.02C8.46953 17.8391 10.1673 17.2785 11.3586 17.3319C13.6626 17.435 15.6174 18.5688 16.7854 20.2854Z"
+                fill="#DCD7C9"
+              />
+            </svg>
+          </div>
           <div className="mx-[10px]">
-            <p className="text-[40px] text-[#D6CEBA] font-semibold">
+            <p className="text-[26px] md:text-[33px] lg:text-[40px] text-[#D6CEBA] font-semibold">
               PERTANYAAN
             </p>
-            <div className="w-[225px] h-[3px] bg-[#725035] rounded-full mx-auto"></div>
+            <div className="w-[162px] md:w-[180px] lg:w-[225px] h-[3px] bg-[#725035] rounded-full mx-auto"></div>
           </div>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="26"
-            height="30"
-            viewBox="0 0 26 30"
-            fill="none"
-          >
-            <path
-              d="M17.8592 8.25617C19.702 10.9646 22.3215 16.2087 20.7642 20.5319C20.198 19.0112 18.1632 16.8567 16.9626 15.9581C15.3055 14.7178 13.2376 13.9463 10.9667 14.1592C7.90802 14.4461 4.1676 14.2695 2.42926 11.8218C1.3498 10.3019 1.74315 8.06264 3.08168 6.21764C4.46196 4.31508 7.19721 3.41203 9.1164 3.49795C12.8283 3.66413 15.9775 5.49065 17.8592 8.25617Z"
-              fill="#DCD7C9"
-            />
-            <path
-              d="M16.7854 20.2854C17.9293 21.9665 19.5552 25.2216 18.5886 27.9051C18.2371 26.9611 16.9741 25.6238 16.2288 25.066C15.2003 24.2962 13.9167 23.8173 12.5071 23.9495C10.6085 24.1275 8.28681 24.0179 7.2078 22.4986C6.53777 21.5552 6.78193 20.1652 7.61277 19.02C8.46953 17.8391 10.1673 17.2785 11.3586 17.3319C13.6626 17.435 15.6174 18.5688 16.7854 20.2854Z"
-              fill="#DCD7C9"
-            />
-          </svg>
+          <div className="w-[15px] md:w-[20px] lg:w-[26px] h-[19px] md:h-[25px] lg:h-[30px]">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="100%"
+              height="100%"
+              viewBox="0 0 26 30"
+              fill="none"
+            >
+              <path
+                d="M8.14077 8.25617C6.29796 10.9646 3.67854 16.2087 5.23579 20.5319C5.80204 19.0112 7.83683 16.8567 9.03742 15.9581C10.6945 14.7178 12.7624 13.9463 15.0333 14.1592C18.092 14.4461 21.8324 14.2695 23.5707 11.8218C24.6502 10.3019 24.2568 8.06263 22.9183 6.21764C21.538 4.31508 18.8028 3.41203 16.8836 3.49795C13.1717 3.66413 10.0225 5.49065 8.14077 8.25617Z"
+                fill="#DCD7C9"
+              />
+              <path
+                d="M9.21464 20.2858C8.07078 21.967 6.44487 25.2221 7.41148 27.9056C7.76296 26.9616 9.02598 25.6243 9.7712 25.0665C10.7998 24.2967 12.0834 23.8178 13.4929 23.95C15.3915 24.128 17.7132 24.0184 18.7922 22.4991C19.4623 21.5556 19.2181 20.1657 18.3873 19.0205C17.5305 17.8396 15.8327 17.279 14.6414 17.3324C12.3374 17.4355 10.3826 18.5693 9.21464 20.2858Z"
+                fill="#DCD7C9"
+              />
+            </svg>
+          </div>
         </div>
-        <p className="w-full text-white text-[22px] font-semibold mt-[50px] text-center">
-          {questions[currentQuestion].question}
-        </p>
-        <div className="options-container flex flex-wrap w-[855px] justify-between mt-[50px]">
+        <div className="mt-[35px] md:mt-[42px] xl:mt-[50px] w-[320px] md:w-[600px] lg:w-[855px] flex justify-center">
+          <p className=" text-white md:text-[18px] lg:text-[22px] font-semibold text-center">
+            {questions[currentQuestion].question}
+          </p>
+        </div>
+        <div className="options-container flex flex-col lg:flex-row lg:flex-wrap w-[855px] items-center lg:justify-between mt-[35px] md:mt-[42px] xl:mt-[50px]">
           {questions[currentQuestion].options.map((option, index) => (
             <div
               key={index}
@@ -177,16 +185,16 @@ const page = () => {
                 userAnswers[currentQuestion] === option
                   ? "bg-[#725035] text-[#DCD7C9] "
                   : "bg-[#DCD7C9] text-[#725035]"
-              } text-[20px]  w-[405px] h-[65px] rounded-[100px] flex justify-center items-center font-semibold mb-[25px] hover:bg-[#725035] hover:text-[#DCD7C9]  cursor-pointer transition-all `}
+              } text-[14px] md:text-[16px] lg:text-[20px] w-[320px] md:w-[500px] lg:w-[405px] h-[42px] md:h-[55px] lg:h-[65px] rounded-[100px] flex justify-center items-center font-semibold mb-[18px] lg:mb-[25px] hover:bg-[#725035] hover:text-[#DCD7C9]  cursor-pointer transition-all `}
               onClick={() => handleAnswer(option)}
             >
               {option}
             </div>
           ))}
         </div>
-        <div className="w-full flex justify-center mt-[30px]">
+        <div className="w-full flex justify-center mt-[15px] md:mt-[25px] xl:mt-[35px]">
           <button
-            className="bg-[#FFF9E9]/10 border-2 border-[#FFF9E9] text-white text-[18px] font-medium w-[230px] h-[50px] rounded-[100px] hover:border-[#725035]"
+            className="bg-[#FFF9E9]/10 border-2 border-[#FFF9E9] text-white text-[12px] md:text-[16px] lg:text-[18px] font-medium w-[162px] md:w-[230px] h-[38px] md:h-[55px] rounded-[100px] hover:border-[#725035]"
             onClick={handleNext}
           >
             {currentQuestion < questions.length - 1 ? "Selanjutnya" : "Submit"}
