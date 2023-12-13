@@ -63,7 +63,6 @@ const CardCulture = ({ id, img, title, prov, desc }) => {
               objectFit: "cover",
               height: "100%"
             }}
-            
           />
         </div>
         <div className="h-[220px] px-5 py-5 flex flex-col justify-between">
