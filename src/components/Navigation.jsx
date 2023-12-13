@@ -4,9 +4,11 @@ import { Spirax } from "next/font/google";
 import Image from "next/image";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 const spirax = Spirax({ subsets: ["latin"], weight: "400", display: "swap" });
 const Navigation = () => {
+  const pathname = usePathname();
   const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
   const [top, setTop] = useState(true);
@@ -37,16 +39,16 @@ const Navigation = () => {
       <p className={`text-4xl  ${spirax.className}`}>Nusa Culture</p>
       <div className="flex">
         <ul className="flex justify-center items-center gap-[48px]">
-          <li className="hover:underline underline-offset-4">
+          <li className={`hover:underline underline-offset-[5px] ${pathname === '/' ? 'underline underline-offset-[5px]' : ''}`}>
             <Link href="/">Home</Link>
           </li>
-          <li className="hover:underline underline-offset-4">
+          <li className={`hover:underline underline-offset-[5px] ${pathname === '/explore' ? 'underline underline-offset-[5px]' : ''}`}>
             <Link href="/explore">Explore</Link>
           </li>
-          <li className="hover:underline underline-offset-4">
+          <li className={`hover:underline underline-offset-[5px] ${pathname === '/quiz' ? 'underline underline-offset-[5px]' : ''}`}>
             <Link href="/quiz">Quiz</Link>
           </li>
-          <li className="hover:underline underline-offset-4">
+          <li className={`hover:underline underline-offset-[5px] ${pathname === '/favorites' ? 'underline underline-offset-[5px]' : ''}`}>
             <Link href="/favorites">Favorite</Link>
           </li>
         </ul>
