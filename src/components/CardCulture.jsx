@@ -92,7 +92,7 @@ const CardCulture = ({ id, img, title, prov, desc }) => {
               </svg> 
               <p className="text-[12px] italic ml-[5px] mt-[2px]">{prov}</p> 
             </div> 
-            <p className="text-[10px] h-[90px] overflow-hidden">{desc}</p>
+            <p className="text-[10px] h-[90px] overflow-hidden text-justify">{desc}</p>
           </div>
           <div className="flex justify-end mt-[15px]">
             <button className="w-[115px] h-[30px] text-[12px] flex items-center justify-center bg-[#AEAEAE]/[0.3] rounded-[50px] py-[9px] border-solid border-2 border-black" onClick={handleSelengkapnya}>

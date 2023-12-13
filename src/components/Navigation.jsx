@@ -47,7 +47,7 @@ const Navigation = () => {
             <Link href="/quiz">Quiz</Link>
           </li>
           <li className="hover:underline underline-offset-4">
-            <Link href="/favorite">Favorite</Link>
+            <Link href="/favorites">Favorite</Link>
           </li>
         </ul>
         <div className="flex ml-6 bg-[#C3C3C3]/[0.15] py-[7px] px-[22px] rounded-[26px]  justify-center items-center mr-[20px]">
