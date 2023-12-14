@@ -127,7 +127,7 @@ const page = () => {
           ))}
         </div>
       </div>
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center w-[320px] md:w-[600px] lg:w-[855px]">
         <div className="w-full flex justify-center">
           <div className="w-[15px] md:w-[20px] lg:w-[26px] h-[19px] md:h-[25px] lg:h-[30px]">
             <svg
@@ -147,7 +147,7 @@ const page = () => {
               />
             </svg>
           </div>
-          <div className="mx-[10px]">
+          <div className="mx-[10px] ">
             <p className="text-[26px] md:text-[33px] lg:text-[40px] text-[#D6CEBA] font-semibold">
               PERTANYAAN
             </p>
@@ -172,12 +172,12 @@ const page = () => {
             </svg>
           </div>
         </div>
-        <div className="mt-[35px] md:mt-[42px] xl:mt-[50px] w-[320px] md:w-[600px] lg:w-[855px] flex justify-center">
+        <div className="mt-[35px] md:mt-[42px] xl:mt-[50px] flex justify-center">
           <p className=" text-white md:text-[18px] lg:text-[22px] font-semibold text-center">
             {questions[currentQuestion].question}
           </p>
         </div>
-        <div className="options-container flex flex-col lg:flex-row lg:flex-wrap w-[855px] items-center lg:justify-between mt-[35px] md:mt-[42px] xl:mt-[50px]">
+        <div className="options-container flex flex-col lg:flex-row lg:flex-wrap w-full  items-center lg:justify-between mt-[35px] md:mt-[42px] xl:mt-[50px]">
           {questions[currentQuestion].options.map((option, index) => (
             <div
               key={index}
