@@ -49,7 +49,7 @@ const Navigation = () => {
             <Link href="/quiz">QUIZ</Link>
           </li>
           <li className={`hover:underline underline-offset-[5px] ${pathname === '/favorite' ? 'underline underline-offset-[5px]' : ''}`}>
-            <Link href="/favorites">FAVORITE</Link>
+            <Link href="/favorite">FAVORITE</Link>
           </li>
         </ul>
         <div className="flex ml-6 bg-[#C3C3C3]/[0.15] py-[7px] px-[22px] rounded-[26px]  justify-center items-center mr-[20px]">

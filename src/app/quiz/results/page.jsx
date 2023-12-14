@@ -48,7 +48,6 @@ const page = () => {
             Selanjutnya
           </button>
         </Link>
-        <CardNavbar/>
       </div>
     </div>
   );
