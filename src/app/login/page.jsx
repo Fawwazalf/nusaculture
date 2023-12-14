@@ -1,6 +1,19 @@
-import Link from "next/link"
+"use client";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
 
 const page = () => {
+  const [masuk, setMasuk] = useState(true);
+  const variants = {
+    left: {
+      left: 0,
+    },
+    right: {
+      right: 0,
+    },
+  };
   return (
     <div className="bg-[#181818] h-screen w-screen relative flex flex-col justify-end lg:flex-row">
         <div className="flex flex-col justify-center items-center absolute bg-[#20292C] lg:bg-transparent lg:relative w-full h-[640px] lg:h-screen lg:w-[45%] rounded-t-[50px] lg:rounded-none">
@@ -66,7 +79,7 @@ const page = () => {
           <Link href="/register"><p className="text-[#FFF9E966]/40 font-semibold text-center mt-[27px] lg:hidden">Daftarkan akun anda!</p></Link>
         </div>
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;
