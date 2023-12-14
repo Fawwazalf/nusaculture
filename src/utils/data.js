@@ -1,4 +1,4 @@
-[
+let cultures = [
     
     {
         "id": 1,
@@ -7,7 +7,7 @@
         "desc1": "Tari Saman adalah sebuah warisan budaya yang berasal dari Aceh, provinsi yang terletak di ujung barat Pulau Sumatra, Indonesia. Tari Saman memiliki ciri khas yang unik dan menarik, tidak hanya dari segi gerakan tariannya, tetapi juga dalam konteks budaya dan makna yang terkandung di dalamnya. Para penari Saman biasanya terdiri dari sekelompok pemuda dan pemudi yang berpadu harmonis dalam melakukan gerakan-gerakan yang sangat dinamis dan energik. Tari Saman biasanya dipertunjukkan dalam acara-acara penting seperti upacara adat, perayaan keagamaan, dan festival budaya. Secara tradisional, Tari Saman dilakukan sebagai bentuk ekspresi syukur kepada Tuhan atas panen yang melimpah. Namun, seiring dengan perkembangan waktu, tarian ini juga digunakan dalam berbagai konteks, termasuk sebagai bentuk hiburan dan ekspresi seni yang lebih luas. Ciri khas utama dari Tari Saman adalah penggunaan gerakan tangan yang cepat dan terkoordinasi, serta ditemani oleh irama musik yang khas. Pemimpin tarian, yang disebut sebagai seorang penyair, akan memberikan petunjuk-petunjuk gerakan kepada kelompoknya melalui pantomim dan syair-syair yang dinyanyikan secara bersama-sama.",
         "desc2": "Semua gerakan dan petunjuk harus dilakukan dengan presisi dan kekompakan, menciptakan harmoni visual dan auditori yang luar biasa. Sebagai tarian yang sangat dinamis, Tari Saman menggabungkan elemen-elemen gerak tubuh, tangan, dan mata dalam sebuah koreografi yang kompleks. Gerakan ini mencerminkan kekompakan, kebersamaan, dan keharmonisan antaranggota kelompok. Selain itu, tarian ini juga mengekspresikan semangat gotong royong dan kebersamaan dalam menghadapi berbagai tantangan hidup. Tidak hanya dalam aspek gerakan dan musik, Tari Saman juga memiliki nilai-nilai budaya dan kearifan lokal yang tercermin dalam kostum dan properti yang digunakan. Para penari mengenakan pakaian tradisional Aceh yang indah dan berwarna-warni. Kostum-kostum ini tidak hanya berfungsi sebagai penanda identitas budaya, tetapi juga menambah keindahan visual pertunjukan. Tari Saman juga memiliki nilai pendidikan dan sosial yang kuat. Melalui tarian ini, generasi muda Aceh belajar tentang warisan budaya mereka, memahami pentingnya kebersamaan, dan merasakan kekuatan dari kolaborasi. Tari Saman bukan hanya menjadi warisan seni tradisional, tetapi juga sebuah wahana untuk memperkuat identitas budaya dan meningkatkan rasa persatuan di antara masyarakat Aceh. Sayangnya, meskipun Tari Saman memiliki nilai seni dan budaya yang sangat tinggi, beberapa tantangan modern seperti globalisasi dan modernisasi dapat mengancam kelangsungan budaya ini. Oleh karena itu, penting untuk terus mendukung dan melestarikan seni tradisional seperti Tari Saman, baik melalui pengajaran di sekolah-sekolah maupun dengan memasukkannya dalam berbagai acara budaya dan pertunjukan internasional. Dengan demikian, Tari Saman bukan hanya sekadar tarian tradisional dari Aceh, tetapi juga merupakan simbol kekayaan budaya Indonesia yang perlu dilestarikan dan dijaga agar dapat dinikmati oleh generasi-generasi mendatang. Melalui upaya kolektif, kita dapat memastikan keberlanjutan dan kehormatan Tari Saman.",
         "img": "/Saman.webp",
-        "isFavorite": false
+        "isFavorite": true
     },
     {
         "id": 2,
@@ -306,4 +306,36 @@
         "img": "/TorTor.webp",
         "isFavorite": false
     }
-]
+];
+
+function getAllCultures() {
+    return cultures;
+  }
+  
+  function getCulture(id) {
+    const foundedCulture = cultures.find((culture) => culture.id === id);
+    return foundedCulture;
+  }
+  
+  function getFavCulture() {
+    const favCulture = cultures.filter((culture) => culture.isFavorite);
+    return favCulture;
+  }
+  
+  
+function handleLikeCulture(id) {
+    cultures = cultures.map((culture) => {
+      if (culture.id === id) {
+        return { ...culture, isFavorite: !culture.isFavorite };
+      }
+      return culture;
+    });
+  }
+
+  export {
+    getAllCultures,
+    getCulture,
+    getFavCulture,
+    handleLikeCulture,
+  };
+  

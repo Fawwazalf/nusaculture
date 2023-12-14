@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, steps } from "framer-motion";
+import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
@@ -29,7 +29,10 @@ const MapIndonesia = () => {
     router.push(`/explore?prov=${provinsi}`);
   };
   return (
-    <div className="bg-slate-500 border-[5px] border-black w-[85%] h-max">
+    <div
+      className="bg-slate-500  border-[3px]  w-[85%] h-max"
+      style={{ boxShadow: "0 0 10px 5px rgba(255, 255, 255, 0.20)" }}
+    >
       <TransformWrapper
         wheel={{ step: 1 }}
         defaultScale={1}
