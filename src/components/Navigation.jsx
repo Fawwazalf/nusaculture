@@ -33,23 +33,23 @@ const Navigation = () => {
       animate={hidden ? "hidden" : top ? "topest" : "visible"}
       initial={"topest"}
       transition={{ duration: 0.35, ease: "easeInOut" }}
-      className={`flex justify-between w-full px-[117px] py-5 text-[18px] items-center text-[#DCD7C9] fixed  z-50 
+      className={`flex justify-between w-full px-[117px] py-5 text-[18px] items-center text-[#DCD7C9] font-medium fixed  z-50 
       }`}
     >
       <p className={`text-4xl  ${spirax.className}`}>Nusa Culture</p>
       <div className="flex">
         <ul className="flex justify-center items-center gap-[48px]">
-          <li className={`hover:underline underline-offset-[5px] ${pathname === '/' ? 'underline underline-offset-[5px]' : ''}`}>
-            <Link href="/">Home</Link>
+          <li className={`hover:underline underline-offset-[5px]  ${pathname === '/' ? 'underline underline-offset-[5px]' : ''}`}>
+            <Link href="/">HOME</Link>
           </li>
           <li className={`hover:underline underline-offset-[5px] ${pathname === '/explore' ? 'underline underline-offset-[5px]' : ''}`}>
-            <Link href="/explore">Explore</Link>
+            <Link href="/explore">EXPLORE</Link>
           </li>
           <li className={`hover:underline underline-offset-[5px] ${pathname === '/quiz' ? 'underline underline-offset-[5px]' : ''}`}>
-            <Link href="/quiz">Quiz</Link>
+            <Link href="/quiz">QUIZ</Link>
           </li>
-          <li className={`hover:underline underline-offset-[5px] ${pathname === '/favorites' ? 'underline underline-offset-[5px]' : ''}`}>
-            <Link href="/favorites">Favorite</Link>
+          <li className={`hover:underline underline-offset-[5px] ${pathname === '/favorite' ? 'underline underline-offset-[5px]' : ''}`}>
+            <Link href="/favorites">FAVORITE</Link>
           </li>
         </ul>
         <div className="flex ml-6 bg-[#C3C3C3]/[0.15] py-[7px] px-[22px] rounded-[26px]  justify-center items-center mr-[20px]">
