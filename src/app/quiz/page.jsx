@@ -40,7 +40,7 @@ const page = () => {
   const router = useRouter();
 
   const generateNumberColors = () => {
-    const colors = new Array(questions.length).fill("#D9D9D9");
+    const colors = new Array(questions.length).fill("#D6CEBA");
     for (let i = 0; i < currentQuestion; i++) {
       colors[i] = "#725035";
     }
@@ -118,7 +118,7 @@ const page = () => {
                 </div>
               ) : (
                 <div
-                  className={`w-[43px] h-[43px] md:w-[55px] md:h-[55px] lg:w-[64px] lg:h-[64px] bg-[${color}] rounded-full lg:text-[22px] font-semibold text-[#725035] flex justify-center items-center border-[#D6CEBA] border-[3px]`}
+                  className={`w-[43px] h-[43px] md:w-[55px] md:h-[55px] lg:w-[64px] lg:h-[64px] bg-[#D9D9D9] rounded-full lg:text-[22px] font-semibold text-[#725035] flex justify-center items-center border-[#D6CEBA] border-[3px]`}
                 >
                   {index + 1}
                 </div>

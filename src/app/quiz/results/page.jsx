@@ -1,5 +1,4 @@
 "use client";
-import CardNavbar from "@/components/CardNavbar";
 import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
