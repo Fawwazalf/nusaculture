@@ -1,12 +1,13 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import CardCulture from "@/components/CardCulture";
 import Footer from "@/components/Footer";
 import Navigation from "@/components/Navigation";
-import data from "@/utils/data.json";
+
 import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
+import { getAllCultures } from "@/utils/data";
 
 const itemVariants = {
   open: {
@@ -24,21 +25,20 @@ const Page = () => {
   const provParam = searchParams.get("prov") ?? "";
   const initialProv = decodeURIComponent(provParam);
 
-  const [filteredData, setFilteredData] = useState(data);
+  const cultures = getAllCultures();
   const [searchValue, setSearchValue] = useState("");
   const [selectedOption, setSelectedOption] = useState(initialProv);
 
-  useEffect(() => {
-    const filteredResults = data.filter((item) =>
+  const filteredResults = cultures.filter(
+    (item) =>
       item.title.toLowerCase().includes(searchValue.toLowerCase()) &&
-      (selectedOption === "" || selectedOption === "Semua Provinsi" || item.prov === selectedOption)
-    );
-  
-    setFilteredData(filteredResults);
-  }, [searchValue, selectedOption]);
+      (selectedOption === "" ||
+        selectedOption === "Semua Provinsi" ||
+        item.prov === selectedOption)
+  );
 
   return (
-    <div className="bg-[#181818] w-full h-full">
+    <div className="bg-[#181818] w-full min-h-screen flex flex-col">
       <Navigation />
       <div className="flex mx-[117px] pt-[120px]">
         <div className="flex w-[70%] justify-between py-2 px-5 rounded-[50px] bg-white mr-[25px]">
@@ -100,7 +100,16 @@ const Page = () => {
             }}
             className="flex flex-col bg-white absolute z-20 h-[300px] overflow-y-scroll mt-[10px] w-full"
           >
-            {data.map((item) => (
+            <motion.li
+              variants={itemVariants}
+              className={` list-none  pl-[10px] py-[10px] text-[#181818]  cursor-pointer hover:bg-[#DCD7C9] w-full ${
+                selectedOption === "" && "bg-[#DCD7C9]"
+              }`}
+              onClick={() => setSelectedOption("")}
+            >
+              Semua Provinsi
+            </motion.li>
+            {cultures.map((item) => (
               <motion.li
                 key={item.id}
                 variants={itemVariants}
@@ -115,8 +124,8 @@ const Page = () => {
           </motion.ul>
         </motion.div>
       </div>
-      <div className="mx-[117px] flex gap-9 my-[55px] flex-wrap justify-center xl:justify-start">
-        {filteredData.map((item) => (
+      <div className="flex-1 mx-[117px] flex gap-9 my-[55px] flex-wrap justify-center xl:justify-start">
+        {filteredResults.map((item) => (
           <div key={item.id}>
             <CardCulture
               id={item.id}
@@ -124,9 +133,20 @@ const Page = () => {
               prov={item.prov}
               desc={item.desc1}
               img={item.img}
+              like={item.isFavorite}
             />
           </div>
         ))}
+        {filteredResults.length === 0 && (
+          <div>
+            <p className="font-semibold text-[#D12B2B] text-[24px] mt-[-30px]">
+              Page Not Found :(
+            </p>
+            <p className="font-light text-white/70 mt-[15px]">
+              We couldn’t find the page you were looking for
+            </p>
+          </div>
+        )}
       </div>
       <Footer />
     </div>
