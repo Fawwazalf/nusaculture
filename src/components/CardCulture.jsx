@@ -1,12 +1,16 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/navigation";
+
 import Image from "next/image";
-import { handleLikeCulture, getIsIndo } from "@/utils/data";
+import { handleLikeCulture, getIsIndo, getIsLogin } from "@/utils/data";
 import { useState } from "react";
 
 const CardCulture = ({ id, img, title, prov, desc, like }) => {
   const lang = getIsIndo();
+  const isLogin = getIsLogin();
   const [isLike, setIsLike] = useState(like);
+  const [isAnimationVisible, setAnimationVisible] = useState(false);
+
   const router = useRouter();
 
   const handleSelengkapnya = ({}) => {
@@ -14,8 +18,12 @@ const CardCulture = ({ id, img, title, prov, desc, like }) => {
   };
 
   const handleLike = (id) => {
-    setIsLike(!isLike);
-    handleLikeCulture(id);
+    if (isLogin) {
+      setIsLike(!isLike);
+      handleLikeCulture(id);
+    } else {
+      setAnimationVisible(true);
+    }
   };
   const variants = {
     liked: {
@@ -27,6 +35,17 @@ const CardCulture = ({ id, img, title, prov, desc, like }) => {
       },
     },
     initial: { scale: 10, opacity: 0, y: 0 },
+  };
+  const variants2 = {
+    likedNotLogin: {
+      opacity: [0.5, 1, 0],
+      scale: 1,
+      y: 0,
+      transition: {
+        duration: 1,
+      },
+    },
+    initialNotLogin: { scale: 1, opacity: 0, y: 0 },
   };
 
   return (
@@ -41,21 +60,38 @@ const CardCulture = ({ id, img, title, prov, desc, like }) => {
       }}
       viewport={{ once: true }}
     >
-      <motion.svg
-        className="absolute my-auto mx-auto top-0 left-0 right-0 bottom-0  "
-        xmlns="http://www.w3.org/2000/svg"
-        width="19"
-        height="19"
-        viewBox="0 0 19 19"
-        variants={variants}
-        initial="initial"
-        animate={isLike ? "liked" : "initial"}
-      >
-        <path
-          d="M9.50004 16.9021L8.35212 15.8571C4.27504 12.16 1.58337 9.71375 1.58337 6.72917C1.58337 4.28292 3.49921 2.375 5.93754 2.375C7.31504 2.375 8.63712 3.01625 9.50004 4.02167C10.363 3.01625 11.685 2.375 13.0625 2.375C15.5009 2.375 17.4167 4.28292 17.4167 6.72917C17.4167 9.71375 14.725 12.16 10.648 15.8571L9.50004 16.9021Z"
-          fill="#D12B2B"
-        />
-      </motion.svg>
+      {isLogin ? (
+        <motion.svg
+          className="absolute my-auto mx-auto top-0 left-0 right-0 bottom-0  "
+          xmlns="http://www.w3.org/2000/svg"
+          width="19"
+          height="19"
+          viewBox="0 0 19 19"
+          variants={variants}
+          initial="initial"
+          animate={isLike ? "liked" : "initial"}
+        >
+          <path
+            d="M9.50004 16.9021L8.35212 15.8571C4.27504 12.16 1.58337 9.71375 1.58337 6.72917C1.58337 4.28292 3.49921 2.375 5.93754 2.375C7.31504 2.375 8.63712 3.01625 9.50004 4.02167C10.363 3.01625 11.685 2.375 13.0625 2.375C15.5009 2.375 17.4167 4.28292 17.4167 6.72917C17.4167 9.71375 14.725 12.16 10.648 15.8571L9.50004 16.9021Z"
+            fill="#D12B2B"
+          />
+        </motion.svg>
+      ) : (
+        <AnimatePresence>
+          {isAnimationVisible && (
+            <motion.div
+              className="absolute z-10 w-[70%] px-[20px] h-min my-auto mx-auto top-0 left-0 right-0 bottom-0 bg-[#181818]  text-[#DCD7C9]    "
+              initial={{ opacity: 1 }}
+              animate={{ opacity: [1, 1, 0] }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 3 }}
+              onAnimationComplete={() => setAnimationVisible(false)}
+            >
+              INI TULISANNYA ENAKNYA APA YA GESS HOAOAOAOAO
+            </motion.div>
+          )}
+        </AnimatePresence>
+      )}
 
       <motion.div className="h-[470px] w-[270px] rounded-[20px] bg-[#DCD7C9]">
         <div className="h-[250px]">

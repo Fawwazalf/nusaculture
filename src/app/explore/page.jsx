@@ -7,7 +7,8 @@ import Navigation from "@/components/Navigation";
 
 import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
-import { getAllCultures, getIsIndo } from "@/utils/data";
+import { getAllCultures, getIsIndo, getIsLogin } from "@/utils/data";
+import CardProfile from "@/components/CardProfile";
 
 const itemVariants = {
   open: {
@@ -20,6 +21,7 @@ const itemVariants = {
 
 const Page = () => {
   const lang = getIsIndo();
+  const isLogin = getIsLogin();
   const searchParams = useSearchParams();
   const [isOpen, setIsOpen] = useState(false);
 

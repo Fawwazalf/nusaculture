@@ -92,7 +92,7 @@ const page = () => {
           {numberColors.map((color, index) => (
             <div key={index} className={`flex xl:flex-col items-center`}>
               <div
-                className={`h-[6px] xl:h-[55px] w-[20px] md:w-[30px] xl:w-[8px] bg-[${color}]`}
+                className={`h-[6px] xl:h-[55px] w-[20px] md:w-[30px] xl:w-[8px] bg-[#D6CEBA]`}
               ></div>
               {color === "#725035" ? (
                 <div className="w-[43px] h-[43px] md:w-[55px] md:h-[55px] lg:w-[64px] lg:h-[64px] bg-[#725035] rounded-full lg:text-[22px] font-semibold text-[#D6CEBA] flex justify-center items-center">

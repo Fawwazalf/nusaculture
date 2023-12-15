@@ -1,5 +1,5 @@
 let isIndo = true
-
+let isLogin = false
 let cultures = [
     
     {
@@ -323,6 +323,19 @@ function setEng(){
    
 }
 
+function getIsLogin(){
+    return isLogin
+}
+function login(){
+    isLogin = true
+   
+}
+
+function logout(){
+    isLogin = false
+   
+}
+
 function getAllCultures() {
     return cultures;
   }
@@ -348,6 +361,9 @@ function handleLikeCulture(id) {
   }
 
   export {
+    getIsLogin,
+    login,
+    logout,
     getIsIndo,
     setIndo,
     setEng,

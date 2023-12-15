@@ -1,12 +1,18 @@
 "use client";
-import { getIsIndo } from "@/utils/data";
+import { getIsIndo, login } from "@/utils/data";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
-
+import { useRouter } from "next/navigation";
+import { useHistory } from "react-router-dom";
 import { useState } from "react";
 
 const page = () => {
+  const history = useHistory();
+  const router = useRouter();
+  const handleLogin = () => {
+    login();
+    history.push("/explore");
+  };
   const lang = getIsIndo();
   const [masuk, setMasuk] = useState(true);
   const variants = {
@@ -59,7 +65,7 @@ const page = () => {
               {lang ? "Daftar" : "Register"}
             </p>
           </div>
-          <form className="flex flex-col w-[400px]">
+          <form className="flex flex-col w-[400px]" onSubmit={handleLogin}>
             <label
               for="name"
               className="text-white ml-[5px] mb-[3px] font-semibold"
@@ -140,7 +146,7 @@ const page = () => {
               type="submit"
               className="w-full bg-[#F1ECDE] rounded-[10px] h-[50px] text-[18px] font-bold text-[#725035] mt-[22px]"
             >
-              {lang ? "Masuk" : "Login"}
+              {lang ? "MASUK" : "LOGIN"}
             </button>
           </form>
 
@@ -217,7 +223,7 @@ const page = () => {
               {lang ? "Masuk" : "Login"}
             </p>
           </div>
-          <form className="flex flex-col w-[400px]">
+          <form className="flex flex-col w-[400px]" onSubmit={handleLogin}>
             <label
               for="name"
               className="text-white ml-[5px] mb-[3px] font-semibold"
