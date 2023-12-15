@@ -3,15 +3,13 @@ import { getIsIndo, login } from "@/utils/data";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useHistory } from "react-router-dom";
 import { useState } from "react";
 
 const page = () => {
-  const history = useHistory();
   const router = useRouter();
   const handleLogin = () => {
     login();
-    history.push("/explore");
+    router.push("/explore");
   };
   const lang = getIsIndo();
   const [masuk, setMasuk] = useState(true);
