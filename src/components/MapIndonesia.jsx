@@ -26,7 +26,7 @@ const draw = {
 const MapIndonesia = () => {
   const router = useRouter();
   const handleClick = (provinsi) => {
-    router.push(`/explore?prov=${provinsi}`);
+    router.replace(`/explore?prov=${provinsi}`);
   };
   return (
     <div

@@ -7,7 +7,7 @@ import Navigation from "@/components/Navigation";
 
 import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
-import { getAllCultures } from "@/utils/data";
+import { getAllCultures, getIsIndo } from "@/utils/data";
 
 const itemVariants = {
   open: {
@@ -19,6 +19,7 @@ const itemVariants = {
 };
 
 const Page = () => {
+  const lang = getIsIndo();
   const searchParams = useSearchParams();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -46,12 +47,11 @@ const Page = () => {
             type="text"
             value={searchValue}
             onChange={(e) => setSearchValue(e.target.value)}
-            placeholder="Cari Kebudayaan"
+            placeholder={lang ? "Cari Kebudayaan" : "Search Culture"}
             className="focus:outline-none w-[700px] mx-auto text-[18px] text-[#000000] font-medium"
           />
-          <button>
-            <Image src="IconSearch.svg" alt="" width={23.32} height={23.32} />
-          </button>
+
+          <Image src="IconSearch.svg" alt="" width={23.32} height={23.32} />
         </div>
         <motion.div
           initial={false}
@@ -63,7 +63,7 @@ const Page = () => {
             onClick={() => setIsOpen(!isOpen)}
             className="w-full bg-white py-2 px-5 rounded-[50px] text-[18px] font-medium text-opacity-60 text-[#6f6e6e] flex justify-between items-center"
           >
-            Pilih Provinsi
+            {lang ? "Pilih Provinsi" : "Select Province"}
             <motion.div
               variants={{
                 open: { rotate: 180 },
@@ -107,7 +107,7 @@ const Page = () => {
               }`}
               onClick={() => setSelectedOption("")}
             >
-              Semua Provinsi
+              {lang ? "Semua Provinsi" : "All Province"}
             </motion.li>
             {cultures.map((item) => (
               <motion.li
