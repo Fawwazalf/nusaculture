@@ -396,11 +396,25 @@ const page = () => {
                 />
               </svg>
             </div>
-            <p className="text-white/60 text-[12px] mt-[15px] lg:hidden">Belum mempunyai akun? <Link href="/register" className="hover:text-[#c08d63] text-[#725035] font-semibold">Daftar</Link></p>
+            <p className="text-white/60 text-[12px] mt-[15px] lg:hidden">
+              Belum mempunyai akun?{" "}
+              <Link
+                href="/register"
+                className="hover:text-[#c08d63] text-[#725035] font-semibold"
+              >
+                Daftar
+              </Link>
+            </p>
+          </div>
+          <div className="w-full h-[720px] lg:w-[55%] lg:h-screen bg-[#20292C]/50 rounded-t-[50px] lg:rounded-l-[50px] lg:rounded-tr-none">
+            <Link href="/register">
+              <p className="text-[#FFF9E966]/40 font-semibold text-center mt-[27px] lg:hidden">
+                Daftarkan akun anda!
+              </p>
+            </Link>
+          </div>
         </div>
-        <div className="w-full h-[720px] lg:w-[55%] lg:h-screen bg-[#20292C]/50 rounded-t-[50px] lg:rounded-l-[50px] lg:rounded-tr-none">
-          <Link href="/register"><p className="text-[#FFF9E966]/40 font-semibold text-center mt-[27px] lg:hidden">Daftarkan akun anda!</p></Link>
-        </div>
+      </div>
     </div>
   );
 };
