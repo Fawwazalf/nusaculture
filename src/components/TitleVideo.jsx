@@ -6,7 +6,7 @@ const TitleVideo = () => {
   return (
     <div>
       <p
-        className="absolute top-[2px] left-[4px] z-10 w-max text-[50px] "
+        className="absolute top-[2px] left-[4px] z-10 w-max "
         style={{
           WebkitTextStroke: "1px #FFFFFF ",
           opacity: 0.42,
