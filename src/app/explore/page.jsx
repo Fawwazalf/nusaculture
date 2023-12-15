@@ -8,7 +8,6 @@ import Navigation from "@/components/Navigation";
 import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { getAllCultures, getIsIndo, getIsLogin } from "@/utils/data";
-import CardProfile from "@/components/CardProfile";
 
 const itemVariants = {
   open: {

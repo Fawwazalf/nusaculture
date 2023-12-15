@@ -120,7 +120,7 @@ const Navigation = () => {
         </div>
       </div>
       <motion.div
-        className="flex flex-col items-center absolute right-0 top-[150px] mr-[117px]"
+        className="flex flex-col items-center absolute right-0 top-[100px] mr-[117px]"
         variants={{
           open: {
             opacity: 1,
@@ -132,7 +132,8 @@ const Navigation = () => {
         initial={false}
         animate={isOpen ? "open" : "closed"}
       >
-        <div className="w-[118px] h-[118px] bg-[#F1ECDE] mt-[-59px] flex justify-center items-center rounded-full absolute">
+        <div className="w-[350px] h-[350px] bg-[#20292C] rounded-[20px] flex flex-col items-center ">
+        <div className="w-[118px] h-[118px] bg-[#F1ECDE] flex justify-center items-center mt-[44px] rounded-full relatve">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="62"
@@ -148,8 +149,7 @@ const Navigation = () => {
             />
           </svg>
         </div>
-        <div className="w-[350px] h-[258px] bg-[#20292C] rounded-[20px]">
-          <div className="flex justify-end m-[20px]">
+          <div className="ml-[90%] m-[20px] absolute">
             <button onClick={() => handleExitProfile()}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -166,7 +166,7 @@ const Navigation = () => {
             </button>
           </div>
           <div className=" flex flex-col items-center">
-            <div className="flex w-[230px] mt-[30px] justify-center">
+            <div className="flex w-[230px] mt-[20px] justify-center">
               <p className="text-white font-medium mr-[8px]">
                 {isLogin ? "Sudah Login" : "Belum Login"}
               </p>
@@ -183,7 +183,7 @@ const Navigation = () => {
                 />
               </svg>
             </div>
-            <p className="text-white/60 text-[14px] mt-[16px] mb-[30px]">
+            <p className="text-white/60 text-[14px] mt-[10px] mb-[30px]">
               {isLogin ? "sudahlogin.com" : "belumlogin.com"}
             </p>
             {isLogin ? (
