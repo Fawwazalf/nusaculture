@@ -1,3 +1,5 @@
+let isIndo = true
+
 let cultures = [
     {
         "id": 1,
