@@ -22,7 +22,7 @@ export default function Home() {
     <div className="bg-[#181818] ">
       <Navigation />
       <Carousel />
-      <div className=" h-screen w-full flex flex-col justify-center items-center">
+      <div className="h-[70vh] md:h-screen w-full flex flex-col justify-center items-center">
         <div className="mb-[10px] text-[20px] md:text-[40px] lg:text-[50px] font-semibold relative">
           <TitleMap />
         </div>
@@ -33,7 +33,7 @@ export default function Home() {
         </p>
         <MapIndonesia />
       </div>
-      <div className="w-full h-screen flex flex-col justify-center items-center  bg-[url('/bgFunFact.png')]">
+      <div className="w-full h-full md:h-screen flex flex-col justify-center items-center  bg-[url('/bgFunFact.png')]">
         <div className="mb-[45px] font-semibold relative">
           <TitleFunFact />
         </div>
@@ -43,7 +43,7 @@ export default function Home() {
           <CardFunfact />
         </div>
       </div>
-      <div className="h-screen flex flex-col justify-center items-center ">
+      <div className="w-full h-screen flex flex-col justify-center items-center ">
         <div className="flex justify-center items-center h-max mb-[20px]">
           <div className="w-[45px] h-[45px] md:w-[90px] md:h-[90px] lg:w-[104px] lg:h-[104px]">
             <Image
