@@ -26,7 +26,7 @@ export default function Home() {
           </p>
         </div>
 
-        <p className="mb-[40px] text-[#AEAEAE] w-[1000px] text-center mx-[100px]">
+        <p className="mb-[40px] text-[#AEAEAE] w-[75%] text-center ">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt
           voluptatibus aliquid esse magnam ullam illo laudantium!
           Teneturvoluptatum, nobis autem, magni aperiam minima omnis ducimus
@@ -54,7 +54,7 @@ export default function Home() {
             Fakta Menarik
           </p>
         </div>
-        <div className="flex justify-between w-[1050px]">
+        <div className="flex flex-wrap justify-center gap-6 lg:justify-between w-[80%] md:w-[600px] lg:w-[900px] xl:w-[1050px]">
           <CardFunfact />
           <CardFunfact />
           <CardFunfact />
