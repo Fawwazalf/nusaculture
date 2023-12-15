@@ -1,10 +1,12 @@
 "use client";
+import { getIsIndo } from "@/utils/data";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
+
 import { useState } from "react";
 
 const page = () => {
+  const lang = getIsIndo();
   const [masuk, setMasuk] = useState(true);
   const variants = {
     left: {
@@ -38,21 +40,22 @@ const page = () => {
         ></Image>
       </motion.div>
       <div className="flex justify-between z-[1]">
-        <div
-          className="flex flex-col justify-center items-center w-[45%] h-screen"
-          style={masuk ? 'opacity: "1"' : 'opacity: "0"'}
-        >
+        <div className="flex flex-col justify-center items-center w-[45%] h-screen">
           <div className="w-[400px] mb-[30px]">
-            <p className="text-white/60 font-semibold">MASUK SEKARANG</p>
-            <p className="font-semibold text-[36px] my-[8px] text-[#E5DECC]">
-              MASUK
+            <p className="text-white/60 font-semibold">
+              {lang ? "MASUK SEKARANG" : "LOGIN NOW"}
             </p>
-            <p className="text-white/60 inline-block">Sudah mempunyai akun?</p>
+            <p className="font-semibold text-[36px] my-[8px] text-[#E5DECC]">
+              {lang ? "MASUK" : "LOGIN"}
+            </p>
+            <p className="text-white/60 inline-block">
+              {lang ? "Belum mempunyai akun?" : "Don't have an account yet?"}
+            </p>
             <p
-              className="hover:text-[#c08d63] text-[#725035] inline-block ml-[3px] underline"
+              className="hover:text-[#c08d63] text-[#725035] inline-block ml-[3px] underline cursor-pointer"
               onClick={() => setMasuk(false)}
             >
-              Daftar
+              {lang ? "Daftar" : "Register"}
             </p>
           </div>
           <form className="flex flex-col w-[400px]">
@@ -60,7 +63,7 @@ const page = () => {
               for="name"
               className="text-white ml-[5px] mb-[3px] font-semibold"
             >
-              Nama Pengguna
+              {lang ? "Nama Pengguna" : "Username"}
             </label>
             <div className="flex w-full h-[50px] items-center border-2 border-white/50 rounded-[15px]">
               <svg
@@ -95,8 +98,8 @@ const page = () => {
                 type="text"
                 id="name"
                 name="name"
-                placeholder="Masukkan Nama Pengguna"
-                className="bg-transparent w-full mx-[10px] focus:outline-none focus:text-white font-semibold "
+                placeholder={lang ? "Masukkan Nama Pengguna" : "Enter Username"}
+                className="bg-transparent w-full mx-[10px] focus:outline-none text-white font-semibold "
                 required
               />
             </div>
@@ -105,7 +108,7 @@ const page = () => {
               for="password"
               className="text-white ml-[5px] mb-[3px] mt-[15px] font-semibold"
             >
-              Password
+              {lang ? "Kata Sandi" : "Password"}
             </label>
             <div className="flex w-full h-[50px] items-center border-2 border-white/50 rounded-[15px]">
               <svg
@@ -126,8 +129,8 @@ const page = () => {
                 type="password"
                 id="password"
                 name="password"
-                placeholder="Maukkan Kata Sandi"
-                className="bg-transparent w-full mx-[10px] focus:outline-none focus:text-white font-semibold "
+                placeholder={lang ? "Masukkan Kata Sandi" : "Enter Password"}
+                className="bg-transparent w-full mx-[10px] focus:outline-none text-white font-semibold "
                 required
               />
             </div>
@@ -136,14 +139,16 @@ const page = () => {
               type="submit"
               className="w-full bg-[#F1ECDE] rounded-[10px] h-[50px] text-[18px] font-bold text-[#725035] mt-[22px]"
             >
-              Masuk
+              {lang ? "Masuk" : "Login"}
             </button>
           </form>
 
           <div className="flex items-center mt-[17px]">
             <div className="w-[100px] h-[1px] bg-[#F1ECDE]"></div>
             <p className="text-[#F1ECDE] font-light text-[10px] mx-[10px]">
-              Atau masuk dengan platform sosial
+              {lang
+                ? "Atau masuk dengan platform sosial"
+                : "Or log in with social platforms"}
             </p>
             <div className="w-[90px] h-[1px] bg-[#F1ECDE]"></div>
           </div>
@@ -195,16 +200,20 @@ const page = () => {
         </div>
         <div className="flex flex-col justify-center items-center w-[45%] h-screen">
           <div className="w-[400px] mb-[30px]">
-            <p className="text-white/60 font-semibold">MULAI PERJALANAN ANDA</p>
-            <p className="font-semibold text-[36px] my-[8px] text-[#E5DECC]">
-              DAFTAR
+            <p className="text-white/60 font-semibold">
+              {lang ? "MULAI PERJALANAN ANDA" : "START YOUR JOURNEY"}
             </p>
-            <p className="text-white/60 inline-block">Belum mempunyai akun?</p>
+            <p className="font-semibold text-[36px] my-[8px] text-[#E5DECC]">
+              {lang ? "DAFTAR" : "REGISTER"}
+            </p>
+            <p className="text-white/60 inline-block">
+              {lang ? "Sudah mempunyai akun?" : "Already have an account?"}
+            </p>
             <p
-              className="hover:text-[#c08d63] text-[#725035] inline-block ml-[3px] underline"
+              className="hover:text-[#c08d63] text-[#725035] inline-block ml-[3px] underline cursor-pointer"
               onClick={() => setMasuk(true)}
             >
-              Masuk
+              {lang ? "Masuk" : "Login"}
             </p>
           </div>
           <form className="flex flex-col w-[400px]">
@@ -212,7 +221,7 @@ const page = () => {
               for="name"
               className="text-white ml-[5px] mb-[3px] font-semibold"
             >
-              Nama Pengguna
+              {lang ? "Nama Pengguna" : "Username"}
             </label>
             <div className="flex w-full h-[50px] items-center border-2 border-white/50 rounded-[15px]">
               <svg
@@ -247,8 +256,8 @@ const page = () => {
                 type="text"
                 id="name"
                 name="name"
-                placeholder="Masukkan Nama Pengguna"
-                className="bg-transparent w-full mx-[10px] focus:outline-none focus:text-white font-semibold "
+                placeholder={lang ? "Masukkan Nama Pengguna" : "Enter Username"}
+                className="bg-transparent w-full mx-[10px] focus:outline-none text-white font-semibold "
                 required
               />
             </div>
@@ -290,7 +299,7 @@ const page = () => {
                 id="email"
                 name="email"
                 placeholder="Masukkan Email"
-                className="bg-transparent w-full mx-[10px] focus:outline-none focus:text-white font-semibold "
+                className="bg-transparent w-full mx-[10px] focus:outline-none text-white font-semibold "
                 required
               />
             </div>
@@ -298,7 +307,7 @@ const page = () => {
               for="password"
               className="text-white ml-[5px] mb-[3px] mt-[15px] font-semibold"
             >
-              Password
+              {lang ? "Kata Sandi" : "Password"}
             </label>
 
             <div className="flex w-full h-[50px] items-center border-2 border-white/50 rounded-[15px]">
@@ -320,8 +329,8 @@ const page = () => {
                 type="password"
                 id="password"
                 name="password"
-                placeholder="Maukkan Kata Sandi"
-                className="bg-transparent w-full mx-[10px] focus:outline-none focus:text-white font-semibold "
+                placeholder={lang ? "Masukkan Kata Sandi" : "Enter Password"}
+                className="bg-transparent w-full mx-[10px] focus:outline-none text-white font-semibold "
                 required
               />
             </div>
@@ -330,14 +339,16 @@ const page = () => {
               type="submit"
               className="w-full bg-[#F1ECDE] rounded-[10px] h-[50px] text-[18px] font-bold text-[#725035] mt-[22px]"
             >
-              DAFTAR
+              {lang ? "DAFTAR" : "REGISTER"}
             </button>
           </form>
 
           <div className="flex items-center mt-[17px]">
             <div className="w-[100px] h-[1px] bg-[#F1ECDE]"></div>
             <p className="text-[#F1ECDE] font-light text-[10px] mx-[10px]">
-              Atau daftar dengan platform sosial
+              {lang
+                ? "Atau daftar dengan platform sosial"
+                : "Or register with social platforms"}
             </p>
             <div className="w-[90px] h-[1px] bg-[#F1ECDE]"></div>
           </div>

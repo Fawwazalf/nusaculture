@@ -1,14 +1,15 @@
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { handleLikeCulture } from "@/utils/data";
+import { handleLikeCulture, getIsIndo } from "@/utils/data";
 import { useState } from "react";
 
 const CardCulture = ({ id, img, title, prov, desc, like }) => {
+  const lang = getIsIndo();
   const [isLike, setIsLike] = useState(like);
   const router = useRouter();
 
-  const handleSelengkapnya = () => {
+  const handleSelengkapnya = ({}) => {
     router.push(`/explore/${id}`);
   };
 
@@ -115,7 +116,8 @@ const CardCulture = ({ id, img, title, prov, desc, like }) => {
               className="w-[115px] h-[30px] text-[12px] flex items-center justify-center bg-[#AEAEAE]/[0.3] rounded-[50px] py-[9px] border-solid border-2 border-black"
               onClick={handleSelengkapnya}
             >
-              Selengkapnya
+              {lang ? "Selengkapnya" : "More"}
+
               <Image
                 src="IconArrow.svg"
                 alt=""

@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import Navigation from "@/components/Navigation";
+import { getIsIndo } from "@/utils/data";
 
 const questions = [
   {
@@ -25,13 +25,15 @@ const questions = [
     correctAnswer: "Mars",
   },
   {
-    question: "What is the capital of France? What is the capital of France?What is the capital of France?",
+    question:
+      "What is the capital of France? What is the capital of France?What is the capital of France?",
     options: ["Berlin", "Paris", "Madrid", "Rome"],
     correctAnswer: "Paris",
   },
 ];
 
 const page = () => {
+  const lang = getIsIndo();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [userAnswers, setUserAnswers] = useState(
     new Array(questions.length).fill("")
@@ -61,7 +63,7 @@ const page = () => {
       console.log(userScore);
       setScore(userScore);
 
-      router.push(`/quiz/results?score=${userScore}`);
+      router.replace(`/quiz/results?score=${userScore}`);
     }
   };
 
@@ -149,9 +151,9 @@ const page = () => {
           </div>
           <div className="mx-[10px] ">
             <p className="text-[26px] md:text-[33px] lg:text-[40px] text-[#D6CEBA] font-semibold">
-              PERTANYAAN
+              {lang ? "PERTANYAAN" : "QUESTION"}
             </p>
-            <div className="w-[162px] md:w-[180px] lg:w-[225px] h-[3px] bg-[#725035] rounded-full mx-auto"></div>
+            <div className="w-full h-[3px] bg-[#725035] rounded-full mx-auto"></div>
           </div>
           <div className="w-[15px] md:w-[20px] lg:w-[26px] h-[19px] md:h-[25px] lg:h-[30px]">
             <svg
@@ -197,7 +199,13 @@ const page = () => {
             className="bg-[#FFF9E9]/10 border-2 border-[#FFF9E9] text-white text-[12px] md:text-[16px] lg:text-[18px] font-medium w-[162px] md:w-[230px] h-[38px] md:h-[55px] rounded-[100px] hover:border-[#725035]"
             onClick={handleNext}
           >
-            {currentQuestion < questions.length - 1 ? "Selanjutnya" : "Submit"}
+            {currentQuestion < questions.length - 1
+              ? lang
+                ? "Selanjutnya"
+                : "Next"
+              : lang
+              ? "Kirim"
+              : "Submit"}
           </button>
         </div>
       </div>

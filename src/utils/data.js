@@ -1,3 +1,5 @@
+let isIndo = true
+
 let cultures = [
     
     {
@@ -308,6 +310,19 @@ let cultures = [
     }
 ];
 
+function getIsIndo(){
+    return isIndo
+}
+function setIndo(){
+    isIndo = true
+   
+}
+
+function setEng(){
+    isIndo = false
+   
+}
+
 function getAllCultures() {
     return cultures;
   }
@@ -333,6 +348,9 @@ function handleLikeCulture(id) {
   }
 
   export {
+    getIsIndo,
+    setIndo,
+    setEng,
     getAllCultures,
     getCulture,
     getFavCulture,

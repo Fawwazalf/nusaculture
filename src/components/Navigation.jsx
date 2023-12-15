@@ -3,12 +3,27 @@ import Link from "next/link";
 import { Spirax } from "next/font/google";
 import Image from "next/image";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
+
 import { useState } from "react";
 import { usePathname } from "next/navigation";
+import { setEng, setIndo, getIsIndo } from "@/utils/data";
+import { useRouter } from "next/navigation";
 
 const spirax = Spirax({ subsets: ["latin"], weight: "400", display: "swap" });
 const Navigation = () => {
+  const lang = getIsIndo();
+  const router = useRouter();
   const pathname = usePathname();
+  const handleSetIndo = () => {
+    setIndo();
+    router.refresh();
+  };
+
+  const handleSetEng = () => {
+    setEng();
+    router.refresh();
+  };
+
   const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
   const [top, setTop] = useState(true);
@@ -39,23 +54,49 @@ const Navigation = () => {
       <p className={`text-4xl  ${spirax.className}`}>Nusa Culture</p>
       <div className="flex">
         <ul className="flex justify-center items-center gap-[48px]">
-          <li className={`hover:underline underline-offset-[5px]  ${pathname === '/' ? 'underline underline-offset-[5px]' : ''}`}>
+          <li
+            className={`hover:underline underline-offset-[5px]  ${
+              pathname === "/" ? "underline underline-offset-[5px]" : ""
+            }`}
+          >
             <Link href="/">HOME</Link>
           </li>
-          <li className={`hover:underline underline-offset-[5px] ${pathname === '/explore' ? 'underline underline-offset-[5px]' : ''}`}>
+          <li
+            className={`hover:underline underline-offset-[5px] ${
+              pathname === "/explore" ? "underline underline-offset-[5px]" : ""
+            }`}
+          >
             <Link href="/explore">EXPLORE</Link>
           </li>
-          <li className={`hover:underline underline-offset-[5px] ${pathname === '/quiz' ? 'underline underline-offset-[5px]' : ''}`}>
+          <li
+            className={`hover:underline underline-offset-[5px] ${
+              pathname === "/quiz" ? "underline underline-offset-[5px]" : ""
+            }`}
+          >
             <Link href="/quiz">QUIZ</Link>
           </li>
-          <li className={`hover:underline underline-offset-[5px] ${pathname === '/favorite' ? 'underline underline-offset-[5px]' : ''}`}>
+          <li
+            className={`hover:underline underline-offset-[5px] ${
+              pathname === "/favorite" ? "underline underline-offset-[5px]" : ""
+            }`}
+          >
             <Link href="/favorite">FAVORITE</Link>
           </li>
         </ul>
         <div className="flex ml-6 bg-[#C3C3C3]/[0.15] py-[7px] px-[22px] rounded-[26px]  justify-center items-center mr-[20px]">
-          <p className="mr-2 text-[#565555] cursor-pointer">ID</p>
+          <p
+            className={` ${lang ? "" : "text-[#565555]"} mr-2 cursor-pointer`}
+            onClick={() => handleSetIndo()}
+          >
+            ID
+          </p>
           <div>|</div>
-          <p className="ml-2 cursor-pointer">EN</p>
+          <p
+            className={` ${lang ? "text-[#565555]" : ""} ml-2 cursor-pointer`}
+            onClick={() => handleSetEng()}
+          >
+            EN
+          </p>
         </div>
         <div className=" bg-[#C3C3C3]/[0.15] w-[45px] h-[45px] rounded-[26px] flex justify-center items-center cursor-pointer">
           <Image src="/IconProfile.svg" alt="" width={25} height={25} />

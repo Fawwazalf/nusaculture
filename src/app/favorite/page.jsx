@@ -7,7 +7,7 @@ import Navigation from "@/components/Navigation";
 
 import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
-import { getFavCulture } from "@/utils/data";
+import { getFavCulture, getIsIndo } from "@/utils/data";
 
 const itemVariants = {
   open: {
@@ -19,6 +19,7 @@ const itemVariants = {
 };
 
 const Page = () => {
+  const lang = getIsIndo();
   const searchParams = useSearchParams();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -49,9 +50,8 @@ const Page = () => {
             placeholder="Cari Kebudayaan"
             className="focus:outline-none w-[700px] mx-auto text-[18px] text-[#000000] font-medium"
           />
-          <button>
-            <Image src="IconSearch.svg" alt="" width={23.32} height={23.32} />
-          </button>
+
+          <Image src="IconSearch.svg" alt="" width={23.32} height={23.32} />
         </div>
         <motion.div
           initial={false}
@@ -63,7 +63,7 @@ const Page = () => {
             onClick={() => setIsOpen(!isOpen)}
             className="w-full bg-white py-2 px-5 rounded-[50px] text-[18px] font-medium text-opacity-60 text-[#6f6e6e] flex justify-between items-center"
           >
-            Pilih Provinsi
+            {lang ? "Pilih Provinsi" : "Select Province"}
             <motion.div
               variants={{
                 open: { rotate: 180 },
@@ -107,7 +107,7 @@ const Page = () => {
               }`}
               onClick={() => setSelectedOption("")}
             >
-              Semua Provinsi
+              {lang ? "Semua Provinsi" : "All Province"}
             </motion.li>
             {cultures.map((item) => (
               <motion.li
@@ -140,10 +140,12 @@ const Page = () => {
         {filteredResults.length === 0 && (
           <div>
             <p className="font-semibold text-[#D12B2B] text-[24px] mt-[-30px]">
-              Page Not Found :(
+              {lang ? "Budaya Tidak Ditemukan" : "Culture Not Found"}
             </p>
             <p className="font-light text-white/70 mt-[15px]">
-              We couldn’t find the page you were looking for
+              {lang
+                ? "Kami tidak dapat menemukan budaya yang Anda cari"
+                : "We couldn’t find the culture you were looking for"}
             </p>
           </div>
         )}
