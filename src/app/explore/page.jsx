@@ -43,15 +43,15 @@ const Page = () => {
     <div className="bg-[#181818] w-full min-h-screen flex flex-col">
       <Navigation />
       <div className="flex mx-auto md:mx-[117px] pt-[120px]">
-        <div className="flex w-[220px] md:w-[87%] lg:w-[70%] justify-between items-center py-2 px-5 rounded-[50px] bg-white mr-[10px] md:mr-[25px]">
+        <div className="flex w-[220px] md:w-[70%] justify-between items-center py-2 px-5 rounded-[50px] bg-white mr-[10px] md:mr-[25px]">
           <input
             type="text"
             value={searchValue}
             onChange={(e) => setSearchValue(e.target.value)}
             placeholder={lang ? "Cari Kebudayaan" : "Search Culture"}
-            className="focus:outline-none w-[140px] md:w-[700px] mx-auto text-[12px] md:text-[18px] text-[#000000] font-medium"
+            className="focus:outline-none w-[140px] md:w-[750px] mx-auto text-[12px] md:text-[14px] lg:text-[18px] text-[#000000] font-medium"
           />
-          <div className="w-[12px] h-[12px] md:w-[23px] md:h-[23px]">
+          <div className="w-[12px] h-[12px] md:w-[25px] md:h-[25px]">
             <Image src="IconSearch.svg" alt="" width={20} height={20}style={{
                 height: "100%",
                 width: "100%",
@@ -66,9 +66,9 @@ const Page = () => {
           <motion.button
             whileTap={{ scale: 0.97 }}
             onClick={() => setIsOpen(!isOpen)}
-            className="w-min lg:w-full h-full bg-white py-2 px-4 md:px-5 rounded-[50px] text-[18px] font-medium text-opacity-60 text-[#6f6e6e] flex justify-between items-center"
+            className="w-min md:w-full h-full bg-white py-2 px-4 lg:px-5 rounded-[50px] md:text-[14px] lg:text-[18px] font-medium text-opacity-60 text-[#6f6e6e] flex justify-between items-center"
           >
-            <span className="hidden lg:inline"> 
+            <span className="hidden md:inline"> 
               {lang ? "Pilih Provinsi" : "Select Province"}
             </span>
             <motion.div
@@ -146,8 +146,8 @@ const Page = () => {
             </div>
           ))}
           {filteredResults.length === 0 && (
-            <div>
-              <p className="font-semibold text-[#D12B2B] text-[24px] mt-[-30px]">
+            <div className="h-[40vh]">
+              <p className="font-semibold text-[#D12B2B] text-[24px] ">
                 Page Not Found :(
               </p>
               <p className="font-light text-white/70 mt-[15px]">
