@@ -134,7 +134,7 @@ const Carousel = () => {
                 onMouseLeave={(event) => handleMouseLeave(event, index)}
               >
                 <motion.div
-                  className="relative w-[300px] aspect-[3/4.7]"
+                  className="relative"
                   style={{
                     rotateY,
                     transition: "0.5s ease",
@@ -143,7 +143,14 @@ const Carousel = () => {
                     boxShadow: "0 0 20px 10px rgba(255, 255, 255, 0.30)",
                   }}
                 >
-                  <Image alt={image} fill src={image} sizes="300" priority />
+                  <Image
+                    alt={image}
+                    src={image}
+                    width={300}
+                    height={470}
+                    priority
+                    className=" w-[300px] aspect-[3/4.7]"
+                  />
                 </motion.div>
               </motion.div>
             );

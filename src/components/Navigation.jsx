@@ -27,6 +27,10 @@ const Navigation = () => {
     router.push("login");
   };
 
+  const handleLogout = () => {
+    logout();
+    router.refresh();
+  };
   const pathname = usePathname();
   const handleSetIndo = () => {
     setIndo();
@@ -35,11 +39,6 @@ const Navigation = () => {
 
   const handleSetEng = () => {
     setEng();
-    router.refresh();
-  };
-
-  const handleLogout = () => {
-    logout();
     router.refresh();
   };
 
@@ -63,17 +62,44 @@ const Navigation = () => {
         variants={{
           topest: { y: 0, background: "transparent" },
           visible: { y: 0, backgroundColor: "#181818" },
-          hidden: { y: -100 },
+          hidden: { y: -150, backgroundColor: "#181818" },
         }}
         animate={hidden ? "hidden" : top ? "topest" : "visible"}
         initial={"topest"}
         transition={{ duration: 0.35, ease: "easeInOut" }}
-        className={`flex justify-between w-full px-[117px] py-5 text-[18px] items-center text-[#DCD7C9] font-medium fixed  z-50 
-    }`}
+        className={`flex md:justify-between w-full md:px-[117px] py-5 md:text-[14px] lg:text-[16px] xl:text-[18px] items-center text-[#DCD7C9] font-medium fixed z-50 
+      }`}
       >
-        <p className={`text-4xl  ${spirax.className}`}>Nusa Culture</p>
-        <div className="flex">
-          <ul className="flex justify-center items-center gap-[48px]">
+        <div className="w-full flex justify-between items-center mx-[40px] mt-[10px] md:hidden">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="14"
+            viewBox="0 0 20 14"
+            fill="none"
+            className="md:hidden"
+          >
+            <path d="M1 1H19" stroke="#DCD7C9" stroke-linecap="round" />
+            <path d="M1 7H19" stroke="#DCD7C9" stroke-linecap="round" />
+            <path d="M1 13H19" stroke="#DCD7C9" stroke-linecap="round" />
+          </svg>
+          <p className={`text-2xl md:text-2xl lg:text-4xl ${spirax.className}`}>
+            Nusa Culture
+          </p>
+          <div
+            className=" bg-[#C3C3C3]/[0.15] w-[45px] h-[45px] rounded-[26px] md:hidden flex justify-center items-center cursor-pointer"
+            onClick={() => handleClickProfile()}
+          >
+            <Image src="/IconProfile.svg" alt="" width={25} height={25} />
+          </div>
+        </div>
+        <p
+          className={`hidden md:inline-block text-2xl md:text-2xl lg:text-4xl ${spirax.className}`}
+        >
+          Nusa Culture
+        </p>
+        <div className=" hidden md:flex ">
+          <ul className="flex justify-center items-center  md:gap-[25px] lg:gap-[48px]">
             <li
               className={`hover:underline underline-offset-[5px]  ${
                 pathname === "/" ? "underline underline-offset-[5px]" : ""
@@ -107,7 +133,7 @@ const Navigation = () => {
               <Link href="/favorite">FAVORITE</Link>
             </li>
           </ul>
-          <div className="flex ml-6 bg-[#C3C3C3]/[0.15] py-[7px] px-[22px] rounded-[26px]  justify-center items-center mr-[20px]">
+          <div className="flex ml-6 bg-[#C3C3C3]/[0.15]  px-[18px] lg:py-[7px] lg:px-[22px] rounded-[26px]  justify-center items-center mr-[20px]">
             <p
               className={` ${lang ? "" : "text-[#565555]"} mr-2 cursor-pointer`}
               onClick={() => handleSetIndo()}
@@ -131,7 +157,7 @@ const Navigation = () => {
         </div>
       </motion.nav>
       <motion.div
-        className="flex flex-col items-center fixed  top-[150px] right-[117px] z-40"
+        className="flex flex-col items-center fixed right-0 top-[100px] mr-[40px] md:mr-[117px] z-20"
         variants={{
           open: {
             opacity: 1,
@@ -139,40 +165,40 @@ const Navigation = () => {
             y: 0,
             transition: { type: "spring", stiffness: 300, damping: 24 },
           },
+          scroll: {
+            opacity: 1,
+            scale: 1,
+            y: -100,
+            transition: { type: "spring", stiffness: 300, damping: 24 },
+          },
           closed: {
             opacity: 0,
             scale: 0,
-            y: -100,
+            y: -200,
             transition: { duration: 0.2 },
-          },
-          scroll: {
-            scale: 1,
-            opacity: 1,
-            y: -90,
-            transition: { duration: 0.5 },
           },
         }}
         initial={false}
         animate={isOpen ? (hidden ? "scroll" : "open") : "closed"}
       >
-        <div className="w-[118px] h-[118px] bg-[#F1ECDE] mt-[-59px] flex justify-center items-center rounded-full fixed">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="62"
-            height="62"
-            viewBox="0 0 62 62"
-            fill="none"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M17.3333 13.9167C17.3333 10.292 18.7732 6.81587 21.3362 4.25287C23.8992 1.68988 27.3754 0.25 31 0.25C34.6246 0.25 38.1008 1.68988 40.6638 4.25287C43.2268 6.81587 44.6667 10.292 44.6667 13.9167C44.6667 17.5413 43.2268 21.0175 40.6638 23.5805C38.1008 26.1435 34.6246 27.5833 31 27.5833C27.3754 27.5833 23.8992 26.1435 21.3362 23.5805C18.7732 21.0175 17.3333 17.5413 17.3333 13.9167ZM17.3333 34.4167C12.8026 34.4167 8.45734 36.2165 5.25359 39.4203C2.04985 42.624 0.25 46.9692 0.25 51.5C0.25 54.2185 1.32991 56.8256 3.25216 58.7478C5.1744 60.6701 7.78153 61.75 10.5 61.75H51.5C54.2185 61.75 56.8256 60.6701 58.7478 58.7478C60.6701 56.8256 61.75 54.2185 61.75 51.5C61.75 46.9692 59.9502 42.624 56.7464 39.4203C53.5427 36.2165 49.1974 34.4167 44.6667 34.4167H17.3333Z"
-              fill="#20292C"
-            />
-          </svg>
-        </div>
-        <div className="w-[350px] h-[258px] bg-[#20292C] rounded-[20px]">
-          <div className="flex justify-end m-[20px]">
+        <div className="w-[350px] h-[350px] bg-[#20292C] rounded-[20px] flex flex-col items-center ">
+          <div className="w-[118px] h-[118px] bg-[#F1ECDE] flex justify-center items-center mt-[44px] rounded-full relatve">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="62"
+              height="62"
+              viewBox="0 0 62 62"
+              fill="none"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M17.3333 13.9167C17.3333 10.292 18.7732 6.81587 21.3362 4.25287C23.8992 1.68988 27.3754 0.25 31 0.25C34.6246 0.25 38.1008 1.68988 40.6638 4.25287C43.2268 6.81587 44.6667 10.292 44.6667 13.9167C44.6667 17.5413 43.2268 21.0175 40.6638 23.5805C38.1008 26.1435 34.6246 27.5833 31 27.5833C27.3754 27.5833 23.8992 26.1435 21.3362 23.5805C18.7732 21.0175 17.3333 17.5413 17.3333 13.9167ZM17.3333 34.4167C12.8026 34.4167 8.45734 36.2165 5.25359 39.4203C2.04985 42.624 0.25 46.9692 0.25 51.5C0.25 54.2185 1.32991 56.8256 3.25216 58.7478C5.1744 60.6701 7.78153 61.75 10.5 61.75H51.5C54.2185 61.75 56.8256 60.6701 58.7478 58.7478C60.6701 56.8256 61.75 54.2185 61.75 51.5C61.75 46.9692 59.9502 42.624 56.7464 39.4203C53.5427 36.2165 49.1974 34.4167 44.6667 34.4167H17.3333Z"
+                fill="#20292C"
+              />
+            </svg>
+          </div>
+          <div className="ml-[90%] m-[20px] absolute">
             <button onClick={() => handleExitProfile()}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -189,7 +215,7 @@ const Navigation = () => {
             </button>
           </div>
           <div className=" flex flex-col items-center">
-            <div className="flex w-[230px] mt-[30px] justify-center">
+            <div className="flex w-[230px] mt-[20px] justify-center">
               <p className="text-white font-medium mr-[8px]">
                 {isLogin ? "Sudah Login" : "Belum Login"}
               </p>
@@ -206,7 +232,7 @@ const Navigation = () => {
                 />
               </svg>
             </div>
-            <p className="text-white/60 text-[14px] mt-[16px] mb-[30px]">
+            <p className="text-white/60 text-[14px] mt-[10px] mb-[30px]">
               {isLogin ? "sudahlogin.com" : "belumlogin.com"}
             </p>
             {isLogin ? (
@@ -221,23 +247,23 @@ const Navigation = () => {
                   <path
                     d="M16 5V4C16 3.44772 15.5523 3 15 3H6C5.44771 3 5 3.44772 5 4V20C5 20.5523 5.44772 21 6 21H15C15.5523 21 16 20.5523 16 20V19"
                     stroke="#F1ECDE"
-                    strokeOpacity="0.6"
-                    strokeWidth="2"
-                    strokeLinecap="round"
+                    stroke-opacity="0.6"
+                    stroke-width="2"
+                    stroke-linecap="round"
                   />
                   <path
                     d="M10 12H21"
                     stroke="#F1ECDE"
-                    strokeOpacity="0.6"
-                    strokeWidth="2"
-                    strokeLinecap="round"
+                    stroke-opacity="0.6"
+                    stroke-width="2"
+                    stroke-linecap="round"
                   />
                   <path
                     d="M17.5 8.5L21 12L17.5 15.5"
                     stroke="#F1ECDE"
-                    strokeOpacity="0.6"
-                    strokeWidth="2"
-                    strokeLinecap="round"
+                    stroke-opacity="0.6"
+                    stroke-width="2"
+                    stroke-linecap="round"
                   />
                 </svg>
                 <p
@@ -259,23 +285,23 @@ const Navigation = () => {
                   <path
                     d="M16 5V4C16 3.44772 15.5523 3 15 3H6C5.44771 3 5 3.44772 5 4V20C5 20.5523 5.44772 21 6 21H15C15.5523 21 16 20.5523 16 20V19"
                     stroke="#F1ECDE"
-                    strokeOpacity="0.6"
-                    strokeWidth="2"
-                    strokeLinecap="round"
+                    stroke-opacity="0.6"
+                    stroke-width="2"
+                    stroke-linecap="round"
                   />
                   <path
                     d="M10 12H21"
                     stroke="#F1ECDE"
-                    strokeOpacity="0.6"
-                    strokeWidth="2"
-                    strokeLinecap="round"
+                    stroke-opacity="0.6"
+                    stroke-width="2"
+                    stroke-linecap="round"
                   />
                   <path
                     d="M17.5 8.5L21 12L17.5 15.5"
                     stroke="#F1ECDE"
-                    strokeOpacity="0.6"
-                    strokeWidth="2"
-                    strokeLinecap="round"
+                    stroke-opacity="0.6"
+                    stroke-width="2"
+                    stroke-linecap="round"
                   />
                 </svg>
                 <p

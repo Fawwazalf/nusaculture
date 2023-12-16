@@ -36,17 +36,6 @@ const CardCulture = ({ id, img, title, prov, desc, like }) => {
     },
     initial: { scale: 10, opacity: 0, y: 0 },
   };
-  const variants2 = {
-    likedNotLogin: {
-      opacity: [0.5, 1, 0],
-      scale: 1,
-      y: 0,
-      transition: {
-        duration: 1,
-      },
-    },
-    initialNotLogin: { scale: 1, opacity: 0, y: 0 },
-  };
 
   return (
     <motion.div
@@ -82,9 +71,8 @@ const CardCulture = ({ id, img, title, prov, desc, like }) => {
             <motion.div
               className="absolute z-10 w-[70%] px-[20px] h-min my-auto mx-auto top-0 left-0 right-0 bottom-0 bg-[#181818]  text-[#DCD7C9]    "
               initial={{ opacity: 1 }}
-              animate={{ opacity: [1, 1, 0] }}
+              animate={{ opacity: [1], transition: { duration: 2 } }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 3 }}
               onAnimationComplete={() => setAnimationVisible(false)}
             >
               INI TULISANNYA ENAKNYA APA YA GESS HOAOAOAOAO
