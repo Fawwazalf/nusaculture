@@ -1,7 +1,7 @@
 "use client";
 import Footer from "@/components/Footer";
 import Navigation from "@/components/Navigation";
-import { getCulture } from "@/utils/data";
+import { getCulture, getIsIndo } from "@/utils/data";
 import { Ruthie } from "next/font/google";
 import Image from "next/image";
 
@@ -14,7 +14,7 @@ const ruthie = Ruthie({
 });
 const page = () => {
   const params = useParams();
-
+  const lang = getIsIndo();
   const culture = getCulture(parseInt(params.id));
   const titleCapitalize = culture.title
     .toLowerCase()
@@ -25,9 +25,9 @@ const page = () => {
   return (
     <div className="bg-[#181818] w-full h-full">
       <Navigation />
-      <div className="pt-[130px] flex flex-col items-center">
-        <div className="flex">
-          <div className="w-[480px] h-[430px]">
+      <div className="pt-[130px] flex flex-col items-center ">
+        <div className="flex ">
+          <div className="w-[480px]">
             <Image
               src={culture.img}
               alt={titleCapitalize}
@@ -52,23 +52,23 @@ const page = () => {
                 -{titleCapitalize}-
               </p>
             </div>
-            <div className="flex w-[760px] h-[355px]">
+            <div className="flex w-[760px] h-max">
               <div className="w-[5px] h-full bg-[#DCD7C9] justify-center mt-[5px] mr-[25px] ml-[25px]"></div>
               <p className="text-[#FFF9E9] w-full h-full font-light text-justify">
-                {culture.desc1}
+                {lang ? culture.desc1ind : culture.desc1eng}
               </p>
             </div>
           </div>
         </div>
         <div>
           <div className="flex mt-[50px] mb-[125px]">
-            <div className="flex w-[760px] h-[590px]">
+            <div className="flex w-[760px] ">
               <p className="text-[#FFF9E9] w-full h-full font-light text-justify">
-                {culture.desc2}
+                {lang ? culture.desc2ind : culture.desc2eng}
               </p>
               <div className="w-[5px] h-full bg-[#DCD7C9] justify-center mt-[5px] mr-[25px] ml-[25px]"></div>
             </div>
-            <div className="w-[480px] h-[595px]">
+            <div className="w-[480px] ">
               <Image
                 src={culture.img}
                 alt={titleCapitalize}

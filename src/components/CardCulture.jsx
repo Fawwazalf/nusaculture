@@ -122,8 +122,8 @@ const CardCulture = ({ id, img, title, prov, desc, like }) => {
               >
                 <path
                   d="M9.50004 16.9021L8.35212 15.8571C4.27504 12.16 1.58337 9.71375 1.58337 6.72917C1.58337 4.28292 3.49921 2.375 5.93754 2.375C7.31504 2.375 8.63712 3.01625 9.50004 4.02167C10.363 3.01625 11.685 2.375 13.0625 2.375C15.5009 2.375 17.4167 4.28292 17.4167 6.72917C17.4167 9.71375 14.725 12.16 10.648 15.8571L9.50004 16.9021Z"
-                  fill={isLike ? "#D12B2B" : "none"}
-                  stroke={isLike ? "none" : "black"}
+                  fill={isLogin ? (isLike ? "#D12B2B" : "none") : "none"}
+                  stroke={isLogin ? (isLike ? "none" : "black") : "black"}
                   strokeWidth={2}
                 />
               </motion.svg>

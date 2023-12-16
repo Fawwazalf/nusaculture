@@ -133,7 +133,7 @@ const Page = () => {
               id={item.id}
               title={item.title}
               prov={item.prov}
-              desc={item.desc1}
+              desc={lang ? item.desc1ind : item.desc1eng}
               img={item.img}
               like={item.isFavorite}
             />

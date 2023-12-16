@@ -38,6 +38,11 @@ const Navigation = () => {
     router.refresh();
   };
 
+  const handleLogout = () => {
+    logout();
+    router.refresh();
+  };
+
   const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
   const [top, setTop] = useState(true);
@@ -53,86 +58,104 @@ const Navigation = () => {
     }
   });
   return (
-    <motion.nav
-      variants={{
-        topest: { y: 0, background: "transparent" },
-        visible: { y: 0, backgroundColor: "#181818" },
-        hidden: { y: -150, backgroundColor: "#181818" },
-      }}
-      animate={hidden ? "hidden" : top ? "topest" : "visible"}
-      initial={"topest"}
-      transition={{ duration: 0.35, ease: "easeInOut" }}
-      className={`flex justify-between w-full px-[117px] py-5 text-[18px] items-center text-[#DCD7C9] font-medium fixed  z-50 
-      }`}
-    >
-      <p className={`text-4xl  ${spirax.className}`}>Nusa Culture</p>
-      <div className="flex">
-        <ul className="flex justify-center items-center gap-[48px]">
-          <li
-            className={`hover:underline underline-offset-[5px]  ${
-              pathname === "/" ? "underline underline-offset-[5px]" : ""
-            }`}
+    <>
+      <motion.nav
+        variants={{
+          topest: { y: 0, background: "transparent" },
+          visible: { y: 0, backgroundColor: "#181818" },
+          hidden: { y: -100 },
+        }}
+        animate={hidden ? "hidden" : top ? "topest" : "visible"}
+        initial={"topest"}
+        transition={{ duration: 0.35, ease: "easeInOut" }}
+        className={`flex justify-between w-full px-[117px] py-5 text-[18px] items-center text-[#DCD7C9] font-medium fixed  z-50 
+    }`}
+      >
+        <p className={`text-4xl  ${spirax.className}`}>Nusa Culture</p>
+        <div className="flex">
+          <ul className="flex justify-center items-center gap-[48px]">
+            <li
+              className={`hover:underline underline-offset-[5px]  ${
+                pathname === "/" ? "underline underline-offset-[5px]" : ""
+              }`}
+            >
+              <Link href="/">HOME</Link>
+            </li>
+            <li
+              className={`hover:underline underline-offset-[5px] ${
+                pathname === "/explore"
+                  ? "underline underline-offset-[5px]"
+                  : ""
+              }`}
+            >
+              <Link href="/explore">EXPLORE</Link>
+            </li>
+            <li
+              className={`hover:underline underline-offset-[5px] ${
+                pathname === "/quiz" ? "underline underline-offset-[5px]" : ""
+              }`}
+            >
+              <Link href="/quiz">QUIZ</Link>
+            </li>
+            <li
+              className={`hover:underline underline-offset-[5px] ${
+                pathname === "/favorite"
+                  ? "underline underline-offset-[5px]"
+                  : ""
+              }`}
+            >
+              <Link href="/favorite">FAVORITE</Link>
+            </li>
+          </ul>
+          <div className="flex ml-6 bg-[#C3C3C3]/[0.15] py-[7px] px-[22px] rounded-[26px]  justify-center items-center mr-[20px]">
+            <p
+              className={` ${lang ? "" : "text-[#565555]"} mr-2 cursor-pointer`}
+              onClick={() => handleSetIndo()}
+            >
+              ID
+            </p>
+            <div>|</div>
+            <p
+              className={` ${lang ? "text-[#565555]" : ""} ml-2 cursor-pointer`}
+              onClick={() => handleSetEng()}
+            >
+              EN
+            </p>
+          </div>
+          <div
+            className=" bg-[#C3C3C3]/[0.15] w-[45px] h-[45px] rounded-[26px] flex justify-center items-center cursor-pointer"
+            onClick={() => handleClickProfile()}
           >
-            <Link href="/">HOME</Link>
-          </li>
-          <li
-            className={`hover:underline underline-offset-[5px] ${
-              pathname === "/explore" ? "underline underline-offset-[5px]" : ""
-            }`}
-          >
-            <Link href="/explore">EXPLORE</Link>
-          </li>
-          <li
-            className={`hover:underline underline-offset-[5px] ${
-              pathname === "/quiz" ? "underline underline-offset-[5px]" : ""
-            }`}
-          >
-            <Link href="/quiz">QUIZ</Link>
-          </li>
-          <li
-            className={`hover:underline underline-offset-[5px] ${
-              pathname === "/favorite" ? "underline underline-offset-[5px]" : ""
-            }`}
-          >
-            <Link href="/favorite">FAVORITE</Link>
-          </li>
-        </ul>
-        <div className="flex ml-6 bg-[#C3C3C3]/[0.15] py-[7px] px-[22px] rounded-[26px]  justify-center items-center mr-[20px]">
-          <p
-            className={` ${lang ? "" : "text-[#565555]"} mr-2 cursor-pointer`}
-            onClick={() => handleSetIndo()}
-          >
-            ID
-          </p>
-          <div>|</div>
-          <p
-            className={` ${lang ? "text-[#565555]" : ""} ml-2 cursor-pointer`}
-            onClick={() => handleSetEng()}
-          >
-            EN
-          </p>
+            <Image src="/IconProfile.svg" alt="" width={25} height={25} />
+          </div>
         </div>
-        <div
-          className=" bg-[#C3C3C3]/[0.15] w-[45px] h-[45px] rounded-[26px] flex justify-center items-center cursor-pointer"
-          onClick={() => handleClickProfile()}
-        >
-          <Image src="/IconProfile.svg" alt="" width={25} height={25} />
-        </div>
-      </div>
+      </motion.nav>
       <motion.div
-        className="flex flex-col items-center absolute right-0 top-[150px] mr-[117px]"
+        className="flex flex-col items-center fixed  top-[150px] right-[117px] z-40"
         variants={{
           open: {
             opacity: 1,
+            scale: 1,
             y: 0,
             transition: { type: "spring", stiffness: 300, damping: 24 },
           },
-          closed: { opacity: 0, y: 20, transition: { duration: 0.2 } },
+          closed: {
+            opacity: 0,
+            scale: 0,
+            y: -100,
+            transition: { duration: 0.2 },
+          },
+          scroll: {
+            scale: 1,
+            opacity: 1,
+            y: -90,
+            transition: { duration: 0.5 },
+          },
         }}
         initial={false}
-        animate={isOpen ? "open" : "closed"}
+        animate={isOpen ? (hidden ? "scroll" : "open") : "closed"}
       >
-        <div className="w-[118px] h-[118px] bg-[#F1ECDE] mt-[-59px] flex justify-center items-center rounded-full absolute">
+        <div className="w-[118px] h-[118px] bg-[#F1ECDE] mt-[-59px] flex justify-center items-center rounded-full fixed">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="62"
@@ -198,28 +221,28 @@ const Navigation = () => {
                   <path
                     d="M16 5V4C16 3.44772 15.5523 3 15 3H6C5.44771 3 5 3.44772 5 4V20C5 20.5523 5.44772 21 6 21H15C15.5523 21 16 20.5523 16 20V19"
                     stroke="#F1ECDE"
-                    stroke-opacity="0.6"
-                    stroke-width="2"
-                    stroke-linecap="round"
+                    strokeOpacity="0.6"
+                    strokeWidth="2"
+                    strokeLinecap="round"
                   />
                   <path
                     d="M10 12H21"
                     stroke="#F1ECDE"
-                    stroke-opacity="0.6"
-                    stroke-width="2"
-                    stroke-linecap="round"
+                    strokeOpacity="0.6"
+                    strokeWidth="2"
+                    strokeLinecap="round"
                   />
                   <path
                     d="M17.5 8.5L21 12L17.5 15.5"
                     stroke="#F1ECDE"
-                    stroke-opacity="0.6"
-                    stroke-width="2"
-                    stroke-linecap="round"
+                    strokeOpacity="0.6"
+                    strokeWidth="2"
+                    strokeLinecap="round"
                   />
                 </svg>
                 <p
                   className="text-[#F1ECDE99]/60 text-[14px] ml-[3px]"
-                  onClick={() => logout()}
+                  onClick={() => handleLogout()}
                 >
                   Logout
                 </p>
@@ -236,23 +259,23 @@ const Navigation = () => {
                   <path
                     d="M16 5V4C16 3.44772 15.5523 3 15 3H6C5.44771 3 5 3.44772 5 4V20C5 20.5523 5.44772 21 6 21H15C15.5523 21 16 20.5523 16 20V19"
                     stroke="#F1ECDE"
-                    stroke-opacity="0.6"
-                    stroke-width="2"
-                    stroke-linecap="round"
+                    strokeOpacity="0.6"
+                    strokeWidth="2"
+                    strokeLinecap="round"
                   />
                   <path
                     d="M10 12H21"
                     stroke="#F1ECDE"
-                    stroke-opacity="0.6"
-                    stroke-width="2"
-                    stroke-linecap="round"
+                    strokeOpacity="0.6"
+                    strokeWidth="2"
+                    strokeLinecap="round"
                   />
                   <path
                     d="M17.5 8.5L21 12L17.5 15.5"
                     stroke="#F1ECDE"
-                    stroke-opacity="0.6"
-                    stroke-width="2"
-                    stroke-linecap="round"
+                    strokeOpacity="0.6"
+                    strokeWidth="2"
+                    strokeLinecap="round"
                   />
                 </svg>
                 <p
@@ -266,7 +289,7 @@ const Navigation = () => {
           </div>
         </div>
       </motion.div>
-    </motion.nav>
+    </>
   );
 };
 
