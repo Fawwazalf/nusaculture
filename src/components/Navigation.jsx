@@ -62,12 +62,26 @@ const Navigation = () => {
       animate={hidden ? "hidden" : top ? "topest" : "visible"}
       initial={"topest"}
       transition={{ duration: 0.35, ease: "easeInOut" }}
-      className={`flex justify-between w-full px-[117px] py-5 text-[18px] items-center text-[#DCD7C9] font-medium fixed  z-50 
+      className={`flex md:justify-between w-full md:px-[117px] py-5 md:text-[14px] lg:text-[16px] xl:text-[18px] items-center text-[#DCD7C9] font-medium fixed z-50 
       }`}
     >
-      <p className={`text-4xl  ${spirax.className}`}>Nusa Culture</p>
-      <div className="flex">
-        <ul className="flex justify-center items-center gap-[48px]">
+      <div className="w-full flex justify-between items-center mx-[40px] mt-[10px] md:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="14" viewBox="0 0 20 14" fill="none" className="md:hidden">
+          <path d="M1 1H19" stroke="#DCD7C9" stroke-linecap="round"/>
+          <path d="M1 7H19" stroke="#DCD7C9" stroke-linecap="round"/>
+          <path d="M1 13H19" stroke="#DCD7C9" stroke-linecap="round"/>
+        </svg>
+        <p className={`text-2xl md:text-2xl lg:text-4xl ${spirax.className}`}>Nusa Culture</p>
+        <div
+          className=" bg-[#C3C3C3]/[0.15] w-[45px] h-[45px] rounded-[26px] md:hidden flex justify-center items-center cursor-pointer"
+          onClick={() => handleClickProfile()}
+        >
+          <Image src="/IconProfile.svg" alt="" width={25} height={25} />
+        </div>
+      </div>
+      <p className={`hidden md:inline-block text-2xl md:text-2xl lg:text-4xl ${spirax.className}`}>Nusa Culture</p>
+      <div className=" hidden md:flex ">
+        <ul className="flex justify-center items-center  md:gap-[25px] lg:gap-[48px]">
           <li
             className={`hover:underline underline-offset-[5px]  ${
               pathname === "/" ? "underline underline-offset-[5px]" : ""
@@ -97,7 +111,7 @@ const Navigation = () => {
             <Link href="/favorite">FAVORITE</Link>
           </li>
         </ul>
-        <div className="flex ml-6 bg-[#C3C3C3]/[0.15] py-[7px] px-[22px] rounded-[26px]  justify-center items-center mr-[20px]">
+        <div className="flex ml-6 bg-[#C3C3C3]/[0.15]  px-[18px] lg:py-[7px] lg:px-[22px] rounded-[26px]  justify-center items-center mr-[20px]">
           <p
             className={` ${lang ? "" : "text-[#565555]"} mr-2 cursor-pointer`}
             onClick={() => handleSetIndo()}
@@ -120,8 +134,8 @@ const Navigation = () => {
         </div>
       </div>
       <motion.div
-        className="flex flex-col items-center absolute right-0 top-[100px] mr-[117px]"
-        variants={{
+        className="flex flex-col items-center absolute right-0 top-[100px] mr-[40px] md:mr-[117px]"
+        variants={{ 
           open: {
             opacity: 1,
             y: 0,
