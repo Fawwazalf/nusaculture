@@ -3,37 +3,99 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { getIsIndo } from "@/utils/data";
 
-const questions = [
-  {
-    question: "What is the capital of France?",
-    options: ["Berlin", "Paris", "Madrid", "Rome"],
-    correctAnswer: "Paris",
-  },
-  {
-    question: "Which planet is known as the Red Planet?",
-    options: ["Mars", "Venus", "Jupiter", "Saturn"],
-    correctAnswer: "Mars",
-  },
-  {
-    question: "What is the capital of France?",
-    options: ["Berlin", "Paris", "Madrid", "Rome"],
-    correctAnswer: "Paris",
-  },
-  {
-    question: "Which planet is known as the Red Planet?",
-    options: ["Mars", "Venus", "Jupiter", "Saturn"],
-    correctAnswer: "Mars",
-  },
-  {
-    question:
-      "What is the capital of France? What is the capital of France?What is the capital of France?",
-    options: ["Berlin", "Paris", "Madrid", "Rome"],
-    correctAnswer: "Paris",
-  },
-];
-
 const page = () => {
   const lang = getIsIndo();
+  const questions = [
+    {
+      question: lang
+        ? "Apa yang dianggap sebagai simbol yang melambangkan kegembiraan, kebersamaan, dan semangat gotong-royong oleh masyarakat Betawi?"
+        : "What is considered a symbol that symbolizes joy, togetherness, and the spirit of gotong-royong by the Betawi people?",
+      options: lang
+        ? [
+            "Musik gambang kromong",
+            "Ondel-Ondel",
+            "Pementasan seni pertunjukan",
+            "Pameran kerajinan lokal",
+          ]
+        : [
+            "Gambang kromong music",
+            "Ondel-Ondel",
+            "Performing arts performances",
+            "Local craft exhibition",
+          ],
+      correctAnswer: lang ? "Ondel-Ondel" : "Ondel-Ondel",
+    },
+    {
+      question: lang
+        ? "Tari Jaipong berasal dari provinsi apa?"
+        : "What province does Jaipong dance come from?",
+      options: lang
+        ? ["Jawa Timur", "Jawa Tengah", "Jawa Barat", "Banten"]
+        : ["Jawa Timur", "Jawa Tengah", "Jawa Barat", "Banten"],
+      correctAnswer: lang ? "Jawa Barat" : "Jawa Barat",
+    },
+    {
+      question: lang
+        ? "Apa makna simbolis dari piring-piring yang dipegang oleh penari dalam Tari Piring?"
+        : "What is the symbolic meaning of the plates held by the dancers in the Piring Dance?",
+      options: lang
+        ? [
+            "Alat untuk mengekspresikan gerakan tari",
+            "Simbol rejeki dan kelimpahan",
+            "Atribut utama untuk keunikan gerakan",
+            "Semua jawaban benar",
+          ]
+        : [
+            "A tool to express dance movements",
+            "Symbol of fortune and abundance",
+            "The main attribute for the uniqueness of the movement",
+            "All answers are correct",
+          ],
+      correctAnswer: lang
+        ? "Simbol rejeki dan kelimpahan"
+        : "Symbol of fortune and abundance",
+    },
+    {
+      question: lang
+        ? "Upacara lompat batu di Sulawesi Utara seringkali diadakan dalam konteks apa?"
+        : "The stone jumping ceremony in Sulawesi Utara is often held in what context?",
+      options: lang
+        ? [
+            "Perayaan musim panas",
+            "Pertemuan bisnis lokal",
+            "Perayaan keagamaan atau acara khusus",
+            "Lomba olahraga tahunan",
+          ]
+        : [
+            "Summer celebration",
+            "Local business meeting",
+            "Religious celebrations or special events",
+            "Annual sports competition",
+          ],
+      correctAnswer: lang
+        ? "Perayaan keagamaan atau acara khusus"
+        : "Religious celebrations or special events",
+    },
+    {
+      question: lang
+        ? "Apa peran Tari Tor Tor dalam masyarakat Batak selain sebagai ekspresi seni tradisional?"
+        : "What is the role of Tor Tor Dance in Batak society other than as an expression of traditional art?",
+      options: lang
+        ? [
+            "Sarana untuk menyampaikan pesan moral dan cerita tentang leluhur",
+            "Media untuk mempromosikan pariwisata lokal",
+            "Alat untuk menjalin hubungan sosial",
+            "Semua jawaban benar",
+          ]
+        : [
+            "A means to convey moral messages and stories about ancestors",
+            "A medium to promote local tourism",
+            "A tool to establish social relationships",
+            "All answers are correct",
+          ],
+      correctAnswer: lang ? "Semua jawaban benar" : "All answers are correct",
+    },
+  ];
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [userAnswers, setUserAnswers] = useState(
     new Array(questions.length).fill("")
