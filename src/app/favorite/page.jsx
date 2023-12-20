@@ -8,6 +8,7 @@ import Navigation from "@/components/Navigation";
 import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { getFavCulture, getIsIndo } from "@/utils/data";
+import BudayaNotFound from "@/components/BudayaNotFound";
 
 const itemVariants = {
   open: {
@@ -41,29 +42,41 @@ const Page = () => {
   return (
     <div className="bg-[#181818] w-full min-h-screen flex flex-col">
       <Navigation />
-      <div className="flex mx-[117px] pt-[120px]">
-        <div className="flex w-[70%] justify-between py-2 px-5 rounded-[50px] bg-white mr-[25px]">
+      <div className="flex mx-auto md:mx-[117px] pt-[120px]">
+        <div className="flex w-[220px] md:w-[70%] justify-between items-center py-2 px-5 rounded-[50px] bg-white mr-[10px] md:mr-[25px]">
           <input
             type="text"
             value={searchValue}
             onChange={(e) => setSearchValue(e.target.value)}
-            placeholder="Cari Kebudayaan"
-            className="focus:outline-none w-[700px] mx-auto text-[18px] text-[#000000] font-medium"
+            placeholder={lang ? "Cari Kebudayaan" : "Search Culture"}
+            className="focus:outline-none w-[140px] md:w-[750px] mx-auto text-[12px] md:text-[14px] lg:text-[18px] text-[#000000] font-medium"
           />
-
-          <Image src="IconSearch.svg" alt="" width={23.32} height={23.32} />
+          <div className="w-[12px] h-[12px] md:w-[25px] md:h-[25px]">
+            <Image
+              src="IconSearch.svg"
+              alt=""
+              width={20}
+              height={20}
+              style={{
+                height: "100%",
+                width: "100%",
+              }}
+            />
+          </div>
         </div>
         <motion.div
           initial={false}
           animate={isOpen ? "open" : "closed"}
-          className="w-[30%] relative"
+          className="md:w-[30%] relative  "
         >
           <motion.button
             whileTap={{ scale: 0.97 }}
             onClick={() => setIsOpen(!isOpen)}
-            className="w-full bg-white py-2 px-5 rounded-[50px] text-[18px] font-medium text-opacity-60 text-[#6f6e6e] flex justify-between items-center"
+            className="w-min md:w-full h-full bg-white py-2 px-4 lg:px-5 rounded-[50px] md:text-[14px] lg:text-[18px] font-medium text-opacity-60 text-[#6f6e6e] flex justify-between items-center"
           >
-            {lang ? "Pilih Provinsi" : "Select Province"}
+            <span className="hidden md:inline">
+              {lang ? "Pilih Provinsi" : "Select Province"}
+            </span>
             <motion.div
               variants={{
                 open: { rotate: 180 },
@@ -98,7 +111,7 @@ const Page = () => {
                 },
               },
             }}
-            className="flex flex-col bg-white absolute z-20 h-[300px] overflow-y-scroll mt-[10px] w-full"
+            className="flex flex-col bg-white absolute z-[5] h-[300px] overflow-y-scroll mt-[10px] right-[0px]   md:w-full w-[200px] md:inset-x-0 "
           >
             <motion.li
               variants={itemVariants}
@@ -124,31 +137,22 @@ const Page = () => {
           </motion.ul>
         </motion.div>
       </div>
-      <div className="flex-1 mx-[117px] flex gap-9 my-[55px] flex-wrap justify-center xl:justify-start">
-        {filteredResults.map((item) => (
-          <div key={item.id}>
-            <CardCulture
-              id={item.id}
-              title={item.title}
-              prov={item.prov}
-              desc={item.desc1}
-              img={item.img}
-              like={item.isFavorite}
-            />
-          </div>
-        ))}
-        {filteredResults.length === 0 && (
-          <div>
-            <p className="font-semibold text-[#D12B2B] text-[24px] mt-[-30px]">
-              {lang ? "Budaya Tidak Ditemukan" : "Culture Not Found"}
-            </p>
-            <p className="font-light text-white/70 mt-[15px]">
-              {lang
-                ? "Kami tidak dapat menemukan budaya yang Anda cari"
-                : "We couldn’t find the culture you were looking for"}
-            </p>
-          </div>
-        )}
+      <div className="flex-1 w-[270px] md:w-[580px] lg:w-[885px] xl:w-[1190px] flex items-center mx-auto">
+        <div className="w-max flex gap-9 my-[55px] flex-wrap justify-start">
+          {filteredResults.map((item) => (
+            <div key={item.id}>
+              <CardCulture
+                id={item.id}
+                title={item.title}
+                prov={item.prov}
+                desc={lang ? item.desc1ind : item.desc1eng}
+                img={item.img}
+                like={item.isFavorite}
+              />
+            </div>
+          ))}
+          {filteredResults.length === 0 && <BudayaNotFound />}
+        </div>
       </div>
       <Footer />
     </div>

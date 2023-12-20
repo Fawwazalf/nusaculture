@@ -17,7 +17,7 @@ const TitleFunFact = () => {
         </p>
       </div>
       <p
-        className="relative top-[6px] md:top-[12px] z-20 text-[#D5CDB6] text-[20px] md:text-[40px] lg:text-[50px] "
+        className=" top-[6px] md:top-[12px] z-20 text-[#D5CDB6] text-[20px] md:text-[40px] lg:text-[50px] "
         style={{ textShadow: "0 0 10px rgba(214, 206, 186, 0.5)" }}
       >
         {lang ? "Fakta Menarik" : "Fun Facts"}

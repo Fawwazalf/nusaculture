@@ -6,25 +6,42 @@ import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 
 import { useState } from "react";
 import { usePathname } from "next/navigation";
-import { setEng, setIndo, getIsIndo, logout, getIsLogin } from "@/utils/data";
+import {
+  setEng,
+  setIndo,
+  getIsIndo,
+  logout,
+  getIsLogin,
+  getNama,
+} from "@/utils/data";
 import { useRouter } from "next/navigation";
 
 const spirax = Spirax({ subsets: ["latin"], weight: "400", display: "swap" });
 
 const Navigation = () => {
+  const nama = getNama();
+  const email = nama + "@gmail.com";
   const lang = getIsIndo();
   const router = useRouter();
   const isLogin = getIsLogin();
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpenProfile, setIsOpenProfile] = useState(false);
+  const [isOpenNavbar, setisOpenNavbar] = useState(false);
   const handleClickProfile = () => {
-    setIsOpen(true);
+    setIsOpenProfile(true);
   };
   const handleExitProfile = () => {
-    setIsOpen(false);
+    setIsOpenProfile(false);
+  };
+
+  const handleClickNavbar = () => {
+    setisOpenNavbar(true);
+  };
+  const handleExitNavbar = () => {
+    setisOpenNavbar(false);
   };
 
   const handleLogin = () => {
-    router.push("login");
+    router.push("/login");
   };
 
   const handleLogout = () => {
@@ -71,18 +88,44 @@ const Navigation = () => {
       }`}
       >
         <div className="w-full flex justify-between items-center mx-[40px] mt-[10px] md:hidden">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="14"
-            viewBox="0 0 20 14"
-            fill="none"
-            className="md:hidden"
-          >
-            <path d="M1 1H19" stroke="#DCD7C9" stroke-linecap="round" />
-            <path d="M1 7H19" stroke="#DCD7C9" stroke-linecap="round" />
-            <path d="M1 13H19" stroke="#DCD7C9" stroke-linecap="round" />
-          </svg>
+          <div onClick={() => setisOpenNavbar(!isOpenNavbar)}>
+            <motion.svg
+              animate={isOpenNavbar ? "open" : "closed"}
+              xmlns="http://www.w3.org/2000/svg"
+              width="23"
+              height="23"
+              viewBox="0 0 23 23"
+              fill="none"
+              className="md:hidden"
+            >
+              <motion.path
+                variants={{
+                  closed: { d: "M 2 2.5 L 20 2.5" },
+                  open: { d: "M 3 16.5 L 17 2.5" },
+                }}
+                stroke="#DCD7C9"
+                strokeLinecap="round"
+              />
+              <motion.path
+                d="M 2 9.423 L 20 9.423"
+                variants={{
+                  closed: { opacity: 1 },
+                  open: { opacity: 0 },
+                }}
+                transition={{ duration: 0.1 }}
+                stroke="#DCD7C9"
+                strokeLinecap="round"
+              />
+              <motion.path
+                variants={{
+                  closed: { d: "M 2 16.346 L 20 16.346" },
+                  open: { d: "M 3 2.5 L 17 16.346" },
+                }}
+                stroke="#DCD7C9"
+                strokeLinecap="round"
+              />
+            </motion.svg>
+          </div>
           <p className={`text-2xl md:text-2xl lg:text-4xl ${spirax.className}`}>
             Nusa Culture
           </p>
@@ -157,7 +200,7 @@ const Navigation = () => {
         </div>
       </motion.nav>
       <motion.div
-        className="flex flex-col items-center fixed right-0 top-[100px] mr-[40px] md:mr-[117px] z-20"
+        className="flex flex-col justify-center items-center h-[350px] bg-[#20292C] rounded-[15px] z-40 w-[80%] mx-auto inset-x-0  md:hidden fixed top-[100px]"
         variants={{
           open: {
             opacity: 1,
@@ -179,9 +222,166 @@ const Navigation = () => {
           },
         }}
         initial={false}
-        animate={isOpen ? (hidden ? "scroll" : "open") : "closed"}
+        animate={isOpenNavbar ? (hidden ? "scroll" : "open") : "closed"}
       >
-        <div className="w-[350px] h-[350px] bg-[#20292C] rounded-[20px] flex flex-col items-center ">
+        <div className="h-[210px]">
+          <ul className="flex flex-col justify-center items-center w-[335px] space-y-4">
+            <li
+              className={`  underline-offset-[3px] text-[#F1ECDE] ${
+                pathname === "/"
+                  ? "underline underline-offset-[3px] bg-[#F1ECDE33]/20"
+                  : ""
+              }`}
+            >
+              <Link href="/">
+                <button className="flex justify-center items-center w-[182px] h-[40px] rounded-[10px] hover:bg-[#F1ECDE33]/20 hover:underline">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                  >
+                    <path
+                      d="M5.59999 15.8333H8.53601V10.9292H12.2068V15.8333H15.1428V8.33333L10.3714 4.55167L5.59999 8.33333V15.8333ZM4.80475 16.6667V7.91667L10.3714 3.51L15.9381 7.91667V16.6667H11.4116V11.7625H9.33124V16.6667H4.80475Z"
+                      fill="#F1ECDE"
+                    />
+                  </svg>
+                  <p className="text-[14px] font-medium ml-[5px] mt-[4px]">
+                    HOME
+                  </p>
+                </button>
+              </Link>
+            </li>
+            <li
+              className={`  underline-offset-[3px] text-[#F1ECDE] ${
+                pathname === "/explore"
+                  ? "underline underline-offset-[3px] bg-[#F1ECDE33]/20"
+                  : ""
+              }`}
+            >
+              <Link href="/explore">
+                <button className="flex justify-center items-center w-[182px] h-[40px] rounded-[10px] hover:bg-[#F1ECDE33]/20 hover:underline">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 18 18"
+                    fill="none"
+                  >
+                    <path
+                      d="M11.3336 10.5H10.7682L10.5678 10.2975C11.2934 9.41551 11.6922 8.28952 11.6914 7.125C11.6914 6.16081 11.4186 5.21828 10.9074 4.41659C10.3962 3.6149 9.66966 2.99006 8.81959 2.62109C7.96952 2.25211 7.03413 2.15557 6.1317 2.34367C5.22928 2.53177 4.40034 2.99607 3.74973 3.67785C3.09912 4.35963 2.65604 5.22828 2.47654 6.17393C2.29703 7.11959 2.38916 8.09979 2.74127 8.99058C3.09338 9.88137 3.68966 10.6427 4.4547 11.1784C5.21974 11.7141 6.11918 12 7.03929 12C8.19159 12 9.25085 11.5575 10.0668 10.8225L10.26 11.0325V11.625L13.8386 15.3675L14.905 14.25L11.3336 10.5ZM7.03929 10.5C5.25716 10.5 3.81858 8.9925 3.81858 7.125C3.81858 5.2575 5.25716 3.75 7.03929 3.75C8.82142 3.75 10.26 5.2575 10.26 7.125C10.26 8.9925 8.82142 10.5 7.03929 10.5Z"
+                      fill="#F1ECDE"
+                    />
+                  </svg>
+                  <p className="text-[14px] font-medium ml-[5px] mt-[4px]">
+                    EXPLORE
+                  </p>
+                </button>
+              </Link>
+            </li>
+            <li
+              className={`  underline-offset-[3px] text-[#F1ECDE] ${
+                pathname === "/quiz"
+                  ? "underline underline-offset-[3px] bg-[#F1ECDE33]/20"
+                  : ""
+              }`}
+            >
+              <Link href="/quiz">
+                <button className="flex justify-center items-center w-[182px] h-[40px] rounded-[10px] hover:bg-[#F1ECDE33]/20 hover:underline">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="15"
+                    height="16"
+                    viewBox="0 0 15 16"
+                    fill="none"
+                  >
+                    <path
+                      d="M8.97379 9.70833C9.14278 9.70833 9.2895 9.64334 9.41396 9.51333C9.53841 9.38334 9.60044 9.22959 9.60004 9.05208C9.60004 8.875 9.53801 8.72146 9.41396 8.59146C9.2899 8.46146 9.14318 8.39625 8.97379 8.39583C8.8048 8.39583 8.65828 8.46104 8.53422 8.59146C8.41017 8.72188 8.34794 8.87542 8.34754 9.05208C8.34754 9.22917 8.40977 9.38292 8.53422 9.51333C8.65868 9.64375 8.8052 9.70875 8.97379 9.70833ZM8.52647 7.70834H9.42111C9.42111 7.40625 9.45094 7.185 9.51058 7.04459C9.57022 6.90417 9.70939 6.71917 9.92808 6.48959C10.2263 6.17709 10.4251 5.92459 10.5245 5.73209C10.6239 5.53959 10.6736 5.31292 10.6736 5.05209C10.6736 4.58334 10.517 4.20063 10.2036 3.90396C9.8903 3.60729 9.48036 3.45875 8.97379 3.45834C8.56623 3.45834 8.21096 3.57813 7.90798 3.81771C7.60499 4.05729 7.39365 4.375 7.27397 4.77084L8.07915 5.11459C8.16861 4.85417 8.29048 4.65896 8.44476 4.52896C8.59904 4.39896 8.77538 4.33375 8.97379 4.33334C9.21236 4.33334 9.4062 4.40375 9.55531 4.54459C9.70442 4.68542 9.77897 4.87542 9.77897 5.11459C9.77897 5.26042 9.73921 5.39854 9.65969 5.52896C9.58016 5.65938 9.44099 5.82334 9.24219 6.02084C8.91415 6.32292 8.71295 6.56 8.6386 6.73209C8.56424 6.90417 8.52687 7.22959 8.52647 7.70834ZM5.39522 11.5833C5.06719 11.5833 4.78647 11.461 4.55306 11.2165C4.31966 10.9719 4.20276 10.6775 4.20236 10.3333V2.83334C4.20236 2.48959 4.31926 2.19542 4.55306 1.95084C4.78686 1.70625 5.06758 1.58375 5.39522 1.58334H12.5524C12.8804 1.58334 13.1613 1.70584 13.3951 1.95084C13.6289 2.19584 13.7456 2.49 13.7452 2.83334V10.3333C13.7452 10.6771 13.6285 10.9715 13.3951 11.2165C13.1617 11.4615 12.8808 11.5838 12.5524 11.5833H5.39522ZM3.00951 14.0833C2.68147 14.0833 2.40075 13.961 2.16735 13.7165C1.93395 13.4719 1.81705 13.1775 1.81665 12.8333V4.08334H3.00951V12.8333H11.3595V14.0833H3.00951Z"
+                      fill="#F1ECDE"
+                    />
+                  </svg>
+                  <p className="text-[14px] font-medium ml-[5px] mt-[px]">
+                    QUIZ
+                  </p>
+                </button>
+              </Link>
+            </li>
+            <li
+              className={`  underline-offset-[3px] text-[#F1ECDE] ${
+                pathname === "/favorite"
+                  ? "underline underline-offset-[3px] bg-[#F1ECDE33]/20"
+                  : ""
+              }`}
+            >
+              <Link href="/favorite">
+                <button className="flex justify-center items-center w-[182px] h-[40px] rounded-[10px] hover:bg-[#F1ECDE33]/20 hover:underline">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="15"
+                    height="15"
+                    viewBox="0 0 15 15"
+                    fill="none"
+                  >
+                    <path
+                      d="M7.44286 13.3438L6.57804 12.5188C3.50643 9.6 1.47858 7.66875 1.47858 5.3125C1.47858 3.38125 2.92193 1.875 4.75893 1.875C5.79672 1.875 6.79275 2.38125 7.44286 3.175C8.09297 2.38125 9.089 1.875 10.1268 1.875C11.9638 1.875 13.4071 3.38125 13.4071 5.3125C13.4071 7.66875 11.3793 9.6 8.30768 12.5188L7.44286 13.3438Z"
+                      fill="#F1ECDE"
+                    />
+                  </svg>
+                  <p className="text-[14px] font-medium ml-[5px] mt-[3px]">
+                    FAVORITE
+                  </p>
+                </button>
+              </Link>
+            </li>
+          </ul>
+        </div>
+        <div className="flex rounded-[26px]  justify-center items-center mt-[30px]">
+          <p
+            className={`${
+              lang ? "text-[#DCD7C9]" : "text-[#565555]"
+            } mr-2 text-[14px] font-semibold cursor-pointer`}
+            onClick={() => handleSetIndo()}
+          >
+            ID
+          </p>
+          <p className="text-[#DCD7C9]">|</p>
+          <p
+            className={`${
+              lang ? "text-[#565555]" : "text-[#DCD7C9]"
+            } ml-2 cursor-pointer text-[14px] font-semibold`}
+            onClick={() => handleSetEng()}
+          >
+            EN
+          </p>
+        </div>
+      </motion.div>
+      <motion.div
+        className="flex flex-col items-center fixed top-[100px]  md:mr-[117px] sm:mr-[40px] z-50 sm:w-[350px] w-[90%] mx-auto inset-x-0  "
+        variants={{
+          open: {
+            opacity: 1,
+            scale: 1,
+            y: 0,
+            transition: { type: "spring", stiffness: 300, damping: 24 },
+          },
+          scroll: {
+            opacity: 1,
+            scale: 1,
+            y: -100,
+            transition: { type: "spring", stiffness: 300, damping: 24 },
+          },
+          closed: {
+            opacity: 0,
+            scale: 0,
+            y: -200,
+            transition: { duration: 0.2 },
+          },
+        }}
+        initial={false}
+        animate={isOpenProfile ? (hidden ? "scroll" : "open") : "closed"}
+      >
+        <div className="w-full h-[350px] bg-[#20292C] rounded-[20px] flex flex-col items-center ">
           <div className="w-[118px] h-[118px] bg-[#F1ECDE] flex justify-center items-center mt-[44px] rounded-full relatve">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -217,26 +417,17 @@ const Navigation = () => {
           <div className=" flex flex-col items-center">
             <div className="flex w-[230px] mt-[20px] justify-center">
               <p className="text-white font-medium mr-[8px]">
-                {isLogin ? "Sudah Login" : "Belum Login"}
+                {isLogin ? nama : lang ? "Akun Tamu" : "Guest Account"}
               </p>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-              >
-                <path
-                  d="M2 11.64V13.6667C2 13.8533 2.14667 14 2.33333 14H4.36C4.44667 14 4.53333 13.9667 4.59333 13.9L11.8733 6.62666L9.37333 4.12666L2.1 11.4C2.03333 11.4667 2 11.5467 2 11.64ZM13.8067 4.69333C13.8685 4.63165 13.9175 4.5584 13.951 4.47775C13.9844 4.3971 14.0016 4.31064 14.0016 4.22333C14.0016 4.13602 13.9844 4.04956 13.951 3.96891C13.9175 3.88827 13.8685 3.81501 13.8067 3.75333L12.2467 2.19333C12.185 2.13153 12.1117 2.0825 12.0311 2.04904C11.9504 2.01559 11.864 1.99837 11.7767 1.99837C11.6894 1.99837 11.6029 2.01559 11.5223 2.04904C11.4416 2.0825 11.3683 2.13153 11.3067 2.19333L10.0867 3.41333L12.5867 5.91333L13.8067 4.69333Z"
-                  fill="#725035"
-                />
-              </svg>
             </div>
             <p className="text-white/60 text-[14px] mt-[10px] mb-[30px]">
-              {isLogin ? "sudahlogin.com" : "belumlogin.com"}
+              {isLogin ? email : ""}
             </p>
             {isLogin ? (
-              <button className="w-[175px] h-[40px] bg-[#F1ECDE1A]/10 flex justify-center items-center rounded-[100px]">
+              <button
+                className="w-[175px] h-[40px] bg-[#F1ECDE1A]/10 flex justify-center items-center rounded-[100px]"
+                onClick={() => handleLogout()}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -247,34 +438,34 @@ const Navigation = () => {
                   <path
                     d="M16 5V4C16 3.44772 15.5523 3 15 3H6C5.44771 3 5 3.44772 5 4V20C5 20.5523 5.44772 21 6 21H15C15.5523 21 16 20.5523 16 20V19"
                     stroke="#F1ECDE"
-                    stroke-opacity="0.6"
-                    stroke-width="2"
-                    stroke-linecap="round"
+                    strokeOpacity="0.6"
+                    strokeWidth="2"
+                    strokeLinecap="round"
                   />
                   <path
                     d="M10 12H21"
                     stroke="#F1ECDE"
-                    stroke-opacity="0.6"
-                    stroke-width="2"
-                    stroke-linecap="round"
+                    strokeOpacity="0.6"
+                    strokeWidth="2"
+                    strokeLinecap="round"
                   />
                   <path
                     d="M17.5 8.5L21 12L17.5 15.5"
                     stroke="#F1ECDE"
-                    stroke-opacity="0.6"
-                    stroke-width="2"
-                    stroke-linecap="round"
+                    strokeOpacity="0.6"
+                    strokeWidth="2"
+                    strokeLinecap="round"
                   />
                 </svg>
-                <p
-                  className="text-[#F1ECDE99]/60 text-[14px] ml-[3px]"
-                  onClick={() => handleLogout()}
-                >
+                <p className="text-[#F1ECDE99]/60 text-[14px] ml-[3px]">
                   Logout
                 </p>
               </button>
             ) : (
-              <button className="w-[175px] h-[40px] bg-[#F1ECDE1A]/10 flex justify-center items-center rounded-[100px]">
+              <button
+                className="w-[175px] h-[40px] bg-[#F1ECDE1A]/10 flex justify-center items-center rounded-[100px]"
+                onClick={() => handleLogin()}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -285,29 +476,26 @@ const Navigation = () => {
                   <path
                     d="M16 5V4C16 3.44772 15.5523 3 15 3H6C5.44771 3 5 3.44772 5 4V20C5 20.5523 5.44772 21 6 21H15C15.5523 21 16 20.5523 16 20V19"
                     stroke="#F1ECDE"
-                    stroke-opacity="0.6"
-                    stroke-width="2"
-                    stroke-linecap="round"
+                    strokeOpacity="0.6"
+                    strokeWidth="2"
+                    strokeLinecap="round"
                   />
                   <path
                     d="M10 12H21"
                     stroke="#F1ECDE"
-                    stroke-opacity="0.6"
-                    stroke-width="2"
-                    stroke-linecap="round"
+                    strokeOpacity="0.6"
+                    strokeWidth="2"
+                    strokeLinecap="round"
                   />
                   <path
                     d="M17.5 8.5L21 12L17.5 15.5"
                     stroke="#F1ECDE"
-                    stroke-opacity="0.6"
-                    stroke-width="2"
-                    stroke-linecap="round"
+                    strokeOpacity="0.6"
+                    strokeWidth="2"
+                    strokeLinecap="round"
                   />
                 </svg>
-                <p
-                  className="text-[#F1ECDE99]/60 text-[14px] ml-[3px]"
-                  onClick={() => handleLogin()}
-                >
+                <p className="text-[#F1ECDE99]/60 text-[14px] ml-[3px]">
                   Login
                 </p>
               </button>

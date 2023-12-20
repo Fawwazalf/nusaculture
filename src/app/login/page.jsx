@@ -1,77 +1,84 @@
 "use client";
-import { getIsIndo, login } from "@/utils/data";
+import { useMediaQuery } from "@/utils/MediaQuery";
+import { getChangeNama, getIsIndo, login } from "@/utils/data";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 const page = () => {
+  const isLarge = useMediaQuery("(min-width: 1024px)");
+  const [stateNama, setStateNama] = useState("");
   const router = useRouter();
-  const handleLogin = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     login();
-    router.push("/explore");
+    router.push("/");
+    console.log(stateNama);
+    getChangeNama(stateNama);
   };
   const lang = getIsIndo();
   const [masuk, setMasuk] = useState(true);
-  const variants = {
-    left: {
-      left: 0,
-    },
-    right: {
-      right: 0,
-    },
-  };
+
   return (
-    <div className="bg-[#181818] h-screen w-screen relative flex flex-col justify-end lg:flex-row">
+    <div className="bg-[#181818] h-screen w-screen relative lg:flex lg:flex-row overflow-hidden">
       <motion.div
-        className={`w-full h-[720px] lg:w-[55%] lg:h-screen bg-[#20292C]/50 rounded-t-[50px] ${
+        className={` lg:w-[55%] lg:h-screen bg-[#20292C]/50  ${
           masuk
             ? "lg:rounded-l-[50px] lg:rounded-tr-[0px]"
             : "lg:rounded-r-[50px] lg:rounded-tl-[0px]"
-        } absolute lg:absolute lg:z-30 `}
+        } absolute z-30`}
         initial="right"
         animate={masuk ? "right" : "left"}
-        variants={variants}
+        variants={{
+          left: {
+            left: 0,
+          },
+          right: {
+            right: 0,
+          },
+        }}
         transition={{
           type: "spring",
-
           damping: 20,
-          duration: "10s",
+          duration: "2s",
         }}
       >
-        <p
-          className="text-[#FFF9E966]/40 font-semibold text-center mt-[27px] lg:hidden"
-          onClick={() => setMasuk(true)}
-        >
-          {lang ? "Masuk ke akun anda!" : "Login to your account!"}
-        </p>
         <Image
           src="/home.jpg"
           fill
           objectFit="cover"
           priority
           quality={100}
-          className={`${
-            masuk
-              ? "hidden lg:inline-block rounded-l-[50px]"
-              : "hidden lg:inline-block rounded-r-[50px]"
-          }  `}
+          className={`${masuk ? " rounded-l-[50px]" : " rounded-r-[50px]"}  `}
         ></Image>
       </motion.div>
       <div className="flex justify-between z-[1] w-full">
-        <div className="flex flex-col justify-center items-center bg-[#20292C] lg:bg-transparent w-full h-[640px] lg:h-screen lg:w-[45%] rounded-t-[50px] lg:rounded-none">
-          <div className="w-[400px] mb-[15px] lg:mb-[30px]">
+        <motion.div
+          className="flex flex-col justify-center items-center w-full h-[85%] lg:h-screen lg:w-[45%] rounded-t-[50px] lg:rounded-none absolute lg:static bg-[#20292C] lg:bg-transparent z-10 bottom-0"
+          variants={
+            isLarge
+              ? { visible: { opacity: 1 }, hidden: { opacity: 0 } }
+              : {
+                  visible: { opacity: 1, bottom: 0 },
+                  hidden: { opacity: 1, bottom: -600 },
+                }
+          }
+          animate={masuk ? "visible" : "hidden"}
+          initial={"hidden"}
+        >
+          <div className="mb-[15px] lg:mb-[30px] w-[300px] md:w-[400px]">
             <p className="text-white/60 font-semibold hidden lg:block">
               {lang ? "MASUK SEKARANG" : "LOGIN NOW"}
             </p>
-            <p className="font-semibold text-[26px] md:text-[36px] my-[8px] text-[#E5DECC] text-center lg:text-start">
+            <p className="font-semibold text-[26px] md:text-[36px] my-[8px] text-[#E5DECC]  text-center lg:text-start">
               {lang ? "MASUK" : "LOGIN"}
             </p>
-            <p className="text-white/60 hidden lg:inline-block">
+            <p className="text-white/60 inline-block">
               {lang ? "Belum mempunyai akun?" : "Don't have an account yet?"}
             </p>
             <p
-              className="hover:text-[#c08d63] text-[#725035] hidden lg:inline-block ml-[3px] underline cursor-pointer"
+              className="hover:text-[#c08d63] text-[#725035]  ml-[3px] underline cursor-pointer inline-block"
               onClick={() => setMasuk(false)}
             >
               {lang ? "Daftar" : "Register"}
@@ -79,7 +86,7 @@ const page = () => {
           </div>
           <form
             className="flex flex-col w-[300px] md:w-[400px]"
-            onSubmit={handleLogin}
+            onSubmit={handleSubmit}
           >
             <label
               for="name"
@@ -105,15 +112,15 @@ const page = () => {
                 <path
                   d="M4.16667 19.2499C4.16667 18.1448 4.60566 17.085 5.38706 16.3036C6.16846 15.5222 7.22827 15.0833 8.33334 15.0833H16.6667C17.7717 15.0833 18.8315 15.5222 19.6129 16.3036C20.3944 17.085 20.8333 18.1448 20.8333 19.2499C20.8333 19.8025 20.6138 20.3324 20.2231 20.7231C19.8324 21.1138 19.3025 21.3333 18.75 21.3333H6.25001C5.69747 21.3333 5.16757 21.1138 4.77687 20.7231C4.38617 20.3324 4.16667 19.8025 4.16667 19.2499Z"
                   stroke="#FFF9E9"
-                  stroke-opacity="0.7"
-                  stroke-width="2"
+                  strokeOpacity="0.7"
+                  strokeWidth="2"
                   stroke-linejoin="round"
                 />
                 <path
                   d="M12.5 10.9166C14.2259 10.9166 15.625 9.51752 15.625 7.79163C15.625 6.06574 14.2259 4.66663 12.5 4.66663C10.7741 4.66663 9.375 6.06574 9.375 7.79163C9.375 9.51752 10.7741 10.9166 12.5 10.9166Z"
                   stroke="#FFF9E9"
-                  stroke-opacity="0.7"
-                  stroke-width="2"
+                  strokeOpacity="0.7"
+                  strokeWidth="2"
                 />
               </svg>
               <input
@@ -123,6 +130,9 @@ const page = () => {
                 placeholder={lang ? "Masukkan Nama Pengguna" : "Enter Username"}
                 className="bg-transparent w-full mx-[10px] focus:outline-none focus:text-white text-[12px] md:text-[14px] font-semibold "
                 required
+                onChange={(e) => {
+                  setStateNama(e.target.value);
+                }}
               />
             </div>
 
@@ -227,28 +237,40 @@ const page = () => {
               </div>
             </div>
           </div>
-        </div>
-        <div className="flex flex-col justify-center items-center bg-[#20292C] lg:bg-transparent w-full h-[640px] lg:h-screen lg:w-[45%] rounded-t-[50px] lg:rounded-none ">
-          <div className="w-[400px] mb-[15px] lg:mb-[30px]">
+        </motion.div>
+        <motion.div
+          className="flex flex-col justify-center items-center  w-full  lg:h-screen lg:w-[45%] rounded-t-[50px] lg:rounded-none absolute lg:static bottom-0 h-[90%] bg-[#20292C] bg-opacity-50"
+          variants={
+            isLarge
+              ? { visible: { opacity: 1 }, hidden: { opacity: 0 } }
+              : {
+                  visible: { opacity: 1, bottom: 0 },
+                  hidden: { opacity: 1, bottom: 0 },
+                }
+          }
+          animate={masuk ? "hidden" : "visible"}
+          initial={"hidden"}
+        >
+          <div className=" mb-[15px] lg:mb-[30px] w-[300px] md:w-[400px]">
             <p className="text-white/60 font-semibold hidden lg:block">
               {lang ? "MULAI PERJALANAN ANDA" : "START YOUR JOURNEY"}
             </p>
             <p className="font-semibold text-[26px] md:text-[36px] my-[8px] text-[#E5DECC] text-center lg:text-start">
               {lang ? "DAFTAR" : "REGISTER"}
             </p>
-            <p className="text-white/60 hidden lg:block">
+            <p className="text-white/60 inline-block">
               {lang ? "Sudah mempunyai akun?" : "Already have an account?"}
             </p>
             <p
-              className="hover:text-[#c08d63] text-[#725035] hidden lg:inline-block ml-[3px] underline cursor-pointer"
+              className="hover:text-[#c08d63] text-[#725035]  ml-[3px] underline cursor-pointer inline-block"
               onClick={() => setMasuk(true)}
             >
               {lang ? "Masuk" : "Login"}
             </p>
           </div>
           <form
-            className="flex flex-col w-[350px] md:w-[400px]"
-            onSubmit={handleLogin}
+            className="flex flex-col w-[300px] md:w-[400px]"
+            onSubmit={handleSubmit}
           >
             <label
               for="name"
@@ -274,15 +296,15 @@ const page = () => {
                 <path
                   d="M4.16667 19.2499C4.16667 18.1448 4.60566 17.085 5.38706 16.3036C6.16846 15.5222 7.22827 15.0833 8.33334 15.0833H16.6667C17.7717 15.0833 18.8315 15.5222 19.6129 16.3036C20.3944 17.085 20.8333 18.1448 20.8333 19.2499C20.8333 19.8025 20.6138 20.3324 20.2231 20.7231C19.8324 21.1138 19.3025 21.3333 18.75 21.3333H6.25001C5.69747 21.3333 5.16757 21.1138 4.77687 20.7231C4.38617 20.3324 4.16667 19.8025 4.16667 19.2499Z"
                   stroke="#FFF9E9"
-                  stroke-opacity="0.7"
-                  stroke-width="2"
+                  strokeOpacity="0.7"
+                  strokeWidth="2"
                   stroke-linejoin="round"
                 />
                 <path
                   d="M12.5 10.9166C14.2259 10.9166 15.625 9.51752 15.625 7.79163C15.625 6.06574 14.2259 4.66663 12.5 4.66663C10.7741 4.66663 9.375 6.06574 9.375 7.79163C9.375 9.51752 10.7741 10.9166 12.5 10.9166Z"
                   stroke="#FFF9E9"
-                  stroke-opacity="0.7"
-                  stroke-width="2"
+                  strokeOpacity="0.7"
+                  strokeWidth="2"
                 />
               </svg>
               <input
@@ -292,6 +314,9 @@ const page = () => {
                 placeholder={lang ? "Masukkan Nama Pengguna" : "Enter Username"}
                 className="bg-transparent w-full mx-[10px] focus:outline-none focus:text-white text-[12px] md:text-[14px] font-semibold  "
                 required
+                onChange={(e) => {
+                  setStateNama(e.target.value);
+                }}
               />
             </div>
             <label
@@ -312,17 +337,17 @@ const page = () => {
                 <path
                   d="M20 4.5H4C2.89543 4.5 2 5.39543 2 6.5V18.5C2 19.6046 2.89543 20.5 4 20.5H20C21.1046 20.5 22 19.6046 22 18.5V6.5C22 5.39543 21.1046 4.5 20 4.5Z"
                   stroke="#FFF9E9"
-                  stroke-opacity="0.7"
-                  stroke-width="2"
-                  stroke-linecap="round"
+                  strokeOpacity="0.7"
+                  strokeWidth="2"
+                  strokeLinecap="round"
                   stroke-linejoin="round"
                 />
                 <path
                   d="M22 7.5L13.03 13.2C12.7213 13.3934 12.3643 13.496 12 13.496C11.6357 13.496 11.2787 13.3934 10.97 13.2L2 7.5"
                   stroke="#FFF9E9"
-                  stroke-opacity="0.7"
-                  stroke-width="2"
-                  stroke-linecap="round"
+                  strokeOpacity="0.7"
+                  strokeWidth="2"
+                  strokeLinecap="round"
                   stroke-linejoin="round"
                 />
               </svg>
@@ -436,7 +461,7 @@ const page = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

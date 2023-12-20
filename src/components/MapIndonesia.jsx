@@ -4,34 +4,18 @@ import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
-const draw = {
-  hidden: {
-    pathLength: 0,
-    opacity: 0,
-    fill: "#D6CEBA",
-  },
-  visible: (i) => {
-    const delay = 1 + i * 0.5;
-    return {
-      pathLength: 1,
-      opacity: 1,
-      fill: "#D6CEBA",
-      transition: {
-        pathLength: { delay, type: "spring", duration: 5, bounce: 0 },
-      },
-    };
-  },
-};
-
 const MapIndonesia = () => {
   const router = useRouter();
   const handleClick = (provinsi) => {
     router.replace(`/explore?prov=${provinsi}`);
   };
   return (
-    <div
+    <motion.div
       className="bg-slate-500  border-[3px]  w-[85%] h-max"
       style={{ boxShadow: "0 0 10px 5px rgba(255, 255, 255, 0.20)" }}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
     >
       <TransformWrapper
         wheel={{ step: 1 }}
@@ -697,7 +681,7 @@ const MapIndonesia = () => {
           </svg>
         </TransformComponent>
       </TransformWrapper>
-    </div>
+    </motion.div>
   );
 };
 

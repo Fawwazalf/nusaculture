@@ -7,9 +7,11 @@ export default function NotFound() {
   return (
     <div className="flex flex-col justify-center items-center bg-[#181818] w-full h-screen">
       <div className="relative">
-        <p className="font-semibold text-white/50 text-[200px] mx-4 ">404</p>
+        <p className="font-semibold text-white/50 md:text-[200px] text-[100px] md:mx-4 mx-[30px] ">
+          404
+        </p>
         <motion.div
-          className="flex mt-[20px] absolute top-0 right-0"
+          className="flex md:mt-[20px] mt-[0px] absolute top-0 right-0"
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{
@@ -50,7 +52,7 @@ export default function NotFound() {
       <p className="font-semibold text-[#D12B2B] text-[24px] mt-[-30px]">
         Page Not Found :(
       </p>
-      <p className="font-light text-white/70 mt-[15px]">
+      <p className="font-light text-white/70 mt-[15px] text-center">
         We couldn’t find the page you were looking for
       </p>
     </div>

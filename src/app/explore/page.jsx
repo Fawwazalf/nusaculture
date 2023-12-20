@@ -8,6 +8,7 @@ import Navigation from "@/components/Navigation";
 import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { getAllCultures, getIsIndo, getIsLogin } from "@/utils/data";
+import BudayaNotFound from "@/components/BudayaNotFound";
 
 const itemVariants = {
   open: {
@@ -67,7 +68,7 @@ const Page = () => {
         <motion.div
           initial={false}
           animate={isOpen ? "open" : "closed"}
-          className="md:w-[30%] relative"
+          className="md:w-[30%] relative  "
         >
           <motion.button
             whileTap={{ scale: 0.97 }}
@@ -111,7 +112,7 @@ const Page = () => {
                 },
               },
             }}
-            className="flex flex-col bg-white absolute z-20 h-[300px] overflow-y-scroll mt-[10px] w-full"
+            className="flex flex-col bg-white absolute z-[5] h-[300px] overflow-y-scroll mt-[10px] right-[0px]   md:w-full w-[200px] md:inset-x-0 "
           >
             <motion.li
               variants={itemVariants}
@@ -137,7 +138,7 @@ const Page = () => {
           </motion.ul>
         </motion.div>
       </div>
-      <div className="w-[270px] md:w-[580px] lg:w-[885px] xl:w-[1190px] flex items-center mx-auto">
+      <div className="flex-1 w-[270px] md:w-[580px] lg:w-[885px] xl:w-[1190px] flex items-center mx-auto">
         <div className="w-max flex gap-9 my-[55px] flex-wrap justify-start">
           {filteredResults.map((item) => (
             <div key={item.id}>
@@ -151,16 +152,7 @@ const Page = () => {
               />
             </div>
           ))}
-          {filteredResults.length === 0 && (
-            <div className="h-[40vh]">
-              <p className="font-semibold text-[#D12B2B] text-[24px] ">
-                Page Not Found :(
-              </p>
-              <p className="font-light text-white/70 mt-[15px]">
-                We couldn’t find the page you were looking for
-              </p>
-            </div>
-          )}
+          {filteredResults.length === 0 && <BudayaNotFound />}
         </div>
       </div>
       <Footer />

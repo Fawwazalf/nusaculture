@@ -2,10 +2,17 @@
 import { useState, useRef } from "react";
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import Image from "next/image";
+import { getAllCultures } from "@/utils/data";
+
+import { useRouter } from "next/navigation";
 
 const Carousel = () => {
+  const router = useRouter();
+  const cultures = getAllCultures();
   const [positionIndexes, setPositionIndexes] = useState([2, 1, 0, 4, 3]);
-
+  const handleSelengkapnya = (id) => {
+    router.push(`/explore/${id}`);
+  };
   const handleNext = () => {
     setPositionIndexes((prevIndexes) =>
       prevIndexes.map((prevIndex) => (prevIndex + 1) % 5)
@@ -18,7 +25,13 @@ const Carousel = () => {
     );
   };
 
-  const images = ["/1.jpg", "/home.jpg", "/1.jpg", "/home.jpg", "/1.jpg"];
+  const data = [
+    cultures[0],
+    cultures[1],
+    cultures[2],
+    cultures[3],
+    cultures[4],
+  ];
   const positions = ["left", "left1", "center", "right1", "right"];
 
   const imageVariants = {
@@ -80,7 +93,7 @@ const Carousel = () => {
   return (
     <div className="h-screen relative transition-all ">
       <Image
-        src={images[positionIndexes[2]]}
+        src={data[positionIndexes[2]].img}
         fill
         sizes="100%"
         priority
@@ -88,7 +101,7 @@ const Carousel = () => {
         style={{
           objectFit: "cover",
         }}
-        alt={`bgImage ${images[positionIndexes[2]]}`}
+        alt={`bgImage ${data[positionIndexes[2]].title}`}
       />
       <div className="bg-[#1D1D1D]/[0.81] w-full h-full absolute z-[1] backdrop-blur-sm"></div>
       <div className="flex items-center justify-between absolute bottom-0 top-0 w-full h-full">
@@ -112,7 +125,7 @@ const Carousel = () => {
         </div>
 
         <div className="flex justify-around items-center">
-          {images.map((image, index) => {
+          {data.map((culture, index) => {
             const initialRotation = getInitialRotation(
               positions[positionIndexes[index]]
             );
@@ -132,6 +145,7 @@ const Carousel = () => {
                 style={{ position: "absolute", perspective: 400 }}
                 onMouseMove={(event) => handleMouse(event, { x, y }, index)}
                 onMouseLeave={(event) => handleMouseLeave(event, index)}
+                onClick={() => handleSelengkapnya(culture.id)}
               >
                 <motion.div
                   className="relative"
@@ -144,8 +158,8 @@ const Carousel = () => {
                   }}
                 >
                   <Image
-                    alt={image}
-                    src={image}
+                    alt={culture.title}
+                    src={culture.img}
                     width={300}
                     height={470}
                     priority

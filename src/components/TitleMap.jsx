@@ -6,7 +6,7 @@ const TitleMap = () => {
   return (
     <>
       <p
-        className="absolute top-[2px] left-[4px] z-10 w-max "
+        className="absolute top-[2px] left-[4px] z-10 w-full "
         style={{
           WebkitTextStroke: "1px #FFFFFF ",
           opacity: 0.42,
@@ -15,7 +15,7 @@ const TitleMap = () => {
       >
         {lang ? "Mari Cari Tahu Bersama Kami!" : "Let’s Explore With Us!"}
       </p>
-      <p className="relative z-20 text-[#D5CDB6] ">
+      <p className="z-20 text-[#D5CDB6] w-full ">
         {lang ? "Mari Cari Tahu Bersama Kami!" : "Let’s Explore With Us!"}
       </p>
     </>

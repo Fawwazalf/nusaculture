@@ -69,13 +69,15 @@ const CardCulture = ({ id, img, title, prov, desc, like }) => {
         <AnimatePresence>
           {isAnimationVisible && (
             <motion.div
-              className="absolute z-10 w-[70%] px-[20px] h-min my-auto mx-auto top-0 left-0 right-0 bottom-0 bg-[#181818]  text-[#DCD7C9]    "
+              className="absolute  w-[70%] py-[20px] h-min my-auto mx-auto top-0 left-0 right-0 bottom-0 bg-red-600/[0.5] backdrop-blur-lg  text-[#DCD7C9]  text-center rounded-lg font-semibold  "
               initial={{ opacity: 1 }}
               animate={{ opacity: [1], transition: { duration: 2 } }}
               exit={{ opacity: 0 }}
               onAnimationComplete={() => setAnimationVisible(false)}
             >
-              INI TULISANNYA ENAKNYA APA YA GESS HOAOAOAOAO
+              {lang
+                ? "Mohon untuk masuk terlebih dahulu"
+                : "Please login first"}
             </motion.div>
           )}
         </AnimatePresence>
