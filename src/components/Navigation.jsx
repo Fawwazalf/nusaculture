@@ -458,7 +458,7 @@ const Navigation = () => {
                   />
                 </svg>
                 <p className="text-[#F1ECDE99]/60 text-[14px] ml-[3px]">
-                  Logout
+                  {lang ? "Keluar" : "Logout"}
                 </p>
               </button>
             ) : (
@@ -466,37 +466,8 @@ const Navigation = () => {
                 className="w-[175px] h-[40px] bg-[#F1ECDE1A]/10 flex justify-center items-center rounded-[100px]"
                 onClick={() => handleLogin()}
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                >
-                  <path
-                    d="M16 5V4C16 3.44772 15.5523 3 15 3H6C5.44771 3 5 3.44772 5 4V20C5 20.5523 5.44772 21 6 21H15C15.5523 21 16 20.5523 16 20V19"
-                    stroke="#F1ECDE"
-                    strokeOpacity="0.6"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                  />
-                  <path
-                    d="M10 12H21"
-                    stroke="#F1ECDE"
-                    strokeOpacity="0.6"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                  />
-                  <path
-                    d="M17.5 8.5L21 12L17.5 15.5"
-                    stroke="#F1ECDE"
-                    strokeOpacity="0.6"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                  />
-                </svg>
                 <p className="text-[#F1ECDE99]/60 text-[14px] ml-[3px]">
-                  Login
+                  {lang ? "Masuk" : "Login"}
                 </p>
               </button>
             )}
