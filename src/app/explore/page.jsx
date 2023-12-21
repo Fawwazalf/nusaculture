@@ -21,7 +21,6 @@ const itemVariants = {
 
 const Page = () => {
   const lang = getIsIndo();
-  const isLogin = getIsLogin();
   const searchParams = useSearchParams();
   const [isOpen, setIsOpen] = useState(false);
 
