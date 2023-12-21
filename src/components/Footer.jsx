@@ -6,7 +6,9 @@ const Footer = () => {
   return (
     <div className="bg-[#20292C] flex flex-col justify-between h-[200px] text-[#DCD7C9] w-full">
       <div className="flex items-center w-full h-[150px] justify-between px-[8%] md:px-[17%]">
-        <p className={`text-[22px] md:text-4xl text-center ${spirax.className}`}>
+        <p
+          className={`text-[22px] md:text-4xl text-center ${spirax.className}`}
+        >
           Nusa Culture
         </p>
         <div className="">
@@ -37,7 +39,7 @@ const Footer = () => {
               />
             </div>
             <p className="text-[9px] md:text-[12px] ml-[7px] mt-[-3px]">
-              www.nusaculture.com
+              https://nusaculture.netlify.app
             </p>
           </div>
         </div>

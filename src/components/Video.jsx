@@ -20,7 +20,7 @@ const Video = () => {
         }}
         viewport={{ once: true }}
       >
-        <div className="w-[45px] h-[45px] md:w-[90px] md:h-[90px] lg:w-[104px] lg:h-[104px]">
+        <div className="w-[30px] h-[30px] md:w-[90px] md:h-[90px] lg:w-[104px] lg:h-[104px]">
           <Image
             src="/imgVideo.svg"
             alt="hiasan"
@@ -32,10 +32,10 @@ const Video = () => {
             }}
           />
         </div>
-        <div className="font-semibold relative text-[20px] md:text-[40px] lg:text-[50px] w-full">
+        <div className="font-semibold relative text-[20px] md:text-[40px] lg:text-[50px] max-w-full">
           <TitleVideo />
         </div>
-        <div className="w-[45px] h-[45px] md:w-[90px] md:h-[90px] lg:w-[104px] lg:h-[104px]">
+        <div className="w-[30px] h-[30px] md:w-[90px] md:h-[90px] lg:w-[104px] lg:h-[104px]">
           <Image
             src="/imgVideo2.svg"
             alt="hiasan"

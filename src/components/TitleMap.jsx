@@ -7,7 +7,7 @@ const TitleMap = () => {
   return (
     <>
       <motion.div
-        className="mb-[10px] text-[20px] md:text-[40px] lg:text-[50px] font-semibold relative w-fit"
+        className="mb-[10px] text-[20px] md:text-[40px] lg:text-[50px] font-semibold relative w-[80%] text-center"
         initial={{ scale: 0, opacity: 0 }}
         whileInView={{ scale: 1, opacity: 1, translateY: [200, 0] }}
         transition={{

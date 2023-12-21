@@ -40,7 +40,7 @@ const CardCulture = ({ id, img, title, prov, desc, like }) => {
   return (
     <motion.div
       className="relative overflow-clip"
-      initial={{ scale: 1, opacity: 0 }}
+      initial={{ scale: [1], opacity: 0 }}
       whileInView={{ scale: [0, 1], opacity: 1 }}
       transition={{
         type: "spring",
@@ -51,7 +51,7 @@ const CardCulture = ({ id, img, title, prov, desc, like }) => {
     >
       {isLogin ? (
         <motion.svg
-          className="absolute my-auto mx-auto top-0 left-0 right-0 bottom-0  "
+          className="absolute my-auto mx-auto top-0 left-0 right-0 bottom-0 "
           xmlns="http://www.w3.org/2000/svg"
           width="19"
           height="19"
@@ -83,7 +83,7 @@ const CardCulture = ({ id, img, title, prov, desc, like }) => {
         </AnimatePresence>
       )}
 
-      <motion.div className="h-[470px] w-[270px] rounded-[20px] bg-[#DCD7C9]">
+      <motion.div className="h-[470px] w-[270px] rounded-[20px] bg-[#dcd7c9]">
         <div className="h-[250px]">
           <Image
             src={img}
@@ -109,6 +109,7 @@ const CardCulture = ({ id, img, title, prov, desc, like }) => {
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 onClick={() => handleLike(id)}
+                className="hover:cursor-pointer"
               >
                 <path
                   d="M9.50004 16.9021L8.35212 15.8571C4.27504 12.16 1.58337 9.71375 1.58337 6.72917C1.58337 4.28292 3.49921 2.375 5.93754 2.375C7.31504 2.375 8.63712 3.01625 9.50004 4.02167C10.363 3.01625 11.685 2.375 13.0625 2.375C15.5009 2.375 17.4167 4.28292 17.4167 6.72917C17.4167 9.71375 14.725 12.16 10.648 15.8571L9.50004 16.9021Z"
