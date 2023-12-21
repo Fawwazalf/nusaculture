@@ -39,7 +39,7 @@ const Footer = () => {
               />
             </div>
             <p className="text-[9px] md:text-[12px] ml-[7px] mt-[-3px]">
-              https://nusaculture.netlify.app
+              https://nusaculture.vercel.app
             </p>
           </div>
         </div>

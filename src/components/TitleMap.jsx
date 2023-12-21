@@ -26,14 +26,10 @@ const TitleMap = () => {
             color: "transparent",
           }}
         >
-          {getIsIndo()
-            ? "Mari Cari Tahu Bersama Kami!"
-            : "Let’s Explore With Us!"}
+          {lang ? "Mari Cari Tahu Bersama Kami!" : "Let’s Explore With Us!"}
         </p>
         <p className="z-20 text-[#D5CDB6] w-full ">
-          {getIsIndo()
-            ? "Mari Cari Tahu Bersama Kami!"
-            : "Let’s Explore With Us!"}
+          {lang ? "Mari Cari Tahu Bersama Kami!" : "Let’s Explore With Us!"}
         </p>
       </motion.div>
       <motion.p

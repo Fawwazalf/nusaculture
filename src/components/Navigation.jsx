@@ -33,13 +33,6 @@ const Navigation = () => {
     setIsOpenProfile(false);
   };
 
-  const handleClickNavbar = () => {
-    setisOpenNavbar(true);
-  };
-  const handleExitNavbar = () => {
-    setisOpenNavbar(false);
-  };
-
   const handleLogin = () => {
     router.push("/login");
   };
