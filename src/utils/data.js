@@ -1,5 +1,5 @@
 let isIndo = true
-let isLogin = true
+let isLogin = false
 let nama = ""
 let cultures = [
     {

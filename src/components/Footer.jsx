@@ -14,13 +14,9 @@ const Footer = () => {
             <div className="2-[10px] h-[8px] md:w-[12.5px] md:h-[10px]">
               <Image
                 src="/IconEmail.svg"
-                width={12.5}
-                height={10}
+                width={13}
+                height={11}
                 alt="icon email"
-                style={{
-                  height: "100%",
-                  width: "100%",
-                }}
               />
             </div>
             <p className="text-[10px] md:text-[12px] ml-[7px] mt-[-3px]">

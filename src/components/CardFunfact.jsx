@@ -5,10 +5,16 @@ import Image from "next/image";
 const CardFunfact = ({ title, desc }) => {
   return (
     <motion.div
-      className="w-[165px] h-[260px] rounded-[5px] md:w-[220px] md:h-[300px] lg:w-[272px] lg:h-[350px] md:rounded-[10px] bg-[#F1EBDA] p-[17px] md:p-[22px] lg:p-[35px] flex flex-col items-center  hover:scale-110 duration-500  "
+      className="w-[165px] h-[260px] rounded-[5px] md:w-[220px] md:h-[300px] lg:w-[272px] lg:h-[350px] md:rounded-[10px] bg-[#F1EBDA] p-[17px] md:p-[22px] lg:p-[35px] flex flex-col items-center  "
       style={{ boxShadow: "0 0 10px 5px rgba(255, 255, 255, 0.20)" }}
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: [0, 1] }}
+      initial={{ scale: 1, opacity: 0, translateY: 0 }}
+      whileInView={{ scale: [0, 1], opacity: 1, translateY: [-200, 0] }}
+      transition={{
+        type: "spring",
+        stiffness: 260,
+        damping: 20,
+        delay: 0.2,
+      }}
       viewport={{ once: true }}
     >
       <Image src="imgfunfact.svg" alt="" width={197.21} height={92.21} />

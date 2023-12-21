@@ -1,15 +1,10 @@
 "use client";
 import { getIsIndo } from "@/utils/data";
-import { motion } from "framer-motion";
 
 const TitleVideo = () => {
   const lang = getIsIndo();
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-    >
+    <div>
       <p
         className="absolute top-[2px] left-[4px] z-10"
         style={{
@@ -26,7 +21,7 @@ const TitleVideo = () => {
       >
         {lang ? "Kebudayaan Indonesia" : "Indonesian Culture"}
       </p>
-    </motion.div>
+    </div>
   );
 };
 

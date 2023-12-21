@@ -13,8 +13,14 @@ const MapIndonesia = () => {
     <motion.div
       className="bg-slate-500  border-[3px]  w-[85%] h-max"
       style={{ boxShadow: "0 0 10px 5px rgba(255, 255, 255, 0.20)" }}
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
+      initial={{ scale: 1, opacity: 0 }}
+      whileInView={{ opacity: 1, translateY: [200, 0] }}
+      transition={{
+        type: "spring",
+        stiffness: 260,
+        damping: 20,
+        delay: 0.2,
+      }}
       viewport={{ once: true }}
     >
       <TransformWrapper
