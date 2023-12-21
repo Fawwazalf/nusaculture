@@ -1,7 +1,6 @@
 import Footer from "@/components/Footer";
 import Navigation from "@/components/Navigation";
 import Carousel from "@/components/Carousel";
-import CardFunfact from "@/components/CardFunfact";
 import MapIndonesia from "@/components/MapIndonesia";
 
 import TitleMap from "@/components/TitleMap";
