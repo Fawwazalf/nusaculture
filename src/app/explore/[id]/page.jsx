@@ -69,9 +69,9 @@ const page = () => {
             </div>
             <div className="mt-[15px] flex flex-col items-center w-full">
               <div className="flex items-center justify-center mb-[20px] relative mt-[20px] md:mt-0">
-                <div className=" h-[30px] bg-[#725035] absolute w-full"></div>
+                <div className=" h-[20px] md:h-[30px] bg-[#725035] absolute w-full"></div>
                 <p
-                  className={` ${ruthie.className} md:text-[40px]  text-[20px] text-[#FFF9E9] relative mt-[-25px] tracking-[0.5em] indent-2    `}
+                  className={` ${ruthie.className}  md:text-[40px]  text-[20px] text-[#FFF9E9] relative mt-[-15px] md:mt-[-25px] tracking-[0.5em] indent-2    `}
                 >
                   -{titleCapitalize}-
                 </p>

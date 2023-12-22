@@ -22,7 +22,7 @@ const QuizDesc = () => {
           {lang ? "KUIS" : "CULTURE"}
         </p>
       </div>
-      <div className="relative text-[48px] lg:text-[80px] lg:mt-[-10px] font-semibold w-min">
+      <div className="relative text-[48px] lg:text-[80px] mt-[-15px] md:mt-[-10px] font-semibold w-min">
         <p
           className="absolute top-[1px] left-[4px] z-10 w-full "
           style={{
@@ -37,7 +37,7 @@ const QuizDesc = () => {
           {lang ? "BUDAYA" : "QUIZ!"}
         </p>
       </div>
-      <p className="text-[12px]  lg:text-[16px] mt-[19px] mb-[30px] text-[#FFFFFF]/[0.5]">
+      <p className="text-[12px] lg:text-[16px] mt-[12px] md:mt-[19px] mb-[20px] md:mb-[30px] text-[#FFFFFF]/[0.5]">
         |
         {lang
           ? " Mari bermain quiz seputar kebudayaan Indonesia"
